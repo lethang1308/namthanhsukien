@@ -4,28 +4,31 @@ import { featuredDishes } from '../data/homeContent'
 
 export function FeaturedDishes() {
   return (
-    <section id="thuc-don" className="mx-auto grid max-w-[1400px] gap-7 px-4 py-8 md:px-8 lg:grid-cols-[0.36fr_0.64fr]">
+    <section
+      id="thuc-don"
+      className="mx-auto grid max-w-[1400px] gap-5 px-4 pb-5 pt-5 md:px-8 lg:grid-cols-[0.315fr_0.685fr]"
+    >
       <article
         id="gioi-thieu"
-        className="border border-[rgba(211,184,126,0.45)] bg-white/54 p-7 shadow-[0_18px_48px_rgba(18,57,38,0.08)] backdrop-blur-sm"
+        className="rounded-[20px] border border-[rgba(184,137,53,0.25)] bg-white/28 p-6 backdrop-blur-[2px] md:p-7"
       >
-        <p className="font-script mb-1 text-3xl leading-[1.2] text-[var(--color-green)]">
+        <p className="font-script mb-1 pb-1 text-[30px] leading-[1.12] text-[var(--color-green)]">
           Câu chuyện
         </p>
-        <h2 className="font-[var(--font-display)] text-3xl font-bold leading-tight text-[var(--color-green)]">
+        <h2 className="font-[var(--font-display)] text-[26px] font-bold leading-tight text-[var(--color-green)]">
           CHẢ CÁ TRÀNG AN
         </h2>
-        <p className="mt-5 leading-7 text-[var(--color-muted)]">
+        <p className="mt-4 text-[14px] leading-[1.62] text-[var(--color-muted)]">
           Từ niềm đam mê với ẩm thực truyền thống Hà Thành, Chả Cá Tràng An ra
           đời với mong muốn mang đến thực khách những món ăn tươi ngon nhất.
         </p>
-        <p className="mt-4 leading-7 text-[var(--color-muted)]">
+        <p className="mt-3 text-[14px] leading-[1.62] text-[var(--color-muted)]">
           Chúng tôi chọn lọc nguyên liệu mỗi ngày, tẩm ướp theo công thức gia
           truyền và phục vụ bằng sự tận tâm.
         </p>
         <a
           href="#khong-gian"
-          className="mt-7 inline-flex rounded-full bg-[var(--color-green)] px-6 py-3 text-sm font-bold text-white transition hover:bg-[var(--color-green-deep)] active:translate-y-px"
+          className="mt-5 inline-flex rounded-full bg-[var(--color-green)] px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[var(--color-green-deep)] active:translate-y-px"
         >
           Khám phá thêm
         </a>
@@ -34,23 +37,24 @@ export function FeaturedDishes() {
       <div>
         <SectionTitle
           title="MÓN NGON NỔI BẬT"
+          icon={<FishSimple size={24} weight="regular" className="text-[var(--color-gold-strong)]" />}
           action={
             <a
               href="#thuc-don"
-              className="hidden items-center gap-2 text-sm font-semibold text-[var(--color-green)] md:inline-flex"
+              className="hidden items-center gap-1.5 text-[13px] font-semibold text-[var(--color-green)] md:inline-flex"
             >
               Xem tất cả
-              <ArrowRight size={16} weight="bold" />
+              <ArrowRight size={15} weight="bold" />
             </a>
           }
         />
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
           {featuredDishes.map((dish) => (
             <article
               key={dish.name}
-              className="group overflow-hidden border border-[rgba(211,184,126,0.5)] bg-white/72 shadow-[0_14px_34px_rgba(18,57,38,0.08)] transition hover:-translate-y-1 hover:shadow-[0_20px_46px_rgba(18,57,38,0.12)]"
+              className="group overflow-hidden rounded-[14px] border border-[rgba(184,137,53,0.25)] bg-[#fffaf1] transition hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(34,51,42,0.04)]"
             >
-              <div className="aspect-[1.18] overflow-hidden bg-[rgba(255,250,241,0.65)]">
+              <div className="aspect-[1.18] overflow-hidden bg-[#fffaf1] xl:h-[166px] xl:aspect-auto">
                 <img
                   src={dish.image}
                   alt={dish.alt}
@@ -58,14 +62,13 @@ export function FeaturedDishes() {
                   loading="lazy"
                 />
               </div>
-              <div className="p-4">
-                <div className="mb-2 flex items-center gap-2 text-[var(--color-gold-strong)]">
-                  <FishSimple size={18} weight="fill" />
-                  <h3 className="font-[var(--font-display)] text-lg font-bold text-[var(--color-ink)]">
-                    {dish.name}
-                  </h3>
-                </div>
-                <p className="font-semibold text-[var(--color-green)]">{dish.price}</p>
+              <div className="p-3">
+                <h3 className="min-h-[38px] font-[var(--font-display)] text-[14px] font-semibold leading-[1.35] text-[var(--color-ink)] md:text-[15px]">
+                  {dish.name}
+                </h3>
+                <p className="mt-1 text-[13px] font-semibold text-[var(--color-green)]">
+                  {dish.price}
+                </p>
               </div>
             </article>
           ))}

@@ -5,9 +5,22 @@ import {
   HouseLine,
   Leaf,
 } from '@phosphor-icons/react'
-import { hero, serviceHighlights } from '../data/homeContent'
+import { hero } from '../data/homeContent'
 
-const highlightIcons = [Leaf, ChefHat, HouseLine]
+const heroHighlights = [
+  {
+    Icon: Leaf,
+    lines: ['Nguyên liệu', 'tươi mỗi ngày'],
+  },
+  {
+    Icon: ChefHat,
+    lines: ['Công thức', 'gia truyền'],
+  },
+  {
+    Icon: HouseLine,
+    lines: ['Không gian', 'ấm cúng'],
+  },
+]
 
 export function Hero() {
   return (
@@ -39,7 +52,7 @@ export function Hero() {
         <img
           src={hero.heroPanCutoutImage}
           alt="Chảo chả cá nóng với thì là và hành"
-          className="pointer-events-none absolute bottom-2 left-[40.8%] z-[3] hidden w-[min(42vw,560px)] max-w-none drop-shadow-[0_28px_34px_rgba(16,45,30,0.26)] md:block xl:bottom-3 xl:left-[41.6%] xl:w-[560px]"
+          className="pointer-events-none absolute bottom-[-14px] left-[39.7%] z-[3] hidden w-[min(42vw,500px)] max-w-none origin-[48%_48%] rotate-[-4deg] [mask-image:linear-gradient(90deg,black_0%,black_88%,transparent_99%)] drop-shadow-[0_30px_36px_rgba(16,45,30,0.26)] [-webkit-mask-image:linear-gradient(90deg,black_0%,black_88%,transparent_99%)] md:block xl:bottom-[-44px] xl:left-[40%] xl:w-[580px] xl:rotate-[-6deg]"
           fetchPriority="high"
         />
 
@@ -75,6 +88,32 @@ export function Hero() {
                 Xem thực đơn
               </a>
             </div>
+
+            <div
+              className="mt-8 grid max-w-[540px] grid-cols-3 items-center gap-0 sm:mt-10 md:mt-16"
+              aria-label="Điểm nổi bật của nhà hàng"
+            >
+              {heroHighlights.map(({ Icon, lines }, index) => (
+                <div
+                  className={`flex min-w-0 items-center gap-2.5 ${
+                    index > 0
+                      ? 'border-l border-[rgba(184,137,53,0.34)] pl-3 sm:pl-5 md:pl-6'
+                      : ''
+                  }`}
+                  key={lines.join(' ')}
+                >
+                  <Icon
+                    className="h-6 w-6 shrink-0 text-[var(--color-gold-strong)] sm:h-7 sm:w-7 md:h-8 md:w-8"
+                    weight="regular"
+                  />
+                  <span className="font-[var(--font-display)] text-[12px] font-semibold leading-[1.32] text-[var(--color-green)] sm:text-[13px] md:text-[13.5px]">
+                    {lines[0]}
+                    <br />
+                    {lines[1]}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -93,31 +132,9 @@ export function Hero() {
           <img
             src={hero.heroPanCutoutImage}
             alt="Chảo chả cá nóng với thì là và hành"
-            className="pointer-events-none absolute left-1/2 top-0 z-[3] w-[350px] max-w-[92vw] -translate-x-1/2 drop-shadow-[0_18px_26px_rgba(16,45,30,0.24)]"
+            className="pointer-events-none absolute left-1/2 top-0 z-[3] w-[350px] max-w-[92vw] -translate-x-1/2 [mask-image:linear-gradient(90deg,black_0%,black_88%,transparent_99%)] drop-shadow-[0_18px_26px_rgba(16,45,30,0.24)] [-webkit-mask-image:linear-gradient(90deg,black_0%,black_88%,transparent_99%)]"
           />
         </div>
-      </div>
-
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-3 px-4 pb-8 md:grid-cols-3 md:px-8">
-        {serviceHighlights.map((item, index) => {
-          const Icon = highlightIcons[index]
-          return (
-            <article
-              className="flex items-start gap-4 border-l border-[rgba(211,184,126,0.55)] bg-white/35 px-5 py-4 backdrop-blur-sm"
-              key={item.title}
-            >
-              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[rgba(211,184,126,0.8)] text-[var(--color-gold-strong)]">
-                <Icon size={24} weight="duotone" />
-              </div>
-              <div>
-                <h3 className="font-[var(--font-display)] text-base font-bold text-[var(--color-green)]">
-                  {item.title}
-                </h3>
-                <p className="mt-1 text-sm leading-6 text-[var(--color-muted)]">{item.text}</p>
-              </div>
-            </article>
-          )
-        })}
       </div>
     </section>
   )

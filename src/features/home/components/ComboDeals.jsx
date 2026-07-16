@@ -1,30 +1,31 @@
-import { ArrowRight, CalendarCheck, Gift, UsersThree } from '@phosphor-icons/react'
+import { ArrowRight, CalendarCheck, FishSimple, Gift } from '@phosphor-icons/react'
 import { combos } from '../data/homeContent'
 
 export function ComboDeals() {
   return (
-    <section id="combo" className="mx-auto max-w-[1400px] px-4 py-5 md:px-8">
-      <div className="border border-[rgba(211,184,126,0.55)] bg-white/50 p-4 shadow-[0_18px_50px_rgba(18,57,38,0.08)] backdrop-blur-sm md:p-5">
-        <div className="mb-4 flex items-center justify-between gap-4">
-          <h2 className="font-[var(--font-display)] text-2xl font-bold text-[var(--color-green)] md:text-3xl">
+    <section id="combo" className="mx-auto max-w-[1400px] px-4 py-4 md:px-8">
+      <div className="rounded-[22px] border border-[rgba(184,137,53,0.25)] bg-white/26 p-3.5 backdrop-blur-[2px] md:p-4">
+        <div className="mb-3 flex items-center justify-between gap-4">
+          <h2 className="flex items-center gap-2 font-[var(--font-display)] text-[21px] font-bold leading-tight text-[var(--color-green)] md:text-[23px]">
             COMBO ƯU ĐÃI
+            <FishSimple size={23} weight="regular" className="text-[var(--color-gold-strong)]" />
           </h2>
           <a
             href="#combo"
-            className="hidden items-center gap-2 text-sm font-semibold text-[var(--color-green)] md:inline-flex"
+            className="hidden items-center gap-1.5 text-[13px] font-semibold text-[var(--color-green)] md:inline-flex"
           >
             Xem tất cả combo
-            <ArrowRight size={16} weight="bold" />
+            <ArrowRight size={15} weight="bold" />
           </a>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-[1fr_1fr_1fr_0.9fr]">
+        <div className="grid gap-3.5 md:grid-cols-2 xl:grid-cols-[1fr_1fr_1fr_0.88fr]">
           {combos.map((combo) => (
             <article
-              className="grid overflow-hidden border border-[rgba(211,184,126,0.45)] bg-white/72 shadow-[0_12px_30px_rgba(18,57,38,0.07)] sm:grid-cols-[0.95fr_1.05fr] lg:grid-cols-1 xl:grid-cols-[0.9fr_1.1fr]"
+              className="grid h-[150px] overflow-hidden rounded-[16px] border border-[rgba(184,137,53,0.25)] bg-[rgba(255,250,241,0.96)] grid-cols-[0.46fr_0.54fr]"
               key={combo.name}
             >
-              <div className="aspect-[1.22] overflow-hidden">
+              <div className="h-full overflow-hidden">
                 <img
                   src={combo.image}
                   alt={combo.alt}
@@ -32,20 +33,19 @@ export function ComboDeals() {
                   loading="lazy"
                 />
               </div>
-              <div className="flex flex-col justify-center p-5">
-                <div className="mb-2 flex items-center gap-2 text-[var(--color-gold-strong)]">
-                  <UsersThree size={20} weight="duotone" />
-                  <h3 className="font-[var(--font-display)] text-lg font-bold text-[var(--color-ink)]">
-                    {combo.name}
-                  </h3>
-                </div>
-                <p className="text-sm text-[var(--color-muted)]">{combo.description}</p>
-                <p className="mt-3 font-[var(--font-display)] text-2xl font-bold text-[var(--color-green)]">
+              <div className="flex flex-col justify-center p-3.5">
+                <h3 className="font-[var(--font-display)] text-[14px] font-semibold leading-tight text-[var(--color-ink)] md:text-[15px]">
+                  {combo.name}
+                </h3>
+                <p className="mt-1 text-[11.5px] leading-[1.45] text-[var(--color-muted)]">
+                  {combo.description}
+                </p>
+                <p className="mt-2 font-[var(--font-display)] text-[18px] font-bold leading-tight text-[var(--color-green)]">
                   {combo.price}
                 </p>
                 <a
                   href="#dat-ban"
-                  className="mt-4 inline-flex w-max rounded-full bg-[var(--color-green)] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[var(--color-green-deep)] active:translate-y-px"
+                  className="mt-3 inline-flex h-8 w-max items-center rounded-full bg-[var(--color-green)] px-4 text-[12px] font-bold text-white transition hover:bg-[var(--color-green-deep)] active:translate-y-px"
                 >
                   Đặt ngay
                 </a>
@@ -55,23 +55,29 @@ export function ComboDeals() {
 
           <aside
             id="dat-ban"
-            className="flex flex-col justify-center bg-[radial-gradient(circle_at_20%_10%,rgba(211,184,126,0.28),transparent_34%),var(--color-green)] p-7 text-white shadow-[0_18px_40px_rgba(12,72,44,0.22)]"
+            className="relative flex h-[150px] flex-col items-center justify-center overflow-hidden rounded-[16px] bg-[linear-gradient(145deg,#075B3B,#064A31)] p-4 text-center text-white"
           >
-            <Gift size={38} weight="duotone" className="text-[var(--color-gold)]" />
-            <h3 className="mt-4 font-[var(--font-display)] text-2xl font-bold">
+            <div
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_8%,rgba(211,184,126,0.18),transparent_36%)]"
+              aria-hidden="true"
+            />
+            <Gift size={32} weight="duotone" className="relative text-[var(--color-gold)]" />
+            <h3 className="relative mt-2 font-[var(--font-display)] text-[16px] font-bold leading-tight text-white">
               Ưu đãi đặc biệt
             </h3>
-            <p className="mt-2 leading-7 text-white/86">
+            <p className="relative mt-1.5 max-w-[210px] text-[12.5px] leading-[1.5] text-white/85">
               Giảm 10% cho khách đặt bàn qua website trong tuần khai trương.
             </p>
             <a
               href="tel:0961374566"
-              className="mt-6 inline-flex w-max items-center rounded-full border border-[rgba(211,184,126,0.7)] px-5 py-3 text-sm font-bold text-[var(--color-gold)] transition hover:bg-white/10 active:translate-y-px"
+              className="relative mt-3 inline-flex h-9 items-center rounded-full border border-[rgba(211,184,126,0.78)] px-4 text-[12px] font-bold text-[var(--color-gold)] transition hover:bg-[var(--color-gold)] hover:text-[var(--color-green-deep)] active:translate-y-px"
             >
-              <CalendarCheck className="mr-2" size={18} weight="bold" />
+              <CalendarCheck className="mr-1.5" size={16} weight="bold" />
               Đặt bàn ngay
             </a>
-            <p className="mt-4 text-xs text-white/72">Không áp dụng cùng ưu đãi khác.</p>
+            <p className="relative mt-2 text-[10px] leading-tight text-white/65">
+              Không áp dụng cùng ưu đãi khác.
+            </p>
           </aside>
         </div>
       </div>

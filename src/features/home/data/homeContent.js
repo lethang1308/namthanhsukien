@@ -8,6 +8,10 @@ import nemHaiSanImage from '../../../assets/f48cf32a-bdf6-489b-bf5e-55dc4a1cc191
 import comboTwoImage from '../../../assets/8b8fa749-95b0-4e78-b13c-132e0fe2b866.png'
 import comboFourImage from '../../../assets/86069030-1520-4cf5-b94c-488658157353.png'
 import comboSixImage from '../../../assets/4f8154e5-4396-48dd-b3ae-c86849865bf6.png'
+import galleryOneImage from '../../../assets/2f71606c-8719-4e95-bab3-a8e2d0fe35af.png'
+import galleryTwoImage from '../../../assets/5f85f77d-1682-47ee-b933-9747a82a9f0c.png'
+import galleryThreeImage from '../../../assets/6b1e73f6-47e8-4162-9ffd-234deb98e181.png'
+import galleryFourImage from '../../../assets/76f23251-0690-4ab7-bd13-a412ecda49c5.png'
 
 export const contact = {
   address: 'Số 7, Liền kề 4, KDT Tân Tây Đô, Hà Nội',
@@ -105,20 +109,20 @@ export const combos = [
 
 export const galleryImages = [
   {
-    image: facadeImage,
-    alt: 'Mặt tiền nhà hàng Chả Cá Tràng An trong ngày khai trương.',
+    image: galleryOneImage,
+    alt: 'Không gian bàn ăn ấm cúng tại nhà hàng Chả Cá Tràng An.',
   },
   {
-    image: comboTwoImage,
-    alt: 'Bàn ăn chả cá với bún và rau tươi.',
+    image: galleryTwoImage,
+    alt: 'Khu bàn ăn dài với đèn mây và tường xanh của nhà hàng.',
   },
   {
-    image: comboFourImage,
-    alt: 'Combo chả cá đầy đủ trên bàn gỗ.',
+    image: galleryThreeImage,
+    alt: 'Góc nội thất xanh với bàn ghế gỗ và đèn treo ấm áp.',
   },
   {
-    image: heroPanImage,
-    alt: 'Chảo chả cá nóng với thì là và hành.',
+    image: galleryFourImage,
+    alt: 'Không gian nhà hàng có khách dùng bữa trong ánh đèn vàng.',
   },
 ]
 

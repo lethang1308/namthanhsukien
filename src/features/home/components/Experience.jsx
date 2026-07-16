@@ -6,7 +6,7 @@ function Rating() {
   return (
     <div className="flex gap-0.5 text-[var(--color-gold-strong)]" aria-label="5 sao">
       {Array.from({ length: 5 }).map((_, index) => (
-        <Star key={index} size={15} weight="fill" />
+        <Star key={index} size={14} weight="fill" />
       ))}
     </div>
   )
@@ -14,32 +14,33 @@ function Rating() {
 
 export function Experience() {
   return (
-    <section id="khong-gian" className="mx-auto grid max-w-[1400px] gap-7 px-4 py-8 md:px-8 lg:grid-cols-[0.48fr_0.52fr]">
+    <section
+      id="khong-gian"
+      className="mx-auto grid max-w-[1400px] gap-6 px-4 pb-8 pt-4 md:px-8 lg:grid-cols-[0.48fr_0.52fr]"
+    >
       <div>
         <SectionTitle
           title="KHÔNG GIAN NHÀ HÀNG"
           action={
             <a
               href="#khong-gian"
-              className="hidden items-center gap-2 text-sm font-semibold text-[var(--color-green)] md:inline-flex"
+              className="hidden items-center gap-1.5 text-[13px] font-semibold text-[var(--color-green)] md:inline-flex"
             >
               Xem thêm
-              <ArrowRight size={16} weight="bold" />
+              <ArrowRight size={15} weight="bold" />
             </a>
           }
         />
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-          {galleryImages.map((item, index) => (
+        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:grid-cols-4">
+          {galleryImages.map((item) => (
             <figure
               key={item.alt}
-              className={`overflow-hidden border border-[rgba(211,184,126,0.45)] bg-white/60 shadow-[0_14px_34px_rgba(18,57,38,0.08)] ${
-                index === 0 ? 'col-span-2 md:col-span-2 lg:col-span-2 xl:col-span-2' : ''
-              }`}
+              className="aspect-[4/3] overflow-hidden rounded-[12px] border border-[rgba(184,137,53,0.18)] bg-white/40"
             >
               <img
                 src={item.image}
                 alt={item.alt}
-                className="h-full min-h-40 w-full object-cover"
+                className="h-full w-full object-cover object-center"
                 loading="lazy"
               />
             </figure>
@@ -53,35 +54,41 @@ export function Experience() {
           action={
             <a
               href="#khach-hang"
-              className="hidden items-center gap-2 text-sm font-semibold text-[var(--color-green)] md:inline-flex"
+              className="hidden items-center gap-1.5 text-[13px] font-semibold text-[var(--color-green)] md:inline-flex"
             >
               Xem tất cả
-              <ArrowRight size={16} weight="bold" />
+              <ArrowRight size={15} weight="bold" />
             </a>
           }
         />
-        <div id="khach-hang" className="grid gap-4 md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+        <div id="khach-hang" className="grid gap-3.5 md:grid-cols-2 xl:grid-cols-3">
           {testimonials.map((item) => (
             <article
               key={item.name}
-              className="border border-[rgba(211,184,126,0.45)] bg-white/62 p-5 shadow-[0_14px_34px_rgba(18,57,38,0.08)] backdrop-blur-sm"
+              className="min-h-[148px] rounded-[14px] border border-[rgba(184,137,53,0.25)] bg-white/58 p-4 backdrop-blur-[2px]"
             >
-              <div className="flex items-center gap-3">
-                <div className="grid h-11 w-11 place-items-center rounded-full bg-[var(--color-green)] font-[var(--font-display)] text-sm font-bold text-[var(--color-gold)]">
+              <div className="flex items-center gap-2.5">
+                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[var(--color-green)] font-[var(--font-display)] text-[12px] font-bold text-[var(--color-gold)]">
                   {item.name
                     .split(' ')
                     .map((part) => part[0])
                     .join('')}
                 </div>
                 <div>
-                  <h3 className="font-bold text-[var(--color-ink)]">{item.name}</h3>
-                  <p className="text-xs text-[var(--color-muted)]">{item.role}</p>
+                  <h3 className="text-[13.5px] font-bold leading-tight text-[var(--color-ink)]">
+                    {item.name}
+                  </h3>
+                  <p className="mt-0.5 text-[10.5px] leading-tight text-[var(--color-muted)]">
+                    {item.role}
+                  </p>
                 </div>
               </div>
-              <div className="mt-3">
+              <div className="mt-2.5">
                 <Rating />
               </div>
-              <p className="mt-4 text-sm leading-6 text-[var(--color-muted)]">{item.quote}</p>
+              <p className="mt-2.5 text-[11.5px] leading-[1.55] text-[var(--color-muted)]">
+                {item.quote}
+              </p>
             </article>
           ))}
         </div>
