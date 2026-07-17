@@ -1,11 +1,13 @@
 import { ArrowRight, CalendarCheck, FishSimple, Gift } from '@phosphor-icons/react'
+import { FadeUpSection } from '../../../components/animations/FadeUpSection'
+import { ScrollReveal } from '../../../components/animations/ScrollReveal'
 import { combos } from '../data/homeContent'
 
 export function ComboDeals() {
   return (
-    <section id="combo" className="mx-auto max-w-[1400px] px-4 py-4 md:px-8">
+    <FadeUpSection id="combo" className="mx-auto max-w-[1400px] px-4 py-4 md:px-8" duration={800}>
       <div className="rounded-[22px] border border-[rgba(184,137,53,0.25)] bg-white/26 p-3.5 backdrop-blur-[2px] md:p-4">
-        <div className="mb-3 flex items-center justify-between gap-4">
+        <ScrollReveal className="mb-3 flex items-center justify-between gap-4" delay={100} duration={760}>
           <h2 className="flex items-center gap-2 font-[var(--font-display)] text-[21px] font-bold leading-tight text-[var(--color-green)] md:text-[23px]">
             COMBO ƯU ĐÃI
             <FishSimple size={23} weight="regular" className="text-[var(--color-gold-strong)]" />
@@ -17,12 +19,15 @@ export function ComboDeals() {
             Xem tất cả combo
             <ArrowRight size={15} weight="bold" />
           </a>
-        </div>
+        </ScrollReveal>
 
         <div className="grid gap-3.5 md:grid-cols-2 xl:grid-cols-[1fr_1fr_1fr_0.88fr]">
-          {combos.map((combo) => (
-            <article
+          {combos.map((combo, index) => (
+            <ScrollReveal
+              as="article"
               className="grid h-[150px] overflow-hidden rounded-[16px] border border-[rgba(184,137,53,0.25)] bg-[rgba(255,250,241,0.96)] grid-cols-[0.46fr_0.54fr]"
+              delay={160 + index * 120}
+              duration={760}
               key={combo.name}
             >
               <div className="h-full overflow-hidden">
@@ -50,12 +55,16 @@ export function ComboDeals() {
                   Đặt ngay
                 </a>
               </div>
-            </article>
+            </ScrollReveal>
           ))}
 
-          <aside
+          <ScrollReveal
+            as="aside"
             id="dat-ban"
             className="relative flex h-[150px] flex-col items-center justify-center overflow-hidden rounded-[16px] bg-[linear-gradient(145deg,#075B3B,#064A31)] p-4 text-center text-white"
+            delay={200}
+            duration={820}
+            variant="zoom"
           >
             <div
               className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_8%,rgba(211,184,126,0.18),transparent_36%)]"
@@ -78,9 +87,9 @@ export function ComboDeals() {
             <p className="relative mt-2 text-[10px] leading-tight text-white/65">
               Không áp dụng cùng ưu đãi khác.
             </p>
-          </aside>
+          </ScrollReveal>
         </div>
       </div>
-    </section>
+    </FadeUpSection>
   )
 }

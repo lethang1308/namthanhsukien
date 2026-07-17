@@ -1,11 +1,13 @@
 import { FishSimple } from '@phosphor-icons/react'
 
-export function BrandMark({ compact = false }) {
+export function BrandMark({ compact = false, markClassName = '' }) {
+  const markSizeClassName = markClassName || (compact ? 'h-14 w-14' : 'h-[68px] w-[68px]')
+
   return (
     <div className="flex items-center gap-3">
       <div
         className={`grid shrink-0 place-items-center border border-[var(--color-gold)] bg-[var(--color-green)] text-[var(--color-gold)] shadow-[0_10px_24px_rgba(10,58,36,0.14)] ${
-          compact ? 'h-14 w-14' : 'h-[68px] w-[68px]'
+          markSizeClassName
         }`}
         aria-hidden="true"
       >

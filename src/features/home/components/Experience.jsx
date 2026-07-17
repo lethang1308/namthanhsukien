@@ -1,4 +1,7 @@
 import { ArrowRight, Star } from '@phosphor-icons/react'
+import { FadeUpSection } from '../../../components/animations/FadeUpSection'
+import { ScrollReveal } from '../../../components/animations/ScrollReveal'
+import { StaggerContainer } from '../../../components/animations/StaggerContainer'
 import { SectionTitle } from '../../../components/SectionTitle'
 import { galleryImages, testimonials } from '../data/homeContent'
 
@@ -14,12 +17,14 @@ function Rating() {
 
 export function Experience() {
   return (
-    <section
+    <FadeUpSection
       id="khong-gian"
       className="mx-auto grid max-w-[1400px] gap-6 px-4 pb-8 pt-4 md:px-8 lg:grid-cols-[0.48fr_0.52fr]"
+      duration={800}
     >
       <div>
-        <SectionTitle
+        <ScrollReveal duration={760}>
+          <SectionTitle
           title="KHÔNG GIAN NHÀ HÀNG"
           action={
             <a
@@ -30,8 +35,9 @@ export function Experience() {
               <ArrowRight size={15} weight="bold" />
             </a>
           }
-        />
-        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:grid-cols-4">
+          />
+        </ScrollReveal>
+        <StaggerContainer className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:grid-cols-4" delay={100} staggerDelay={100}>
           {galleryImages.map((item) => (
             <figure
               key={item.alt}
@@ -45,11 +51,12 @@ export function Experience() {
               />
             </figure>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
 
       <div>
-        <SectionTitle
+        <ScrollReveal delay={100} duration={760}>
+          <SectionTitle
           title="KHÁCH HÀNG NÓI GÌ VỀ CHÚNG TÔI"
           action={
             <a
@@ -60,8 +67,9 @@ export function Experience() {
               <ArrowRight size={15} weight="bold" />
             </a>
           }
-        />
-        <div id="khach-hang" className="grid gap-3.5 md:grid-cols-2 xl:grid-cols-3">
+          />
+        </ScrollReveal>
+        <StaggerContainer id="khach-hang" className="grid gap-3.5 md:grid-cols-2 xl:grid-cols-3" delay={180} staggerDelay={100}>
           {testimonials.map((item) => (
             <article
               key={item.name}
@@ -91,8 +99,8 @@ export function Experience() {
               </p>
             </article>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
-    </section>
+    </FadeUpSection>
   )
 }

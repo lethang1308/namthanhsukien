@@ -5,6 +5,8 @@ import {
   HouseLine,
   Leaf,
 } from '@phosphor-icons/react'
+import { FadeUpSection } from '../../../components/animations/FadeUpSection'
+import { StaggerContainer } from '../../../components/animations/StaggerContainer'
 import { hero } from '../data/homeContent'
 
 const heroHighlights = [
@@ -24,7 +26,11 @@ const heroHighlights = [
 
 export function Hero() {
   return (
-    <section id="trang-chu" className="relative isolate overflow-x-clip overflow-y-visible">
+    <FadeUpSection
+      id="trang-chu"
+      className="relative isolate overflow-x-clip overflow-y-visible"
+      duration={800}
+    >
       <div className="relative min-h-[720px] overflow-visible md:h-[520px] md:min-h-0 xl:h-[560px]">
         <div
           className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_28%_50%,rgba(255,250,241,0.92),rgba(255,250,241,0.62)_42%,rgba(255,250,241,0.18)_72%)]"
@@ -89,9 +95,11 @@ export function Hero() {
               </a>
             </div>
 
-            <div
+            <StaggerContainer
               className="mt-8 grid max-w-[540px] grid-cols-3 items-center gap-0 sm:mt-10 md:mt-16"
+              delay={180}
               aria-label="Điểm nổi bật của nhà hàng"
+              staggerDelay={100}
             >
               {heroHighlights.map(({ Icon, lines }, index) => (
                 <div
@@ -113,7 +121,7 @@ export function Hero() {
                   </span>
                 </div>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </div>
 
@@ -136,6 +144,6 @@ export function Hero() {
           />
         </div>
       </div>
-    </section>
+    </FadeUpSection>
   )
 }

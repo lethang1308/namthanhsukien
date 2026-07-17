@@ -1,16 +1,23 @@
 import { ArrowRight, FishSimple } from '@phosphor-icons/react'
+import { FadeUpSection } from '../../../components/animations/FadeUpSection'
+import { ScrollReveal } from '../../../components/animations/ScrollReveal'
+import { StaggerContainer } from '../../../components/animations/StaggerContainer'
 import { SectionTitle } from '../../../components/SectionTitle'
 import { featuredDishes } from '../data/homeContent'
 
 export function FeaturedDishes() {
   return (
-    <section
+    <FadeUpSection
       id="thuc-don"
       className="mx-auto grid max-w-[1400px] gap-5 px-4 pb-5 pt-5 md:px-8 lg:grid-cols-[0.315fr_0.685fr]"
+      duration={800}
     >
-      <article
+      <ScrollReveal
+        as="article"
         id="gioi-thieu"
         className="rounded-[20px] border border-[rgba(184,137,53,0.25)] bg-white/28 p-6 backdrop-blur-[2px] md:p-7"
+        delay={100}
+        duration={800}
       >
         <p className="font-script mb-1 pb-1 text-[30px] leading-[1.12] text-[var(--color-green)]">
           Câu chuyện
@@ -32,10 +39,11 @@ export function FeaturedDishes() {
         >
           Khám phá thêm
         </a>
-      </article>
+      </ScrollReveal>
 
       <div>
-        <SectionTitle
+        <ScrollReveal delay={160} duration={760}>
+          <SectionTitle
           title="MÓN NGON NỔI BẬT"
           icon={<FishSimple size={24} weight="regular" className="text-[var(--color-gold-strong)]" />}
           action={
@@ -47,8 +55,9 @@ export function FeaturedDishes() {
               <ArrowRight size={15} weight="bold" />
             </a>
           }
-        />
-        <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
+          />
+        </ScrollReveal>
+        <StaggerContainer className="grid grid-cols-2 gap-3 xl:grid-cols-4" delay={220} staggerDelay={120}>
           {featuredDishes.map((dish) => (
             <article
               key={dish.name}
@@ -72,8 +81,8 @@ export function FeaturedDishes() {
               </div>
             </article>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
-    </section>
+    </FadeUpSection>
   )
 }

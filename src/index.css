@@ -87,18 +87,19 @@ img:not(.hidden) {
 .footer-title {
   position: relative;
   font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
   color: var(--color-gold);
 }
 
 .footer-title::before {
   content: '';
   display: block;
-  width: 32px;
+  width: 30px;
   height: 1px;
-  margin-bottom: 8px;
-  background: rgba(211, 184, 126, 0.78);
+  margin-bottom: 9px;
+  background: rgba(211, 184, 126, 0.75);
 }
 
 @media (max-width: 768px) {
