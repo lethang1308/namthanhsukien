@@ -27,7 +27,7 @@ const heroHighlights = [
 export function Hero() {
   return (
     <FadeUpSection
-      id="trang-chu"
+      id="home"
       className="relative isolate overflow-x-clip overflow-y-visible"
       duration={800}
     >
@@ -87,7 +87,7 @@ export function Hero() {
                 Đặt bàn ngay
               </a>
               <a
-                href="#thuc-don"
+                href="#menu"
                 className="inline-flex items-center justify-center rounded-full border border-[rgba(15,83,52,0.35)] bg-white/65 px-6 py-3 text-sm font-bold text-[var(--color-green)] transition hover:bg-white active:translate-y-px sm:w-auto"
               >
                 <BookOpen className="mr-2" size={18} weight="bold" />

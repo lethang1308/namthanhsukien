@@ -16,7 +16,7 @@ export function Footer() {
   return (
     <FadeUpSection
       as="footer"
-      id="lien-he"
+      id="contact"
       className="mt-4 overflow-hidden rounded-t-[24px] bg-[linear-gradient(135deg,#07583B_0%,#064D35_100%)] text-white"
       duration={800}
     >
@@ -31,10 +31,10 @@ export function Footer() {
             Hà Thành.
           </p>
           <div className="mt-4 flex gap-4 text-[var(--color-gold)]">
-            <a href="#lien-he" aria-label="Facebook" className="transition hover:text-[#fffaf1]">
+            <a href="#contact" aria-label="Facebook" className="transition hover:text-[#fffaf1]">
               <FacebookLogo size={21} weight="fill" />
             </a>
-            <a href="#lien-he" aria-label="Instagram" className="transition hover:text-[#fffaf1]">
+            <a href="#contact" aria-label="Instagram" className="transition hover:text-[#fffaf1]">
               <InstagramLogo size={21} weight="bold" />
             </a>
           </div>

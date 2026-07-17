@@ -25,7 +25,7 @@ export function ComboDeals() {
           {combos.map((combo, index) => (
             <ScrollReveal
               as="article"
-              className="grid h-[150px] overflow-hidden rounded-[16px] border border-[rgba(184,137,53,0.25)] bg-[rgba(255,250,241,0.96)] grid-cols-[0.46fr_0.54fr]"
+              className="grid h-[190px] overflow-hidden rounded-[16px] border border-[rgba(184,137,53,0.25)] bg-[rgba(255,250,241,0.96)] grid-cols-[0.46fr_0.54fr]"
               delay={160 + index * 120}
               duration={760}
               key={combo.name}
@@ -61,7 +61,7 @@ export function ComboDeals() {
           <ScrollReveal
             as="aside"
             id="dat-ban"
-            className="relative flex h-[150px] flex-col items-center justify-center overflow-hidden rounded-[16px] bg-[linear-gradient(145deg,#075B3B,#064A31)] p-4 text-center text-white"
+            className="relative flex h-[190px] flex-col items-center justify-center overflow-hidden rounded-[16px] bg-[linear-gradient(145deg,#075B3B,#064A31)] p-4 text-center text-white"
             delay={200}
             duration={820}
             variant="zoom"

@@ -21,13 +21,13 @@ export const contact = {
 }
 
 export const navItems = [
-  { label: 'Trang chủ', href: '#trang-chu' },
-  { label: 'Giới thiệu', href: '#gioi-thieu' },
-  { label: 'Thực đơn', href: '#thuc-don' },
+  { label: 'Trang chủ', href: '#home' },
+  { label: 'Giới thiệu', href: '#about' },
+  { label: 'Thực đơn', href: '#menu' },
   { label: 'Combo', href: '#combo' },
-  { label: 'Không gian', href: '#khong-gian' },
-  { label: 'Tin tức', href: '#tin-tuc' },
-  { label: 'Liên hệ', href: '#lien-he' },
+  { label: 'Không gian', href: '#space' },
+  { label: 'Tin tức', href: '#news' },
+  { label: 'Liên hệ', href: '#contact' },
 ]
 
 export const hero = {

@@ -29,13 +29,13 @@ export function Header() {
             </span>
           </div>
           <div className="hidden items-center gap-4 sm:flex" aria-label="Mạng xã hội">
-            <a href="#lien-he" aria-label="Facebook" className="hover:text-white">
+            <a href="#contact" aria-label="Facebook" className="hover:text-white">
               <FacebookLogo size={18} weight="fill" />
             </a>
-            <a href="#lien-he" aria-label="Instagram" className="hover:text-white">
+            <a href="#contact" aria-label="Instagram" className="hover:text-white">
               <InstagramLogo size={18} weight="bold" />
             </a>
-            <a href="#gioi-thieu" aria-label="Giải thưởng" className="hover:text-white">
+            <a href="#about" aria-label="Giải thưởng" className="hover:text-white">
               <Medal size={18} weight="fill" />
             </a>
           </div>
@@ -43,24 +43,31 @@ export function Header() {
       </div>
 
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between gap-5 px-4 py-3 md:px-8">
-        <a href="#trang-chu" aria-label="Chả Cá Tràng An">
+        <a href="#home" aria-label="Chả Cá Tràng An">
           <BrandMark />
         </a>
 
         <div className="hidden min-w-0 flex-1 items-center justify-center gap-7 text-[15px] font-semibold text-[var(--color-ink)] lg:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              className={`whitespace-nowrap border-b-2 pb-1 transition ${
-                item.label === 'Trang chủ'
-                  ? 'border-[var(--color-green)] text-[var(--color-green)]'
-                  : 'border-transparent hover:border-[rgba(15,83,52,0.3)] hover:text-[var(--color-green)]'
-              }`}
-              href={item.href}
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const currentHash = typeof window !== 'undefined' ? window.location.hash : ''
+            const isActive =
+              (item.label === 'Thực đơn' && currentHash === '#menu') ||
+              (item.label === 'Trang chủ' && currentHash !== '#menu')
+
+            return (
+              <a
+                key={item.label}
+                className={`whitespace-nowrap border-b-2 pb-1 transition ${
+                  isActive
+                    ? 'border-[var(--color-green)] text-[var(--color-green)] font-bold'
+                    : 'border-transparent hover:border-[rgba(15,83,52,0.3)] hover:text-[var(--color-green)]'
+                }`}
+                href={item.href}
+              >
+                {item.label}
+              </a>
+            )
+          })}
         </div>
 
         <div className="flex shrink-0 items-center gap-3">

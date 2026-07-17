@@ -8,13 +8,13 @@ import { featuredDishes } from '../data/homeContent'
 export function FeaturedDishes() {
   return (
     <FadeUpSection
-      id="thuc-don"
+      id="menu"
       className="mx-auto grid max-w-[1400px] gap-5 px-4 pb-5 pt-5 md:px-8 lg:grid-cols-[0.315fr_0.685fr]"
       duration={800}
     >
       <ScrollReveal
         as="article"
-        id="gioi-thieu"
+        id="about"
         className="rounded-[20px] border border-[rgba(184,137,53,0.25)] bg-white/28 p-6 backdrop-blur-[2px] md:p-7"
         delay={100}
         duration={800}
@@ -34,7 +34,7 @@ export function FeaturedDishes() {
           truyền và phục vụ bằng sự tận tâm.
         </p>
         <a
-          href="#khong-gian"
+          href="#space"
           className="mt-5 inline-flex rounded-full bg-[var(--color-green)] px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[var(--color-green-deep)] active:translate-y-px"
         >
           Khám phá thêm
@@ -48,7 +48,7 @@ export function FeaturedDishes() {
           icon={<FishSimple size={24} weight="regular" className="text-[var(--color-gold-strong)]" />}
           action={
             <a
-              href="#thuc-don"
+              href="#menu"
               className="hidden items-center gap-1.5 text-[13px] font-semibold text-[var(--color-green)] md:inline-flex"
             >
               Xem tất cả

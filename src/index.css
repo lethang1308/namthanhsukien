@@ -107,3 +107,38 @@ img:not(.hidden) {
     font-size: 15px;
   }
 }
+
+/* Custom Scrollbar Styles */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+html.is-scrolling {
+  scrollbar-color: rgba(15, 81, 52, 0.4) transparent;
+}
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 99px;
+  transition: background-color 0.3s ease;
+}
+
+html.is-scrolling ::-webkit-scrollbar-thumb,
+html.is-scrolling::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 81, 52, 0.45);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(15, 81, 52, 0.7);
+}
