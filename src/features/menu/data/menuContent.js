@@ -20,7 +20,7 @@ export const menuHero = {
   script: 'Thực đơn',
   title: 'CHẢ CÁ TRÀNG AN',
   description:
-    'Tinh hoa ẩm thực Hà Thành – chả cá tươi ngon, tẩm ướp theo công thức gia truyền, kết hợp cùng nguyên liệu chọn lọc mang đến hương vị khó quên.',
+    'Tinh hoa ẩm thực Hà Thành - chả cá tươi ngon, tẩm ướp theo công thức gia truyền, kết hợp cùng nguyên liệu chọn lọc mang đến hương vị khó quên.',
 }
 
 export const menuCategories = [

@@ -97,7 +97,7 @@ export function MenuPage() {
             </div>
 
             {/* Banner text content */}
-            <div className="relative z-10 mx-auto w-full max-w-[1200px] px-4 md:px-8">
+            <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 md:px-8">
               <div className="max-w-xl md:w-[48%]">
                 <p className="font-script mb-1 text-[42px] leading-tight text-[#075B3B] sm:text-[50px] md:text-[48px] xl:text-[58px]">
                   {menuHero.script}
@@ -119,7 +119,7 @@ export function MenuPage() {
         </FadeUpSection>
 
         {/* Categories Bar */}
-        <div className="mx-auto max-w-[1200px] px-4 md:px-8 -mt-6 md:-mt-8 relative z-10">
+        <div className="mx-auto max-w-[1400px] px-4 md:px-8 -mt-6 md:-mt-8 relative z-10">
           <ScrollReveal delay={100} duration={700}>
             <div className="flex md:grid md:grid-cols-5 md:max-w-[960px] md:mx-auto gap-3 md:gap-3.5 overflow-x-auto pb-2 scrollbar-none justify-start items-center">
               {menuCategories
@@ -155,7 +155,7 @@ export function MenuPage() {
 
         {/* Featured Section (Visible only when selectedCategory is 'signature') */}
         {selectedCategory === 'signature' && (
-          <div className="mx-auto max-w-[1200px] px-4 md:px-8 mt-10 md:mt-12 grid gap-6 lg:grid-cols-[3fr_1.1fr] items-start">
+          <div className="mx-auto max-w-[1400px] px-4 md:px-8 mt-10 md:mt-12 grid gap-6 lg:grid-cols-[3fr_1.1fr] items-start">
             {/* Left Column: MÓN NỔI BẬT */}
             <div>
               <ScrollReveal duration={700}>
@@ -249,7 +249,7 @@ export function MenuPage() {
         )}
 
         {/* Main Menu Grid Section */}
-        <div className="mx-auto max-w-[1200px] px-4 md:px-8 mt-10 md:mt-12">
+        <div className="mx-auto max-w-[1400px] px-4 md:px-8 mt-10 md:mt-12">
           <ScrollReveal duration={700}>
             <h2 className="mb-5 flex items-center gap-2 font-[var(--font-display)] text-[22px] font-bold text-[#075B3B]">
               {selectedCategory === 'combo'
@@ -319,7 +319,7 @@ export function MenuPage() {
         </div>
 
         {/* Promo Booking Banner */}
-        <div className="mx-auto max-w-[1200px] px-4 py-6 md:px-8">
+        <div className="mx-auto max-w-[1400px] px-4 py-6 md:px-8">
           <ScrollReveal
             duration={800}
             className="rounded-[20px] border border-[rgba(184,137,53,0.28)] bg-[#FFFDF9] p-6 text-center shadow-[0_4px_18px_rgba(42,55,47,0.02)] relative overflow-hidden"
@@ -333,10 +333,10 @@ export function MenuPage() {
                 <CalendarCheck size={26} weight="duotone" />
               </div>
               <h3 className="font-[var(--font-display)] text-[18px] sm:text-[20px] font-bold text-[#075B3B] leading-tight">
-                Đặt bàn trước – Trải nghiệm trọn vẹn hương vị Chả Cá Tràng An
+                Đặt bàn trước - Trải nghiệm trọn vẹn hương vị Chả Cá Tràng An
               </h3>
               <p className="mt-1.5 text-[12.5px] sm:text-[13px] leading-relaxed text-[#69736C]">
-                Không gian ấm cúng, phục vụ tận tâm – Đặt bàn ngay để giữ chỗ cho gia đình và người thân.
+                Không gian ấm cúng, phục vụ tận tâm - Đặt bàn ngay để giữ chỗ cho gia đình và người thân.
               </p>
               <div className="mt-5 flex flex-wrap justify-center gap-3">
                 <a

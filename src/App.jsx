@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { ComboPage } from './features/combo/ComboPage'
 import { HomePage } from './features/home/HomePage'
 import { MenuPage } from './features/menu/MenuPage'
 
@@ -17,6 +18,10 @@ function App() {
 
   if (currentHash === '#menu') {
     return <MenuPage />
+  }
+
+  if (currentHash === '#combo') {
+    return <ComboPage />
   }
 
   return <HomePage />

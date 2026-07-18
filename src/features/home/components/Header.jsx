@@ -51,8 +51,8 @@ export function Header() {
           {navItems.map((item) => {
             const currentHash = typeof window !== 'undefined' ? window.location.hash : ''
             const isActive =
-              (item.label === 'Thực đơn' && currentHash === '#menu') ||
-              (item.label === 'Trang chủ' && currentHash !== '#menu')
+              item.href === currentHash ||
+              (item.href === '#home' && (currentHash === '' || currentHash === '#trang-chu'))
 
             return (
               <a
