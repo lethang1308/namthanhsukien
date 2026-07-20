@@ -8,11 +8,10 @@ import {
   Fish,
   FishSimple,
   Gift,
-  HouseLine,
-  List,
   Phone,
 } from '@phosphor-icons/react'
 import { MobileBottomNav } from '../../components/mobile/MobileBottomNav'
+import { MobileHeader } from '../../components/mobile/MobileHeader'
 import paperBackground from '../../assets/b4002091-4a7b-4407-a4a9-992d5654bdd3.png'
 import { menuCategories, menuCombos, menuDishes, menuDrinks, menuHero } from './data/menuContent'
 
@@ -22,32 +21,6 @@ const iconMap = {
   BellSimple,
   Gift,
   Coffee,
-}
-
-function MobileHeader() {
-  return (
-    <header className="sticky top-0 z-40 border-b border-[rgba(211,184,126,0.34)] bg-[linear-gradient(135deg,#07583B,#063E2B)] px-5 py-3.5 text-white shadow-[0_14px_30px_rgba(6,62,43,0.18)]">
-      <div className="mx-auto flex max-w-[480px] items-center justify-between">
-        <a href="#home" className="flex items-center gap-2.5" aria-label="Chả Cá Tràng An">
-          <span className="grid h-11 w-11 shrink-0 place-items-center border border-[var(--color-gold)] bg-[var(--color-green)] text-[var(--color-gold)] shadow-[0_8px_18px_rgba(5,38,25,0.18)]">
-            <FishSimple size={27} weight="fill" />
-          </span>
-          <span className="font-[var(--font-display)] text-[17px] font-bold leading-[1.08] tracking-[0.04em] text-[#F8E7B9]">
-            CHẢ CÁ
-            <br />
-            TRÀNG AN
-          </span>
-        </a>
-        <button
-          type="button"
-          className="grid h-11 w-11 place-items-center rounded-full text-[#fffaf1] active:translate-y-px"
-          aria-label="Mở menu"
-        >
-          <List size={34} weight="regular" />
-        </button>
-      </div>
-    </header>
-  )
 }
 
 function SectionHeader({ title, actionLabel, href = '#menu' }) {
@@ -254,7 +227,7 @@ export function MobileMenuPage() {
             <span className="font-bold text-[var(--color-ink)]">Thực đơn</span>
           </nav> */}
 
-          <section className="relative isolate h-[clamp(316px,82vw,350px)] overflow-hidden bg-[#fffaf1]">
+          <section className="relative isolate h-[clamp(330px,88vw,350px)] overflow-hidden bg-[#fffaf1]">
             <img
               src={menuHero.bannerBg}
               alt="Thực đơn Chả Cá Tràng An"

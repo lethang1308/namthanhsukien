@@ -34,6 +34,7 @@ import {
   partyCombos,
   reasons,
 } from './data/comboContent'
+import { MobileComboPage } from './MobileComboPage'
 
 const iconMap = {
   Alarm,
@@ -86,16 +87,18 @@ export function ComboPage() {
   }, [])
 
   return (
-    <div
-      className="min-h-[100dvh] bg-[var(--color-paper)] text-[var(--color-ink)]"
-      style={{
-        backgroundImage: `linear-gradient(rgba(255, 250, 241, 0.16), rgba(255, 250, 241, 0.18)), url(${paperBackground})`,
-        backgroundRepeat: 'repeat-y',
-        backgroundPosition: 'top center',
-        backgroundSize: '100% auto',
-      }}
-    >
-      <Header />
+    <>
+      <div className="hidden md:block">
+        <div
+          className="min-h-[100dvh] bg-[var(--color-paper)] text-[var(--color-ink)]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255, 250, 241, 0.16), rgba(255, 250, 241, 0.18)), url(${paperBackground})`,
+            backgroundRepeat: 'repeat-y',
+            backgroundPosition: 'top center',
+            backgroundSize: '100% auto',
+          }}
+        >
+          <Header />
 
       <main className="pb-4">
         <FadeUpSection as="section" className="relative isolate overflow-hidden border-b border-[rgba(184,137,53,0.18)]">
@@ -425,7 +428,10 @@ export function ComboPage() {
         </section>
       </main>
 
-      <Footer />
-    </div>
+          <Footer />
+        </div>
+      </div>
+      <MobileComboPage />
+    </>
   )
 }
