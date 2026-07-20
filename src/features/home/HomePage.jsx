@@ -6,6 +6,7 @@ import { FeaturedDishes } from './components/FeaturedDishes'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
+import { MobileHomePage } from './components/MobileHomePage'
 
 export function HomePage() {
   useEffect(() => {
@@ -35,14 +36,17 @@ export function HomePage() {
         backgroundSize: '100% auto',
       }}
     >
-      <Header />
-      <main>
-        <Hero />
-        <FeaturedDishes />
-        <ComboDeals />
-        <Experience />
-      </main>
-      <Footer />
+      <div className="hidden md:block">
+        <Header />
+        <main>
+          <Hero />
+          <FeaturedDishes />
+          <ComboDeals />
+          <Experience />
+        </main>
+        <Footer />
+      </div>
+      <MobileHomePage />
     </div>
   )
 }
