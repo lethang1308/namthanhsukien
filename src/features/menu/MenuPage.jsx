@@ -27,6 +27,7 @@ import {
   menuCombos,
   menuDrinks,
 } from './data/menuContent'
+import { MobileMenuPage } from './MobileMenuPage'
 
 const iconMap = {
   CookingPot,
@@ -74,16 +75,18 @@ export function MenuPage() {
   const featuredDishes = menuDishes.slice(0, 4)
 
   return (
-    <div
-      className="min-h-[100dvh] bg-[#FBF7EF] text-[#26382E]"
-      style={{
-        backgroundImage: `linear-gradient(rgba(251, 247, 239, 0.15), rgba(251, 247, 239, 0.15)), url(${paperBackground})`,
-        backgroundRepeat: 'repeat-y',
-        backgroundPosition: 'top center',
-        backgroundSize: '100% auto',
-      }}
-    >
-      <Header />
+    <>
+      <div className="hidden md:block">
+        <div
+          className="min-h-[100dvh] bg-[#FBF7EF] text-[#26382E]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(251, 247, 239, 0.15), rgba(251, 247, 239, 0.15)), url(${paperBackground})`,
+            backgroundRepeat: 'repeat-y',
+            backgroundPosition: 'top center',
+            backgroundSize: '100% auto',
+          }}
+        >
+          <Header />
 
       <main className="pb-16">
         {/* Banner Section */}
@@ -386,7 +389,10 @@ export function MenuPage() {
         </div>
       </main>
 
-      <Footer />
-    </div>
+          <Footer />
+        </div>
+      </div>
+      <MobileMenuPage />
+    </>
   )
 }

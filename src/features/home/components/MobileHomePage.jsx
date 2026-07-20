@@ -3,20 +3,17 @@ import {
   CaretRight,
   ChefHat,
   FishSimple,
-  ForkKnife,
   Gift,
   HouseLine,
   List,
-  Phone,
   Scooter,
   ShieldCheck,
   Star,
-  Storefront,
 } from '@phosphor-icons/react'
+import { MobileBottomNav } from '../../../components/mobile/MobileBottomNav'
 import paperBackground from '../../../assets/b4002091-4a7b-4407-a4a9-992d5654bdd3.png'
 import {
   combos,
-  contact,
   featuredDishes,
   galleryImages,
   hero,
@@ -40,13 +37,6 @@ const mobileHighlights = [
     Icon: Scooter,
     lines: ['Giao hàng', 'nhanh chóng'],
   },
-]
-
-const bottomNavItems = [
-  { label: 'Trang chủ', href: '#home', Icon: HouseLine, active: true },
-  { label: 'Thực đơn', href: '#menu', Icon: ForkKnife },
-  { label: 'Combo', href: '#combo', Icon: Gift },
-  { label: 'Không gian', href: '#space', Icon: Storefront },
 ]
 
 function MobileSectionHeader({ title, actionLabel, href = '#home' }) {
@@ -310,45 +300,7 @@ export function MobileHomePage() {
           </section>
         </main>
 
-        <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-[rgba(184,137,53,0.2)] bg-[#fffaf1]/96 px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-2 shadow-[0_-12px_26px_rgba(42,49,38,0.12)] backdrop-blur" aria-label="Điều hướng mobile">
-          <div className="mx-auto grid max-w-[480px] grid-cols-[1fr_1fr_86px_1fr_1fr] items-end">
-            {bottomNavItems.slice(0, 2).map(({ label, href, Icon, active }) => (
-              <a
-                key={label}
-                href={href}
-                className={`flex min-w-0 flex-col items-center gap-1 text-[11.5px] font-semibold ${
-                  active ? 'text-[var(--color-green)]' : 'text-[rgba(38,51,39,0.72)]'
-                }`}
-              >
-                <Icon size={24} weight={active ? 'fill' : 'regular'} />
-                <span>{label}</span>
-                <span className={`h-0.5 w-8 rounded-full ${active ? 'bg-[var(--color-green)]' : 'bg-transparent'}`} />
-              </a>
-            ))}
-
-            <a
-              href="tel:0961374566"
-              className="-mt-8 flex h-[76px] w-[76px] flex-col items-center justify-center justify-self-center rounded-full bg-[var(--color-green)] text-center text-[#fffaf1] shadow-[0_8px_22px_rgba(7,88,59,0.28)] ring-4 ring-[#fffaf1]"
-              aria-label={`Gọi ngay ${contact.phone}`}
-            >
-              <Phone size={24} weight="fill" className="text-[var(--color-gold)]" />
-              <span className="mt-0.5 text-[11px] font-semibold leading-tight">Gọi ngay</span>
-              <span className="text-[9px] font-bold leading-tight">{contact.phone}</span>
-            </a>
-
-            {bottomNavItems.slice(2).map(({ label, href, Icon }) => (
-              <a
-                key={label}
-                href={href}
-                className="flex min-w-0 flex-col items-center gap-1 text-[11.5px] font-semibold text-[rgba(38,51,39,0.72)]"
-              >
-                <Icon size={24} weight="regular" />
-                <span>{label}</span>
-                <span className="h-0.5 w-8 rounded-full bg-transparent" />
-              </a>
-            ))}
-          </div>
-        </nav>
+        <MobileBottomNav activeItem="home" />
       </div>
     </div>
   )
