@@ -25,9 +25,9 @@ export const menuHero = {
 
 export const menuCategories = [
   { id: 'all', label: 'Tất cả món', icon: 'CookingPot' },
-  { id: 'signature', label: 'Món đặc trưng', icon: 'FishSimple' },
-  { id: 'appetizer', label: 'Món khai vị', icon: 'Egg' },
-  { id: 'main', label: 'Món chính', icon: 'BowlFood' },
+  { id: 'signature', label: 'Món đặc trưng', icon: 'Fish' },
+  { id: 'appetizer', label: 'Món khai vị', icon: 'BowlSteam' },
+  { id: 'main', label: 'Món chính', icon: 'BellSimple' },
   { id: 'combo', label: 'Combo', icon: 'Gift' },
   { id: 'drink', label: 'Đồ uống', icon: 'Coffee' },
 ]

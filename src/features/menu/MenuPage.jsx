@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import {
   CookingPot,
+  Fish,
   FishSimple,
   Egg,
+  BellSimple,
   BowlFood,
+  BowlSteam,
   Gift,
   Coffee,
   CalendarCheck,
@@ -27,12 +30,21 @@ import {
 
 const iconMap = {
   CookingPot,
+  Fish,
   FishSimple,
   Egg,
+  BellSimple,
   BowlFood,
+  BowlSteam,
   Gift,
   Coffee,
 }
+
+const menuCardClass =
+  'group flex h-full flex-col overflow-hidden rounded-[16px] border border-[rgba(184,137,53,0.34)] bg-[#fffdf8] shadow-[0_4px_16px_rgba(34,51,42,0.04)] transition hover:border-[rgba(184,137,53,0.48)] hover:shadow-[0_10px_26px_rgba(34,51,42,0.07)]'
+
+const menuBadgeClass =
+  'absolute left-2.5 top-2.5 rounded-[8px] border border-[rgba(211,184,126,0.24)] bg-[#075B3B] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#FFFDF5] shadow-[0_6px_14px_rgba(15,81,52,0.18)]'
 
 export function MenuPage() {
   const [selectedCategory, setSelectedCategory] = useState('signature')
@@ -78,15 +90,15 @@ export function MenuPage() {
         <FadeUpSection className="relative isolate overflow-hidden" duration={800}>
           <div className="relative min-h-[720px] md:h-[520px] md:min-h-0 xl:h-[560px] flex items-center bg-[#FBF7EF]">
             {/* Background image on the right with a soft radial fade overlay to match left bg */}
-            <div className="absolute inset-y-0 right-0 z-0 w-full md:w-[65%] pointer-events-none">
+            <div className="absolute inset-y-0 right-0 z-0 w-full md:w-[78%] xl:w-[76%] pointer-events-none">
               <img
                 src={menuHero.bannerBg}
                 alt="Banner thực đơn nhà hàng Chả Cá Tràng An"
-                className="h-full w-full object-cover object-[62%_50%]"
+                className="h-full w-full object-cover object-[45%_50%]"
               />
               {/* Fade gradient from left to right */}
               <div
-                className="absolute inset-0 bg-[linear-gradient(90deg,#FBF7EF_0%,rgba(251,247,239,0.96)_20%,rgba(251,247,239,0.85)_40%,rgba(251,247,239,0.25)_65%,transparent_90%)]"
+                className="absolute inset-0 bg-[linear-gradient(90deg,#FBF7EF_0%,rgba(251,247,239,0.94)_16%,rgba(251,247,239,0.72)_32%,rgba(251,247,239,0.18)_56%,transparent_84%)]"
                 aria-hidden="true"
               />
               {/* Bottom fade */}
@@ -121,7 +133,7 @@ export function MenuPage() {
         {/* Categories Bar */}
         <div className="mx-auto max-w-[1400px] px-4 md:px-8 -mt-6 md:-mt-8 relative z-10">
           <ScrollReveal delay={100} duration={700}>
-            <div className="flex md:grid md:grid-cols-5 md:max-w-[960px] md:mx-auto gap-3 md:gap-3.5 overflow-x-auto pb-2 scrollbar-none justify-start items-center">
+            <div className="flex md:grid md:grid-cols-5 md:max-w-[1200px] md:mx-auto gap-3.5 md:gap-5 overflow-x-auto pb-2 scrollbar-none justify-start items-center">
               {menuCategories
                 .filter((cat) => cat.id !== 'all')
                 .map((cat) => {
@@ -132,17 +144,20 @@ export function MenuPage() {
                     <button
                       key={cat.id}
                       onClick={() => setSelectedCategory(cat.id)}
-                      className={`flex items-center justify-center gap-2.5 h-[46px] px-6 rounded-full text-[13.5px] md:text-[14.5px] font-bold transition whitespace-nowrap cursor-pointer select-none ${
+                      style={{
+                        borderColor: isActive ? '#075B3B' : 'rgba(184, 137, 53, 0.56)',
+                      }}
+                      className={`flex h-[54px] min-w-[196px] items-center justify-center gap-3 rounded-full px-8 text-[14px] font-bold transition whitespace-nowrap cursor-pointer select-none md:min-w-0 md:text-[15px] ${
                         isActive
-                          ? 'bg-[#075B3B] text-[#FFFDF5] border border-[#075B3B] shadow-[0_4px_18px_rgba(42,55,47,0.06)]'
-                          : 'bg-[#FFFDF9] text-[#075B3B] border border-[rgba(184,137,53,0.42)] hover:bg-[#FFFDF5] hover:border-[#075B3B]'
+                          ? 'border bg-[#075B3B] text-[#FFFDF5] shadow-[0_10px_22px_rgba(15,81,52,0.18),inset_0_1px_0_rgba(255,255,255,0.08)]'
+                          : 'border bg-[#FFFDF9]/94 text-[#075B3B] shadow-[inset_0_1px_0_rgba(255,255,255,0.86),0_3px_10px_rgba(34,51,42,0.03)] hover:bg-[#FFFDF5]'
                       }`}
                     >
                       {IconComponent && (
                         <IconComponent
-                          size={20}
-                          weight={isActive ? 'fill' : 'bold'}
-                          className={isActive ? 'text-[#FFFDF5]' : 'text-[#B88935]'}
+                          size={28}
+                          weight="regular"
+                          className={isActive ? 'text-[#D3B87E]' : 'text-[#B88935]'}
                         />
                       )}
                       {cat.label}
@@ -169,9 +184,9 @@ export function MenuPage() {
                 {featuredDishes.map((dish) => (
                   <article
                     key={dish.name}
-                    className="flex flex-col h-full overflow-hidden rounded-[14px] border border-[rgba(184,137,53,0.28)] bg-[#FFFDF9] transition hover:shadow-[0_8px_24px_rgba(42,55,47,0.05)]"
+                    className={menuCardClass}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-t-[13px]">
+                    <div className="relative aspect-[4/3] overflow-hidden border-b border-[rgba(184,137,53,0.16)]">
                       <img
                         src={dish.image}
                         alt={dish.name}
@@ -179,12 +194,12 @@ export function MenuPage() {
                         loading="lazy"
                       />
                       {dish.tag && (
-                        <span className="absolute left-2.5 top-2.5 rounded bg-[#075B3B] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#FFFDF5] border border-[rgba(211,184,126,0.2)]">
+                        <span className={menuBadgeClass}>
                           {dish.tag}
                         </span>
                       )}
                     </div>
-                    <div className="flex-1 flex flex-col p-3">
+                    <div className="flex flex-1 flex-col p-3.5">
                       <h3 className="font-[var(--font-display)] text-[14px] md:text-[14.5px] font-bold leading-snug text-[#26382E]">
                         {dish.name}
                       </h3>
@@ -201,7 +216,7 @@ export function MenuPage() {
             </div>
 
             {/* Right Column: GỢI Ý HÔM NAY */}
-            <div>
+            <div className="rounded-[20px] border border-[rgba(184,137,53,0.28)] bg-[#fffaf1]/70 p-4 shadow-[0_4px_16px_rgba(34,51,42,0.035)]">
               <ScrollReveal duration={700} delay={100}>
                 <h2 className="mb-3.5 flex items-center gap-2 font-[var(--font-display)] text-[20px] md:text-[22px] font-bold text-[#075B3B]">
                   GỢI Ý HÔM NAY
@@ -209,22 +224,18 @@ export function MenuPage() {
                 </h2>
               </ScrollReveal>
 
-              <ScrollReveal
-                duration={760}
-                delay={200}
-                className="overflow-hidden rounded-[16px] border border-[rgba(184,137,53,0.32)] bg-[#FFFDF9] transition hover:shadow-[0_8px_24px_rgba(42,55,47,0.05)] flex flex-col h-full"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden rounded-t-[15px]">
+              <ScrollReveal duration={760} delay={200} className={menuCardClass}>
+                <div className="relative aspect-[4/3] overflow-hidden border-b border-[rgba(184,137,53,0.16)]">
                   <img
                     src={recommendedDish.image}
                     alt={recommendedDish.name}
                     className="h-full w-full object-cover"
                   />
-                  <span className="absolute left-3 top-3 rounded bg-[#075B3B] px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#FFFDF5] border border-[rgba(211,184,126,0.2)]">
+                  <span className={menuBadgeClass}>
                     {recommendedDish.tag}
                   </span>
                 </div>
-                <div className="flex-1 flex flex-col p-4">
+                <div className="flex flex-1 flex-col p-4">
                   <h3 className="font-[var(--font-display)] text-[15.5px] md:text-[16px] font-bold text-[#26382E]">
                     {recommendedDish.name}
                   </h3>
@@ -237,7 +248,7 @@ export function MenuPage() {
                     </span>
                     <a
                       href="#dat-ban"
-                      className="inline-flex h-8.5 items-center rounded-full bg-[#075B3B] px-4.5 text-[11.5px] font-bold text-[#FFFDF5] transition hover:bg-[#064B34] active:translate-y-px"
+                      className="inline-flex h-8.5 items-center rounded-full bg-[#075B3B] px-4.5 text-[11.5px] font-bold text-[#FFFDF5] shadow-[0_8px_18px_rgba(15,81,52,0.16)] transition hover:bg-[#064B34] active:translate-y-px"
                     >
                       Đặt thử ngay
                     </a>
@@ -280,10 +291,10 @@ export function MenuPage() {
                 return (
                   <article
                     key={item.name}
-                    className="overflow-hidden rounded-[14px] border border-[rgba(184,137,53,0.28)] bg-[#FFFDF9] transition hover:shadow-[0_8px_24px_rgba(42,55,47,0.05)] flex flex-col h-full"
+                    className={menuCardClass}
                   >
                     {!isDrink && item.image && (
-                      <div className={`relative ${isCombo ? 'aspect-[16/10]' : 'aspect-[4/3]'} overflow-hidden rounded-t-[13px]`}>
+                      <div className={`relative ${isCombo ? 'aspect-[16/10]' : 'aspect-[4/3]'} overflow-hidden border-b border-[rgba(184,137,53,0.16)]`}>
                         <img
                           src={item.image}
                           alt={item.name}
@@ -291,14 +302,14 @@ export function MenuPage() {
                           loading="lazy"
                         />
                         {item.tag && (
-                          <span className="absolute left-2.5 top-2.5 rounded bg-[#075B3B] px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#FFFDF5]">
+                          <span className={menuBadgeClass}>
                             {item.tag}
                           </span>
                         )}
                       </div>
                     )}
 
-                    <div className="flex-1 flex flex-col p-3">
+                    <div className="flex flex-1 flex-col p-3.5">
                       <h3 className="font-[var(--font-display)] text-[13.5px] md:text-[14px] font-bold leading-snug text-[#26382E]">
                         {item.name}
                       </h3>
@@ -322,23 +333,40 @@ export function MenuPage() {
         <div className="mx-auto max-w-[1400px] px-4 py-6 md:px-8">
           <ScrollReveal
             duration={800}
-            className="rounded-[20px] border border-[rgba(184,137,53,0.28)] bg-[#FFFDF9] p-6 text-center shadow-[0_4px_18px_rgba(42,55,47,0.02)] relative overflow-hidden"
+            className="relative isolate overflow-hidden rounded-[18px] border border-[rgba(184,137,53,0.34)] bg-[#fffdf8]/92 px-5 py-4 shadow-[0_8px_24px_rgba(34,51,42,0.055)]"
           >
             <div
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(15,81,52,0.03),transparent_38%)]"
+              className="pointer-events-none absolute inset-0 -z-[1] bg-[radial-gradient(circle_at_12%_20%,rgba(184,137,53,0.12)_0%,rgba(184,137,53,0)_26%),radial-gradient(circle_at_86%_0%,rgba(15,81,52,0.08)_0%,rgba(15,81,52,0)_28%)]"
               aria-hidden="true"
             />
-            <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto">
-              <div className="inline-grid h-12 w-12 place-items-center rounded-full bg-[rgba(15,81,52,0.08)] text-[#075B3B] mb-3">
+            <FishSimple
+              size={78}
+              weight="regular"
+              className="absolute -bottom-8 left-7 -z-[1] rotate-[-18deg] text-[rgba(184,137,53,0.14)]"
+              aria-hidden="true"
+            />
+            <Gift
+              size={74}
+              weight="regular"
+              className="absolute right-[28%] top-1/2 -z-[1] -translate-y-1/2 text-[rgba(184,137,53,0.1)]"
+              aria-hidden="true"
+            />
+            <div className="pointer-events-none absolute inset-[1px] rounded-[17px] border border-white/45" />
+            <div className="relative z-10 flex flex-col items-center justify-between gap-4 text-center lg:flex-row lg:text-left">
+              <div className="flex flex-col items-center gap-3 lg:flex-row">
+              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-[14px] border border-[rgba(184,137,53,0.34)] bg-[#fffaf1] text-[#B88935]">
                 <CalendarCheck size={26} weight="duotone" />
               </div>
+              <div>
               <h3 className="font-[var(--font-display)] text-[18px] sm:text-[20px] font-bold text-[#075B3B] leading-tight">
                 Đặt bàn trước - Trải nghiệm trọn vẹn hương vị Chả Cá Tràng An
               </h3>
               <p className="mt-1.5 text-[12.5px] sm:text-[13px] leading-relaxed text-[#69736C]">
                 Không gian ấm cúng, phục vụ tận tâm - Đặt bàn ngay để giữ chỗ cho gia đình và người thân.
               </p>
-              <div className="mt-5 flex flex-wrap justify-center gap-3">
+              </div>
+              </div>
+              <div className="flex shrink-0 flex-wrap justify-center gap-3">
                 <a
                   href="#dat-ban"
                   className="inline-flex h-10 items-center rounded-full bg-[#075B3B] px-6 text-[12.5px] font-bold text-white shadow-[0_8px_20px_rgba(15,81,52,0.18)] transition hover:bg-[#064B34] active:translate-y-px"
