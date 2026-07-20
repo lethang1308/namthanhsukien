@@ -27,6 +27,7 @@ import {
   spaceHero,
   spaceHighlights,
 } from './data/spaceContent'
+import { MobileSpacePage } from './MobileSpacePage'
 
 const iconMap = {
   Armchair,
@@ -76,16 +77,18 @@ export function SpacePage() {
   }, [])
 
   return (
-    <div
-      className="min-h-[100dvh] bg-[var(--color-paper)] text-[var(--color-ink)]"
-      style={{
-        backgroundImage: `linear-gradient(rgba(255,250,241,0.18), rgba(255,250,241,0.18)), url(${paperBackground})`,
-        backgroundRepeat: 'repeat-y',
-        backgroundPosition: 'top center',
-        backgroundSize: '100% auto',
-      }}
-    >
-      <Header />
+    <>
+      <div className="hidden md:block">
+        <div
+          className="min-h-[100dvh] bg-[var(--color-paper)] text-[var(--color-ink)]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,250,241,0.18), rgba(255,250,241,0.18)), url(${paperBackground})`,
+            backgroundRepeat: 'repeat-y',
+            backgroundPosition: 'top center',
+            backgroundSize: '100% auto',
+          }}
+        >
+          <Header />
 
       <main className="pb-5">
         <FadeUpSection
@@ -303,7 +306,10 @@ export function SpacePage() {
         </section>
       </main>
 
-      <Footer />
-    </div>
+          <Footer />
+        </div>
+      </div>
+      <MobileSpacePage />
+    </>
   )
 }

@@ -39,9 +39,8 @@ export function MobileBottomNav({ activeItem = 'home', zIndexClass = 'z-40' }) {
           className="-mt-8 flex h-[76px] w-[76px] flex-col items-center justify-center justify-self-center rounded-full bg-[var(--color-green)] text-center text-[#fffaf1] shadow-[0_8px_22px_rgba(7,88,59,0.28)] ring-4 ring-[#fffaf1]"
           aria-label={`Gọi ngay ${phoneNumber}`}
         >
-          <Phone size={24} weight="fill" className="text-[var(--color-gold)]" />
-          <span className="mt-0.5 text-[11px] font-semibold leading-tight">Gọi ngay</span>
-          <span className="text-[9px] font-bold leading-tight">{phoneNumber}</span>
+          <Phone size={25} weight="fill" className="mobile-call-shake text-[var(--color-gold)]" />
+          <span className="mt-1 text-[12px] font-semibold leading-tight">Gọi ngay</span>
         </a>
 
         {navItems.slice(2).map(({ key, label, href, Icon }) => {

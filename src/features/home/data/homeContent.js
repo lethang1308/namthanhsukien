@@ -22,12 +22,12 @@ export const contact = {
 
 export const navItems = [
   { label: 'Trang chủ', href: '#home' },
-  { label: 'Giới thiệu', href: '#about' },
+  // { label: 'Giới thiệu', href: '#about' },
   { label: 'Thực đơn', href: '#menu' },
   { label: 'Combo', href: '#combo' },
   { label: 'Không gian', href: '#space' },
-  { label: 'Tin tức', href: '#news' },
-  { label: 'Liên hệ', href: '#contact' },
+  // { label: 'Tin tức', href: '#news' },
+  // { label: 'Liên hệ', href: '#contact' },
 ]
 
 export const hero = {
