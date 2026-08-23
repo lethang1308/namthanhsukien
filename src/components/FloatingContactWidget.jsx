@@ -6,14 +6,14 @@ export function FloatingContactWidget() {
   const zaloUrl = contact.zalo || `https://zalo.me/${hotlineDigits}`
 
   return (
-    <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-3.5 select-none pointer-events-auto">
+    <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-3.5 select-none pointer-events-none">
       {/* Zalo Floating Button */}
       <a
         href={zaloUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat Zalo Nam Thành Sự Kiện"
-        className="group relative flex items-center justify-center"
+        className="group relative flex items-center justify-center pointer-events-auto"
       >
         {/* Pulsing Ripple Rings */}
         <span
@@ -57,7 +57,7 @@ export function FloatingContactWidget() {
       <a
         href={`tel:${hotlineDigits}`}
         aria-label="Gọi điện Nam Thành Sự Kiện"
-        className="group relative flex items-center justify-center"
+        className="group relative flex items-center justify-center pointer-events-auto"
       >
         {/* Pulsing Ripple Rings */}
         <span

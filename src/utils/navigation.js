@@ -2,13 +2,24 @@ export function scrollToSection(sectionId) {
   if (!sectionId || sectionId === 'home') {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   } else {
-    const el = document.getElementById(sectionId)
-    if (el) {
-      const headerOffset = 75
-      const elementPosition = el.getBoundingClientRect().top
+    // Find matching elements and target the currently visible one
+    const elements = document.querySelectorAll(`[id="${sectionId}"]`)
+    let visibleEl = null
+    for (const el of elements) {
+      if (el.offsetParent !== null || el.getBoundingClientRect().height > 0) {
+        visibleEl = el
+        break
+      }
+    }
+
+    const target = visibleEl || document.getElementById(sectionId)
+    if (target) {
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+      const headerOffset = isMobile ? 60 : 75
+      const elementPosition = target.getBoundingClientRect().top
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset
       window.scrollTo({
-        top: offsetPosition,
+        top: Math.max(0, offsetPosition),
         behavior: 'smooth',
       })
     }

@@ -73,7 +73,7 @@ export function MobileHomePage({ onOpenConsultation, onOpenVideo }) {
       {/* Mobile Top Header with Logo, LIÊN HỆ NGAY & Hamburger Drawer */}
       <MobileHeader onOpenConsultation={onOpenConsultation} zIndexClass="z-40" />
 
-      <main id="home" className="overflow-x-hidden">
+      <main id="home">
         {/* 1. Hero Banner Mobile (Warm Red Wine + Event Tent Backdrop) */}
         <section className="relative isolate overflow-hidden bg-[#3b0505] px-4 pt-6 pb-6 text-white">
           {/* Background image & gradient overlays */}

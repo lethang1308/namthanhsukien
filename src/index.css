@@ -45,14 +45,18 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   min-width: 320px;
+  width: 100%;
   margin: 0;
+  overflow-x: clip;
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-body);
+  -webkit-overflow-scrolling: touch;
 }
 
 body,
