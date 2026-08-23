@@ -10,7 +10,7 @@ export function Header({ onOpenConsultation }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      setIsScrolled(window.scrollY > 80)
     }
 
     const handleHash = () => {
@@ -27,21 +27,21 @@ export function Header({ onOpenConsultation }) {
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-all duration-300 ${
+      className={`sticky top-0 z-40 transition-colors duration-300 ${
         isScrolled
-          ? 'bg-[#180404]/95 shadow-[0_10px_30px_rgba(0,0,0,0.7)] backdrop-blur-md border-b border-[#E5A93C]/20'
-          : 'bg-transparent border-b border-white/5'
+          ? 'bg-[#450a0a]/95 shadow-[0_10px_30px_rgba(0,0,0,0.7)] backdrop-blur-md border-b border-[#E5A93C]/20'
+          : 'bg-transparent border-b border-transparent'
       }`}
     >
       {/* Main Navbar */}
       <nav className="mx-auto flex h-[88px] max-w-[1360px] items-center justify-between gap-6 px-6 sm:px-8 lg:px-12">
         {/* Brand Logo */}
-        <a href="#home" aria-label="Nam Thành Sự Kiện" className="shrink-0">
-          <BrandMark />
+        <a href="#home" aria-label="Nam Thành Sự Kiện" className="shrink-0 flex items-center">
+          <BrandMark markClassName="h-[56px] w-[56px]" />
         </a>
 
         {/* Navigation Links */}
-        <div className="hidden min-w-0 flex-1 items-center justify-center gap-8 text-[13.5px] font-bold tracking-widest lg:flex">
+        <div className="hidden min-w-0 flex-1 items-center justify-center gap-7 lg:gap-9 text-[13px] font-bold tracking-widest lg:flex">
           {navItems.map((item) => {
             const isActive =
               item.href === currentHash ||
@@ -68,7 +68,7 @@ export function Header({ onOpenConsultation }) {
           <button
             type="button"
             onClick={onOpenConsultation}
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-[6px] bg-[#C97A1E] hover:bg-[#D97706] px-5 py-2.5 text-[13px] font-bold uppercase tracking-wider text-white shadow-[0_4px_14px_rgba(201,122,30,0.35)] transition-all duration-200 hover:scale-[1.02] active:translate-y-px"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-[6px] bg-[#C97A1E] hover:bg-[#D97706] px-6 py-2.5 text-[13px] font-bold uppercase tracking-wider text-white shadow-[0_4px_14px_rgba(201,122,30,0.35)] transition-all duration-200 hover:scale-[1.02] active:translate-y-px"
           >
             LIÊN HỆ NGAY
           </button>
