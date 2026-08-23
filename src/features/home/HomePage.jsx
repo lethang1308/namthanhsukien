@@ -3,6 +3,7 @@ import { FloatingContactWidget } from '../../components/FloatingContactWidget'
 import { scrollToSection } from '../../utils/navigation'
 import { AboutSection } from './components/AboutSection'
 import { ConsultationModal } from './components/ConsultationModal'
+import { CustomerFeedback } from './components/CustomerFeedback'
 import { FeaturedProjects } from './components/FeaturedProjects'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
@@ -101,6 +102,7 @@ export function HomePage() {
           <FeaturedProjects onOpenConsultation={handleOpenConsultation} />
           <StatsCounterBar />
           <ProcessWorkflow onOpenConsultation={handleOpenConsultation} />
+          <CustomerFeedback onOpenConsultation={handleOpenConsultation} />
         </main>
         <Footer onOpenConsultation={handleOpenConsultation} />
       </div>
