@@ -11,12 +11,14 @@ export function Header({ onOpenConsultation }) {
   const navigate = useNavigate()
 
   const isAboutPage = location.pathname === '/gioi-thieu' || location.pathname === '/about'
+  const isNewsPage = location.pathname === '/tin-tuc' || location.pathname === '/news'
+  const isSubPage = isAboutPage || isNewsPage
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 80)
 
-      if (!isAboutPage) {
+      if (!isSubPage) {
         // Dynamically detect active section based on scroll offset on homepage
         const sections = ['home', 'about', 'services', 'projects', 'news']
         const scrollPosition = window.scrollY + 120
@@ -35,10 +37,19 @@ export function Header({ onOpenConsultation }) {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [isAboutPage])
+  }, [isSubPage])
 
   const handleNavClick = (e, item) => {
     e.preventDefault()
+
+    if (item.path === '/tin-tuc') {
+      if (isNewsPage) {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        navigate('/tin-tuc')
+      }
+      return
+    }
 
     if (item.path === '/gioi-thieu') {
       if (isAboutPage) {
@@ -50,7 +61,7 @@ export function Header({ onOpenConsultation }) {
     }
 
     if (item.path === '/') {
-      if (isAboutPage) {
+      if (isSubPage) {
         navigate('/')
         setTimeout(() => {
           window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -63,7 +74,7 @@ export function Header({ onOpenConsultation }) {
     }
 
     // Other section links
-    if (isAboutPage) {
+    if (isSubPage) {
       navigate('/')
       setTimeout(() => {
         scrollToSection(item.targetId)
@@ -99,7 +110,8 @@ export function Header({ onOpenConsultation }) {
           {navItems.map((item) => {
             const isActive =
               (isAboutPage && item.path === '/gioi-thieu') ||
-              (!isAboutPage && item.targetId === activeSection)
+              (isNewsPage && item.path === '/tin-tuc') ||
+              (!isSubPage && item.targetId === activeSection)
 
             return (
               <a

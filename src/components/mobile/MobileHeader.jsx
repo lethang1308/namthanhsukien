@@ -31,9 +31,20 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
   const navigate = useNavigate()
 
   const isAboutPage = location.pathname === '/gioi-thieu' || location.pathname === '/about'
+  const isNewsPage = location.pathname === '/tin-tuc' || location.pathname === '/news'
+  const isSubPage = isAboutPage || isNewsPage
 
   const handleNavClick = (item) => {
     setIsMenuOpen(false)
+
+    if (item.path === '/tin-tuc') {
+      if (isNewsPage) {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        navigate('/tin-tuc')
+      }
+      return
+    }
 
     if (item.path === '/gioi-thieu') {
       if (isAboutPage) {
@@ -45,7 +56,7 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
     }
 
     if (item.path === '/') {
-      if (isAboutPage) {
+      if (isSubPage) {
         navigate('/')
         setTimeout(() => {
           window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -56,7 +67,7 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
       return
     }
 
-    if (isAboutPage) {
+    if (isSubPage) {
       navigate('/')
       setTimeout(() => {
         scrollToSection(item.targetId)
@@ -127,7 +138,8 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
                 const IconComponent = item.icon
                 const isActive =
                   (isAboutPage && item.path === '/gioi-thieu') ||
-                  (!isAboutPage && item.path === '/')
+                  (isNewsPage && item.path === '/tin-tuc') ||
+                  (!isSubPage && item.path === '/')
 
                 return (
                   <button
