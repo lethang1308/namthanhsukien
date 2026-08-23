@@ -47,7 +47,7 @@ export function HomePage() {
             <img
               src={hero.bannerImage}
               alt="Nam Thành Sự Kiện - Tổ chức sự kiện chuyên nghiệp"
-              className="absolute right-0 top-0 h-full w-[72%] object-cover object-[center_48%] opacity-[0.95] lg:w-[66%] xl:w-[62%]"
+              className="absolute right-0 top-0 h-full w-[72%] object-cover object-[center_48%] opacity-[0.95] [mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.08)_4%,rgba(0,0,0,0.5)_13%,#000_28%)] lg:w-[66%] xl:w-[62%]"
               fetchPriority="high"
             />
             {/* Soft wine-red overlays keep the text readable without creating a hard split. */}
@@ -57,6 +57,10 @@ export function HomePage() {
             />
             <div
               className="absolute inset-0 bg-[radial-gradient(circle_at_70%_43%,rgba(255,51,28,0.08)_0%,rgba(111,7,7,0.13)_35%,rgba(48,2,2,0.46)_78%),linear-gradient(90deg,rgba(41,2,2,0.96)_0%,rgba(61,4,4,0.9)_20%,rgba(82,7,7,0.72)_39%,rgba(84,6,6,0.34)_56%,rgba(36,2,2,0.18)_100%)]"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute inset-y-0 left-[34%] w-[18%] bg-[linear-gradient(90deg,rgba(59,5,5,0.24)_0%,rgba(91,7,7,0.14)_44%,transparent_100%)] blur-[18px] xl:left-[38%] xl:w-[16%]"
               aria-hidden="true"
             />
             <div
