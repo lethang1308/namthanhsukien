@@ -1,5 +1,5 @@
 import heroBannerImage from '../../../assets/4a261f7f-d4d6-402e-bbc9-428aed0dea2b.png'
-import aboutStageImage from '../../../assets/fc56a9e7-8deb-45c0-b700-b6989b903136.png'
+import aboutStageImage from '../../../assets/0959a3ca-785c-438e-8d96-be9ae26ad715.jpg'
 import projectOneImage from '../../../assets/2dc36332-eaaf-47a7-8818-37ffb237d2fb.png'
 import projectTwoImage from '../../../assets/66a5e6f8-5e55-456b-bd3e-c47e0f9c99d7.png'
 import projectThreeImage from '../../../assets/2f18b31f-b52b-49b8-ad4c-00aabfaf954d.png'
@@ -19,11 +19,11 @@ export const contact = {
 }
 
 export const navItems = [
-  { label: 'TRANG CHỦ', targetId: 'home' },
-  { label: 'GIỚI THIỆU', targetId: 'about' },
-  { label: 'DỊCH VỤ', targetId: 'services' },
-  { label: 'DỰ ÁN', targetId: 'projects' },
-  { label: 'TIN TỨC', targetId: 'news' },
+  { label: 'TRANG CHỦ', path: '/', targetId: 'home' },
+  { label: 'GIỚI THIỆU', path: '/gioi-thieu', targetId: 'about' },
+  { label: 'DỊCH VỤ', path: '/dich-vu', targetId: 'services' },
+  { label: 'DỰ ÁN', path: '/du-an', targetId: 'projects' },
+  { label: 'TIN TỨC', path: '/tin-tuc', targetId: 'news' },
 ]
 
 export const hero = {

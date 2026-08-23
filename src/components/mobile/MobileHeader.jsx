@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   Article,
   CaretRight,
@@ -17,19 +18,52 @@ import { BrandMark } from '../BrandMark'
 import { contact } from '../../features/home/data/homeContent'
 
 const navMenuList = [
-  { label: 'TRANG CHỦ', targetId: 'home', icon: HouseLine },
-  { label: 'GIỚI THIỆU', targetId: 'about', icon: Sparkle },
-  { label: 'DỊCH VỤ SỰ KIỆN', targetId: 'services', icon: SquaresFour },
-  { label: 'DỰ ÁN TIÊU BIỂU', targetId: 'projects', icon: Images },
-  { label: 'QUY TRÌNH & TIN TỨC', targetId: 'news', icon: Article },
+  { label: 'TRANG CHỦ', path: '/', targetId: 'home', icon: HouseLine },
+  { label: 'GIỚI THIỆU', path: '/gioi-thieu', targetId: 'about', icon: Sparkle },
+  { label: 'DỊCH VỤ SỰ KIỆN', path: '/dich-vu', targetId: 'services', icon: SquaresFour },
+  { label: 'DỰ ÁN TIÊU BIỂU', path: '/du-an', targetId: 'projects', icon: Images },
+  { label: 'QUY TRÌNH & TIN TỨC', path: '/tin-tuc', targetId: 'news', icon: Article },
 ]
 
 export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
 
-  const handleNavClick = (targetId) => {
+  const isAboutPage = location.pathname === '/gioi-thieu' || location.pathname === '/about'
+
+  const handleNavClick = (item) => {
     setIsMenuOpen(false)
-    scrollToSection(targetId)
+
+    if (item.path === '/gioi-thieu') {
+      if (isAboutPage) {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        navigate('/gioi-thieu')
+      }
+      return
+    }
+
+    if (item.path === '/') {
+      if (isAboutPage) {
+        navigate('/')
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }, 100)
+      } else {
+        scrollToSection('home')
+      }
+      return
+    }
+
+    if (isAboutPage) {
+      navigate('/')
+      setTimeout(() => {
+        scrollToSection(item.targetId)
+      }, 150)
+    } else {
+      scrollToSection(item.targetId)
+    }
   }
 
   return (
@@ -39,17 +73,17 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
       >
         <div className="mx-auto flex h-11 max-w-[760px] items-center justify-between gap-2">
           {/* Logo */}
-          <a
-            href="/"
+          <Link
+            to="/"
             onClick={(e) => {
               e.preventDefault()
-              handleNavClick('home')
+              handleNavClick({ path: '/', targetId: 'home' })
             }}
             className="flex min-w-0 shrink-0 items-center cursor-pointer"
             aria-label="Nam Thành Sự Kiện"
           >
             <BrandMark compact markClassName="h-9 w-9" lightText={true} />
-          </a>
+          </Link>
 
           {/* Right Action: LIÊN HỆ NGAY button + Hamburger Menu Toggle */}
           <div className="flex items-center gap-2 sm:gap-3">
@@ -89,28 +123,51 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
           >
             {/* Menu Navigation Card */}
             <div className="divide-y divide-gray-100 rounded-[14px] border border-gray-200/80 bg-white p-1.5 shadow-xs">
-              {navMenuList.map(({ label, targetId, icon: IconComponent }) => (
-                <button
-                  type="button"
-                  key={targetId}
-                  onClick={() => handleNavClick(targetId)}
-                  className="flex w-full items-center justify-between rounded-[10px] px-3.5 py-3 text-left transition-colors duration-150 hover:bg-[#FDF5E8] active:bg-[#FDF0DA] group cursor-pointer"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#7D0D0D]/10 text-[#7D0D0D] transition-colors group-hover:bg-[#D97706] group-hover:text-white">
-                      <IconComponent size={17} weight="bold" />
-                    </span>
-                    <span className="font-['Montserrat',sans-serif] text-[13.5px] font-bold uppercase tracking-wider text-[#27272A] group-hover:text-[#7D0D0D]">
-                      {label}
-                    </span>
-                  </div>
-                  <CaretRight
-                    size={16}
-                    weight="bold"
-                    className="text-gray-400 group-hover:text-[#D97706] group-hover:translate-x-0.5 transition-transform"
-                  />
-                </button>
-              ))}
+              {navMenuList.map((item) => {
+                const IconComponent = item.icon
+                const isActive =
+                  (isAboutPage && item.path === '/gioi-thieu') ||
+                  (!isAboutPage && item.path === '/')
+
+                return (
+                  <button
+                    type="button"
+                    key={item.targetId}
+                    onClick={() => handleNavClick(item)}
+                    className={`flex w-full items-center justify-between rounded-[10px] px-3.5 py-3 text-left transition-colors duration-150 group cursor-pointer ${
+                      isActive ? 'bg-[#FDF5E8] text-[#7D0D0D]' : 'hover:bg-[#FDF5E8] active:bg-[#FDF0DA]'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${
+                          isActive
+                            ? 'bg-[#D97706] text-white'
+                            : 'bg-[#7D0D0D]/10 text-[#7D0D0D] group-hover:bg-[#D97706] group-hover:text-white'
+                        }`}
+                      >
+                        <IconComponent size={17} weight="bold" />
+                      </span>
+                      <span
+                        className={`font-['Montserrat',sans-serif] text-[13.5px] font-bold uppercase tracking-wider ${
+                          isActive ? 'text-[#7D0D0D]' : 'text-[#27272A] group-hover:text-[#7D0D0D]'
+                        }`}
+                      >
+                        {item.label}
+                      </span>
+                    </div>
+                    <CaretRight
+                      size={16}
+                      weight="bold"
+                      className={`transition-transform ${
+                        isActive
+                          ? 'text-[#D97706]'
+                          : 'text-gray-400 group-hover:text-[#D97706] group-hover:translate-x-0.5'
+                      }`}
+                    />
+                  </button>
+                )
+              })}
             </div>
 
             {/* Quick Contact & Consultation Section */}

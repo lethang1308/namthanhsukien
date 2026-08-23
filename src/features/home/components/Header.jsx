@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { BrandMark } from '../../../components/BrandMark'
 import { scrollToSection } from '../../../utils/navigation'
 import { navItems } from '../data/homeContent'
@@ -6,20 +7,26 @@ import { navItems } from '../data/homeContent'
 export function Header({ onOpenConsultation }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const isAboutPage = location.pathname === '/gioi-thieu' || location.pathname === '/about'
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 80)
 
-      // Dynamically detect active section based on scroll offset
-      const sections = ['home', 'about', 'services', 'projects', 'news']
-      const scrollPosition = window.scrollY + 120
+      if (!isAboutPage) {
+        // Dynamically detect active section based on scroll offset on homepage
+        const sections = ['home', 'about', 'services', 'projects', 'news']
+        const scrollPosition = window.scrollY + 120
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i])
-        if (el && el.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i])
-          break
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const el = document.getElementById(sections[i])
+          if (el && el.offsetTop <= scrollPosition) {
+            setActiveSection(sections[i])
+            break
+          }
         }
       }
     }
@@ -28,12 +35,43 @@ export function Header({ onOpenConsultation }) {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [isAboutPage])
 
-  const handleNavClick = (e, targetId) => {
+  const handleNavClick = (e, item) => {
     e.preventDefault()
-    setActiveSection(targetId)
-    scrollToSection(targetId)
+
+    if (item.path === '/gioi-thieu') {
+      if (isAboutPage) {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        navigate('/gioi-thieu')
+      }
+      return
+    }
+
+    if (item.path === '/') {
+      if (isAboutPage) {
+        navigate('/')
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }, 100)
+      } else {
+        setActiveSection('home')
+        scrollToSection('home')
+      }
+      return
+    }
+
+    // Other section links
+    if (isAboutPage) {
+      navigate('/')
+      setTimeout(() => {
+        scrollToSection(item.targetId)
+      }, 150)
+    } else {
+      setActiveSection(item.targetId)
+      scrollToSection(item.targetId)
+    }
   }
 
   return (
@@ -47,25 +85,27 @@ export function Header({ onOpenConsultation }) {
       {/* Main Navbar */}
       <nav className="mx-auto flex h-[88px] max-w-[1360px] items-center justify-between gap-6 px-6 sm:px-8 lg:px-12">
         {/* Brand Logo */}
-        <a
-          href="/"
-          onClick={(e) => handleNavClick(e, 'home')}
+        <Link
+          to="/"
+          onClick={(e) => handleNavClick(e, { path: '/', targetId: 'home' })}
           aria-label="Nam Thành Sự Kiện"
           className="shrink-0 flex items-center cursor-pointer"
         >
           <BrandMark markClassName="h-[56px] w-[56px]" />
-        </a>
+        </Link>
 
         {/* Navigation Links */}
         <div className="hidden min-w-0 flex-1 items-center justify-center gap-7 lg:gap-9 text-[13px] font-bold tracking-widest lg:flex">
           {navItems.map((item) => {
-            const isActive = item.targetId === activeSection
+            const isActive =
+              (isAboutPage && item.path === '/gioi-thieu') ||
+              (!isAboutPage && item.targetId === activeSection)
 
             return (
               <a
                 key={item.label}
-                href="/"
-                onClick={(e) => handleNavClick(e, item.targetId)}
+                href={item.path || '/'}
+                onClick={(e) => handleNavClick(e, item)}
                 className={`relative whitespace-nowrap py-1 transition-colors duration-200 uppercase cursor-pointer ${
                   isActive
                     ? 'text-[#E5A93C] font-bold'
