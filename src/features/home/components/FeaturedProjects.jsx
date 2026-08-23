@@ -25,7 +25,7 @@ export function FeaturedProjects({ onOpenConsultation }) {
           <span className="h-px w-10 sm:w-16 bg-gradient-to-l from-transparent to-[#18181B]/40" />
         </div>
         <p className="mt-2 text-[14px] sm:text-[15px] text-[#71717A] max-w-lg mx-auto">
-          Những dấu ấn sự kiện đẳng cấp được kiến tạo bởi tâm huyết của Nam Thành Sự Kiện
+          Những dấu ấn sự kiện đẳng cấp được kiến tạo bởi tâm huyết của Thành Nam Sự Kiện
         </p>
       </ScrollReveal>
 

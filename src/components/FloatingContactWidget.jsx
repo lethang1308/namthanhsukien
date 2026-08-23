@@ -12,7 +12,7 @@ export function FloatingContactWidget() {
         href={zaloUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat Zalo Nam Thành Sự Kiện"
+        aria-label="Chat Zalo Thành Nam Sự Kiện"
         className="group relative flex items-center justify-center pointer-events-auto"
       >
         {/* Pulsing Ripple Rings */}
@@ -56,7 +56,7 @@ export function FloatingContactWidget() {
       {/* Phone Floating Button */}
       <a
         href={`tel:${hotlineDigits}`}
-        aria-label="Gọi điện Nam Thành Sự Kiện"
+        aria-label="Gọi điện Thành Nam Sự Kiện"
         className="group relative flex items-center justify-center pointer-events-auto"
       >
         {/* Pulsing Ripple Rings */}

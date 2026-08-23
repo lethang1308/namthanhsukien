@@ -41,7 +41,7 @@ export const newsArticles = [
     category: 'ÂM THANH ÁNH SÁNG',
     categoryId: 'am-thanh-anh-sang',
     date: '20/08/2026',
-    author: 'Nam Thành Audio Master',
+    author: 'Thành Nam Audio Master',
     image: img2,
     readTime: '5 phút đọc',
     summary:
@@ -70,7 +70,7 @@ export const newsArticles = [
     category: 'ÂM THANH ÁNH SÁNG',
     categoryId: 'am-thanh-anh-sang',
     date: '18/08/2026',
-    author: 'Nam Thành Lighting Crew',
+    author: 'Thành Nam Lighting Crew',
     image: img1,
     readTime: '4 phút đọc',
     summary:
@@ -102,7 +102,7 @@ export const newsArticles = [
     category: 'KIẾN THỨC SỰ KIỆN',
     categoryId: 'kien-thuc',
     date: '15/08/2026',
-    author: 'Kỹ thuật viên Nam Thành',
+    author: 'Kỹ thuật viên Thành Nam',
     image: img4,
     readTime: '6 phút đọc',
     summary:
@@ -158,7 +158,7 @@ export const newsArticles = [
     category: 'KINH NGHIỆM',
     categoryId: 'kinh-nghiem',
     date: '08/08/2026',
-    author: 'Nam Thành Sự Kiện',
+    author: 'Thành Nam Sự Kiện',
     image: img5,
     readTime: '4 phút đọc',
     summary:
@@ -189,7 +189,7 @@ export const newsArticles = [
     category: 'ÂM THANH ÁNH SÁNG',
     categoryId: 'am-thanh-anh-sang',
     date: '05/08/2026',
-    author: 'Kỹ sư âm thanh Nam Thành',
+    author: 'Kỹ sư âm thanh Thành Nam',
     image: img6,
     readTime: '5 phút đọc',
     summary:
@@ -221,7 +221,7 @@ export const newsArticles = [
     summary:
       'Hình ảnh thực tế trọn gói tổ chức lễ khai trương bao gồm nhà bạt không gian, sân khấu backdrop 3D, âm thanh ánh sáng và múa lân khai lộc.',
     content: `
-      Nam Thành Sự Kiện vừa hoàn thành trọn gói lễ khai trương showroom cao cấp trong 24 giờ thi công liên tục.
+      Thành Nam Sự Kiện vừa hoàn thành trọn gói lễ khai trương showroom cao cấp trong 24 giờ thi công liên tục.
 
       ### Các hạng mục thực hiện:
       - Nhà bạt không gian khẩu độ lớn, phủ trần lụa trắng đỏ sang trọng.
@@ -244,7 +244,7 @@ export const newsArticles = [
     summary:
       'Toàn cảnh đại tiệc cưới 1000 khách với không gian nhà vòm lụa, trần sao lung linh, hệ thống đèn Moving Head và dàn âm thanh MAXO biểu diễn đỉnh cao.',
     content: `
-      Một trong những đại tiệc cưới quy mô hoành tráng bậc nhất được Nam Thành Sự Kiện thiết kế và thi công trọn gói:
+      Một trong những đại tiệc cưới quy mô hoành tráng bậc nhất được Thành Nam Sự Kiện thiết kế và thi công trọn gói:
 
       ### Điểm nhấn ấn tượng:
       - Không gian mái vòm che phủ toàn bộ 1000m² với trần sao dạ quang lấp lánh hàng ngàn bóng LED nhỏ.

@@ -6,7 +6,7 @@ import projectThreeImage from '../../../assets/0736c690-186d-4c7f-8d4d-66e7ac0d7
 import projectFourImage from '../../../assets/d632589a-f3f7-4dfe-a014-a22714e68b9c.jpg'
 
 export const contact = {
-  brandName: 'Nam Thành Sự Kiện',
+  brandName: 'Thành Nam Sự Kiện',
   slogan: 'Tạo nên khoảnh khắc đáng nhớ',
   address: '1A8/LK1/7 tổ 8 khu phố Hoà Lân 2, Phường Thuận Giao, Thành phố Hồ Chí Minh',
   hotline: '0938 161 222',
@@ -15,7 +15,7 @@ export const contact = {
   facebook: 'https://www.facebook.com/Thanhnamsukien',
   email: 'thanhnamsukien81@gmail.com',
   hours: '08:00 - 21:00',
-  website: 'https://namthanhsukien.vn',
+  website: 'https://thanhnamsukien.vn',
 }
 
 export const navItems = [
@@ -28,13 +28,13 @@ export const navItems = [
 
 export const hero = {
   bannerImage: heroBannerImage,
-  brandSmall: 'Nam Thành',
+  brandSmall: 'Thành Nam',
   brandCategory: 'SỰ KIỆN',
   title: 'TỔ CHỨC SỰ KIỆN',
   titleHighlight: 'CHUYÊN NGHIỆP',
   script: 'Tạo nên khoảnh khắc đáng nhớ',
   description:
-    'Nam Thành Sự Kiện mang đến giải pháp tổ chức sự kiện trọn gói, chuyên nghiệp và khác biệt cho mọi khách hàng.',
+    'Thành Nam Sự Kiện mang đến giải pháp tổ chức sự kiện trọn gói, chuyên nghiệp và khác biệt cho mọi khách hàng.',
 }
 
 export const serviceCards = [
@@ -81,9 +81,9 @@ export const aboutUs = {
   description:
     'Với đội ngũ giàu kinh nghiệm, sáng tạo và tận tâm, chúng tôi cam kết mang đến trải nghiệm sự kiện chuyên nghiệp, ấn tượng và khác biệt.',
   subDescription:
-    'Từ khâu lên ý tưởng concept, thiết kế sân khấu 3D, dàn dựng âm thanh ánh sáng hiện đại đến điều phối nhân sự trực tiếp, Nam Thành Sự Kiện luôn là người bạn đồng hành tin cậy kiến tạo những dấu ấn vượt thời gian.',
+    'Từ khâu lên ý tưởng concept, thiết kế sân khấu 3D, dàn dựng âm thanh ánh sáng hiện đại đến điều phối nhân sự trực tiếp, Thành Nam Sự Kiện luôn là người bạn đồng hành tin cậy kiến tạo những dấu ấn vượt thời gian.',
   image: aboutStageImage,
-  alt: 'Sân khấu sự kiện Gala Dinner rực rỡ và chuyên nghiệp do Nam Thành Sự Kiện thực hiện',
+  alt: 'Sân khấu sự kiện Gala Dinner rực rỡ và chuyên nghiệp do Thành Nam Sự Kiện thực hiện',
 }
 
 export const featuredProjects = [
@@ -181,7 +181,7 @@ export const testimonials = [
     name: 'Nguyễn Tiến Dũng',
     role: 'Giám đốc Marketing - Viettel Post',
     quote:
-      'Chương trình Year End Party của công ty chúng tôi diễn ra vô cùng cảm xúc. Đội ngũ Nam Thành làm việc cực kỳ chuyên nghiệp và tận tâm từ khâu chuẩn bị đến phút cuối cùng.',
+      'Chương trình Year End Party của công ty chúng tôi diễn ra vô cùng cảm xúc. Đội ngũ Thành Nam làm việc cực kỳ chuyên nghiệp và tận tâm từ khâu chuẩn bị đến phút cuối cùng.',
   },
   {
     name: 'Trần Minh Hằng',
@@ -193,7 +193,7 @@ export const testimonials = [
     name: 'Vũ Quốc Bảo',
     role: 'CEO - Sun Homes Real Estate',
     quote:
-      'Hội thảo mở bán dự án diễn ra trơn tru không một lỗi kỹ thuật. Rất ấn tượng với khả năng xử lý tình huống linh hoạt của ekip Nam Thành Sự Kiện.',
+      'Hội thảo mở bán dự án diễn ra trơn tru không một lỗi kỹ thuật. Rất ấn tượng với khả năng xử lý tình huống linh hoạt của ekip Thành Nam Sự Kiện.',
   },
 ]
 

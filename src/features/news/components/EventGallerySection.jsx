@@ -65,7 +65,7 @@ export function EventGallerySection({ onOpenConsultation }) {
           <div className="mx-auto my-3.5 h-[3px] w-20 bg-gradient-to-r from-[#D97706] to-[#E5A93C] rounded-full" />
 
           <p className="mt-2 text-[14.5px] sm:text-[15.5px] text-[#52525B] max-w-2xl mx-auto leading-relaxed">
-            Hình ảnh thực tế các dự án âm thanh ánh sáng, sân khấu, nhà bạt và khoảnh khắc đáng nhớ do ekip Nam Thành Sự Kiện kiến tạo.
+            Hình ảnh thực tế các dự án âm thanh ánh sáng, sân khấu, nhà bạt và khoảnh khắc đáng nhớ do ekip Thành Nam Sự Kiện kiến tạo.
           </p>
         </ScrollReveal>
 

@@ -51,7 +51,7 @@ export function MobileNewsPage({ onOpenConsultation }) {
             </h1>
 
             <span className="font-['Playfair_Display',serif] text-[16px] font-bold text-[#F0C554] block mt-1">
-              Nam Thành Sự Kiện
+              Thành Nam Sự Kiện
             </span>
 
             <p
@@ -179,7 +179,7 @@ export function MobileNewsPage({ onOpenConsultation }) {
                   Tư vấn & Báo giá 24/7
                 </h4>
                 <p className="text-[10px] text-gray-300 mt-0.5 line-clamp-1">
-                  Đội ngũ kỹ thuật Nam Thành luôn sẵn sàng phục vụ!
+                  Đội ngũ kỹ thuật Thành Nam luôn sẵn sàng phục vụ!
                 </p>
               </div>
             </div>

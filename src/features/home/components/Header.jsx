@@ -1,18 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { CaretDown } from '@phosphor-icons/react'
 import { BrandMark } from '../../../components/BrandMark'
 import { scrollToSection } from '../../../utils/navigation'
 import { navItems } from '../data/homeContent'
+import { serviceNavList } from '../../services/data/servicesContent'
 
 export function Header({ onOpenConsultation }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [isServiceHovered, setIsServiceHovered] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
 
-  const isAboutPage = location.pathname === '/gioi-thieu' || location.pathname === '/about'
-  const isNewsPage = location.pathname === '/tin-tuc' || location.pathname === '/news'
-  const isSubPage = isAboutPage || isNewsPage
+  const isAboutPage =
+    location.pathname === '/gioi-thieu' || location.pathname === '/about'
+  const isNewsPage =
+    location.pathname.startsWith('/tin-tuc') || location.pathname.startsWith('/news')
+  const isServicePage = location.pathname.startsWith('/dich-vu')
+  const isSubPage = isAboutPage || isNewsPage || isServicePage
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,8 +48,14 @@ export function Header({ onOpenConsultation }) {
   const handleNavClick = (e, item) => {
     e.preventDefault()
 
+    if (item.targetId === 'services') {
+      // Toggle or keep dropdown open, default navigate to first service if clicked directly
+      navigate('/dich-vu/cho-thue-am-thanh')
+      return
+    }
+
     if (item.path === '/tin-tuc') {
-      if (isNewsPage) {
+      if (isNewsPage && location.pathname === '/tin-tuc') {
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else {
         navigate('/tin-tuc')
@@ -85,6 +97,11 @@ export function Header({ onOpenConsultation }) {
     }
   }
 
+  const handleServiceSelect = (path) => {
+    setIsServiceHovered(false)
+    navigate(path)
+  }
+
   return (
     <header
       className={`sticky top-0 z-40 transition-colors duration-300 ${
@@ -99,7 +116,7 @@ export function Header({ onOpenConsultation }) {
         <Link
           to="/"
           onClick={(e) => handleNavClick(e, { path: '/', targetId: 'home' })}
-          aria-label="Nam Thành Sự Kiện"
+          aria-label="Thành Nam Sự Kiện"
           className="shrink-0 flex items-center cursor-pointer"
         >
           <BrandMark markClassName="h-[56px] w-[56px]" />
@@ -108,10 +125,91 @@ export function Header({ onOpenConsultation }) {
         {/* Navigation Links */}
         <div className="hidden min-w-0 flex-1 items-center justify-center gap-7 lg:gap-9 text-[13px] font-bold tracking-widest lg:flex">
           {navItems.map((item) => {
+            const isServiceMenu = item.targetId === 'services'
             const isActive =
               (isAboutPage && item.path === '/gioi-thieu') ||
               (isNewsPage && item.path === '/tin-tuc') ||
+              (isServicePage && isServiceMenu) ||
               (!isSubPage && item.targetId === activeSection)
+
+            if (isServiceMenu) {
+              return (
+                <div
+                  key={item.label}
+                  className="relative py-4"
+                  onMouseEnter={() => setIsServiceHovered(true)}
+                  onMouseLeave={() => setIsServiceHovered(false)}
+                >
+                  <button
+                    type="button"
+                    onClick={(e) => handleNavClick(e, item)}
+                    className={`relative inline-flex items-center gap-1.5 py-1 transition-colors duration-200 uppercase cursor-pointer ${
+                      isActive
+                        ? 'text-[#E5A93C] font-bold'
+                        : 'text-white/90 hover:text-[#E5A93C]'
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    <CaretDown
+                      size={13}
+                      weight="bold"
+                      className={`transition-transform duration-200 ${
+                        isServiceHovered ? 'rotate-180 text-[#E5A93C]' : ''
+                      }`}
+                    />
+                  </button>
+
+                  {/* Desktop Modern Glass Dropdown Menu */}
+                  {isServiceHovered && (
+                    <div className="absolute left-1/2 top-full -translate-x-1/2 w-[310px] rounded-[16px] border border-[#E5A93C]/40 bg-[#1D0303]/96 p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.7)] backdrop-blur-md animate-fade-in text-left z-50">
+                      <div className="space-y-1">
+                        {serviceNavList.map((svc) => {
+                          const IconComp = svc.icon
+                          const isCurrentService = location.pathname === svc.path
+
+                          return (
+                            <Link
+                              key={svc.id}
+                              to={svc.path}
+                              onClick={() => handleServiceSelect(svc.path)}
+                              className={`flex items-start gap-3 rounded-[10px] p-2.5 transition-all duration-150 group cursor-pointer ${
+                                isCurrentService
+                                  ? 'bg-[#7D0D0D] text-[#FDE68A]'
+                                  : 'hover:bg-[#3D0808] text-white'
+                              }`}
+                            >
+                              <div
+                                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${
+                                  isCurrentService
+                                    ? 'bg-[#D97706] text-white'
+                                    : 'bg-[#7D0D0D]/60 text-[#FDE68A] group-hover:bg-[#D97706] group-hover:text-white'
+                                }`}
+                              >
+                                <IconComp size={18} weight="bold" />
+                              </div>
+                              <div className="min-w-0">
+                                <h4
+                                  className={`text-[13px] font-bold uppercase tracking-wider ${
+                                    isCurrentService
+                                      ? 'text-[#FDE68A]'
+                                      : 'text-white group-hover:text-[#FDE68A]'
+                                  }`}
+                                >
+                                  {svc.label}
+                                </h4>
+                                <p className="text-[11px] text-gray-300 line-clamp-1 leading-normal font-normal mt-0.5">
+                                  {svc.desc}
+                                </p>
+                              </div>
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )
+            }
 
             return (
               <a

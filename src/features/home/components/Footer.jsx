@@ -37,7 +37,7 @@ export function Footer({ onOpenConsultation }) {
               href={contact.facebook || 'https://www.facebook.com/Thanhnamsukien'}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Facebook Nam Thành Sự Kiện"
+              aria-label="Facebook Thành Nam Sự Kiện"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#E5A93C] hover:text-[#140202] transition-colors cursor-pointer"
             >
               <FacebookLogo size={18} weight="fill" />
@@ -163,7 +163,7 @@ export function Footer({ onOpenConsultation }) {
 
       {/* Copyright Bar */}
       <div className="border-t border-white/10 bg-[#0E0202] py-4 text-center text-[12px] text-white/60">
-        <p>© 2026 {contact.brandName}. Bản quyền thuộc về Nam Thành Sự Kiện. All rights reserved.</p>
+        <p>© 2026 {contact.brandName}. Bản quyền thuộc về Thành Nam Sự Kiện. All rights reserved.</p>
       </div>
     </FadeUpSection>
   )

@@ -36,7 +36,7 @@ export function CustomerFeedback({ _onOpenConsultation }) {
           <div className="mx-auto my-3.5 h-[3px] w-20 bg-gradient-to-r from-[#D97706] to-[#E5A93C] rounded-full" />
 
           <p className="mt-2 text-[14.5px] sm:text-[15.5px] text-[#52525B] max-w-2xl mx-auto leading-relaxed">
-            Sự hài lòng và tin tưởng của hàng trăm doanh nghiệp, tổ chức là minh chứng rõ nhất cho chất lượng và uy tín của Nam Thành Sự Kiện.
+            Sự hài lòng và tin tưởng của hàng trăm doanh nghiệp, tổ chức là minh chứng rõ nhất cho chất lượng và uy tín của Thành Nam Sự Kiện.
           </p>
         </ScrollReveal>
 

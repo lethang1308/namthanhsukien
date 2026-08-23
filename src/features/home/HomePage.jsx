@@ -64,7 +64,7 @@ export function HomePage() {
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
             <img
               src={hero.bannerImage}
-              alt="Nam Thành Sự Kiện - Tổ chức sự kiện chuyên nghiệp"
+              alt="Thành Nam Sự Kiện - Tổ chức sự kiện chuyên nghiệp"
               className="absolute right-0 top-0 h-full w-[72%] object-cover object-[center_48%] opacity-[0.95] [mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.08)_4%,rgba(0,0,0,0.5)_13%,#000_28%)] lg:w-[66%] xl:w-[62%]"
               fetchPriority="high"
             />

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   Article,
+  CaretDown,
   CaretRight,
   EnvelopeSimple,
   HouseLine,
@@ -16,29 +17,45 @@ import {
 import { scrollToSection } from '../../utils/navigation'
 import { BrandMark } from '../BrandMark'
 import { contact } from '../../features/home/data/homeContent'
+import { serviceNavList } from '../../features/services/data/servicesContent'
 
 const navMenuList = [
   { label: 'TRANG CHỦ', path: '/', targetId: 'home', icon: HouseLine },
   { label: 'GIỚI THIỆU', path: '/gioi-thieu', targetId: 'about', icon: Sparkle },
-  { label: 'DỊCH VỤ SỰ KIỆN', path: '/dich-vu', targetId: 'services', icon: SquaresFour },
+  {
+    label: 'DỊCH VỤ SỰ KIỆN',
+    path: '/dich-vu',
+    targetId: 'services',
+    icon: SquaresFour,
+    isDropdown: true,
+  },
   { label: 'DỰ ÁN TIÊU BIỂU', path: '/du-an', targetId: 'projects', icon: Images },
   { label: 'QUY TRÌNH & TIN TỨC', path: '/tin-tuc', targetId: 'news', icon: Article },
 ]
 
 export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isServiceSubmenuOpen, setIsServiceSubmenuOpen] = useState(true)
   const location = useLocation()
   const navigate = useNavigate()
 
-  const isAboutPage = location.pathname === '/gioi-thieu' || location.pathname === '/about'
-  const isNewsPage = location.pathname === '/tin-tuc' || location.pathname === '/news'
-  const isSubPage = isAboutPage || isNewsPage
+  const isAboutPage =
+    location.pathname === '/gioi-thieu' || location.pathname === '/about'
+  const isNewsPage =
+    location.pathname.startsWith('/tin-tuc') || location.pathname.startsWith('/news')
+  const isServicePage = location.pathname.startsWith('/dich-vu')
+  const isSubPage = isAboutPage || isNewsPage || isServicePage
 
   const handleNavClick = (item) => {
+    if (item.isDropdown) {
+      setIsServiceSubmenuOpen((prev) => !prev)
+      return
+    }
+
     setIsMenuOpen(false)
 
     if (item.path === '/tin-tuc') {
-      if (isNewsPage) {
+      if (isNewsPage && location.pathname === '/tin-tuc') {
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else {
         navigate('/tin-tuc')
@@ -77,6 +94,11 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
     }
   }
 
+  const handleServiceSelect = (path) => {
+    setIsMenuOpen(false)
+    navigate(path)
+  }
+
   return (
     <>
       <header
@@ -91,7 +113,7 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
               handleNavClick({ path: '/', targetId: 'home' })
             }}
             className="flex min-w-0 shrink-0 items-center cursor-pointer"
-            aria-label="Nam Thành Sự Kiện"
+            aria-label="Thành Nam Sự Kiện"
           >
             <BrandMark compact markClassName="h-9 w-9" lightText={true} />
           </Link>
@@ -136,10 +158,85 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
             <div className="divide-y divide-gray-100 rounded-[14px] border border-gray-200/80 bg-white p-1.5 shadow-xs">
               {navMenuList.map((item) => {
                 const IconComponent = item.icon
+                const isServiceMenu = item.targetId === 'services'
                 const isActive =
                   (isAboutPage && item.path === '/gioi-thieu') ||
                   (isNewsPage && item.path === '/tin-tuc') ||
+                  (isServicePage && isServiceMenu) ||
                   (!isSubPage && item.path === '/')
+
+                if (isServiceMenu) {
+                  return (
+                    <div key={item.targetId} className="rounded-[10px] overflow-hidden">
+                      <button
+                        type="button"
+                        onClick={() => handleNavClick(item)}
+                        className={`flex w-full items-center justify-between rounded-[10px] px-3.5 py-3 text-left transition-colors duration-150 group cursor-pointer ${
+                          isActive
+                            ? 'bg-[#FDF5E8] text-[#7D0D0D]'
+                            : 'hover:bg-[#FDF5E8] active:bg-[#FDF0DA]'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${
+                              isActive
+                                ? 'bg-[#D97706] text-white'
+                                : 'bg-[#7D0D0D]/10 text-[#7D0D0D] group-hover:bg-[#D97706] group-hover:text-white'
+                            }`}
+                          >
+                            <IconComponent size={17} weight="bold" />
+                          </span>
+                          <span
+                            className={`font-['Montserrat',sans-serif] text-[13.5px] font-bold uppercase tracking-wider ${
+                              isActive
+                                ? 'text-[#7D0D0D]'
+                                : 'text-[#27272A] group-hover:text-[#7D0D0D]'
+                            }`}
+                          >
+                            {item.label}
+                          </span>
+                        </div>
+                        <CaretDown
+                          size={16}
+                          weight="bold"
+                          className={`transition-transform duration-200 ${
+                            isServiceSubmenuOpen ? 'rotate-180 text-[#D97706]' : 'text-gray-400'
+                          }`}
+                        />
+                      </button>
+
+                      {/* Mobile Expandable Sub-Services */}
+                      {isServiceSubmenuOpen && (
+                        <div className="my-1 ml-4 mr-1 pl-3 border-l-2 border-[#E5A93C]/40 space-y-1 py-1">
+                          {serviceNavList.map((svc) => {
+                            const SvcIcon = svc.icon
+                            const isCurrentSvc = location.pathname === svc.path
+
+                            return (
+                              <button
+                                type="button"
+                                key={svc.id}
+                                onClick={() => handleServiceSelect(svc.path)}
+                                className={`flex w-full items-center justify-between rounded-[8px] px-3 py-2.5 text-left text-[12.5px] font-bold uppercase transition-colors ${
+                                  isCurrentSvc
+                                    ? 'bg-[#7D0D0D] text-[#FDE68A]'
+                                    : 'text-[#3F3F46] hover:bg-[#FDF5E8] hover:text-[#7D0D0D]'
+                                }`}
+                              >
+                                <div className="flex items-center gap-2.5">
+                                  <SvcIcon size={16} weight="bold" />
+                                  <span>{svc.label}</span>
+                                </div>
+                                <CaretRight size={13} weight="bold" />
+                              </button>
+                            )
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  )
+                }
 
                 return (
                   <button
@@ -147,7 +244,9 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
                     key={item.targetId}
                     onClick={() => handleNavClick(item)}
                     className={`flex w-full items-center justify-between rounded-[10px] px-3.5 py-3 text-left transition-colors duration-150 group cursor-pointer ${
-                      isActive ? 'bg-[#FDF5E8] text-[#7D0D0D]' : 'hover:bg-[#FDF5E8] active:bg-[#FDF0DA]'
+                      isActive
+                        ? 'bg-[#FDF5E8] text-[#7D0D0D]'
+                        : 'hover:bg-[#FDF5E8] active:bg-[#FDF0DA]'
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -194,42 +293,43 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
                     <Phone size={18} weight="fill" />
                   </div>
                   <div>
-                    <span className="block text-[11px] font-semibold text-gray-500 uppercase tracking-tight">
+                    <span className="text-[10px] font-bold uppercase text-[#9E1C1C] block">
                       Hotline tư vấn 24/7
                     </span>
-                    <span className="font-['Montserrat',sans-serif] text-[14.5px] font-black text-[#92400E]">
+                    <span className="font-['Montserrat',sans-serif] text-[14px] font-black text-[#18181B] tracking-wide">
                       {contact.hotline}
                     </span>
                   </div>
                 </div>
-                <span className="rounded-[6px] bg-[#D97706] px-3 py-1.5 text-[11px] font-extrabold uppercase text-white shadow-xs">
-                  GỌI NGAY
+                <span className="rounded-full bg-[#D97706] px-2.5 py-1 text-[10.5px] font-bold text-white uppercase">
+                  Gọi ngay
                 </span>
               </a>
 
-              {/* Consultation CTA Button */}
+              {/* Consultation Button */}
               <button
                 type="button"
                 onClick={() => {
                   setIsMenuOpen(false)
-                  if (onOpenConsultation) onOpenConsultation()
+                  onOpenConsultation()
                 }}
-                className="flex w-full items-center justify-center rounded-[10px] bg-[#780D0D] hover:bg-[#961212] py-3 text-[13px] font-extrabold uppercase tracking-wider text-white shadow-[0_4px_14px_rgba(120,13,13,0.3)] active:scale-[0.98] transition-all cursor-pointer"
+                className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#7D0D0D] py-3 text-[12.5px] font-bold uppercase text-white shadow-md active:scale-98 transition-transform"
               >
-                ĐĂNG KÝ BÁO GIÁ SỰ KIỆN
+                <Sparkle size={16} weight="fill" className="text-[#FDE68A]" />
+                Đăng ký nhận báo giá sự kiện
               </button>
             </div>
 
-            {/* Location & Email Details */}
-            <div className="mt-3.5 rounded-[12px] bg-gray-50 border border-gray-100 p-3 space-y-2 text-[12px] text-gray-600">
-              <p className="flex items-start gap-2 leading-relaxed">
-                <MapPin size={15} weight="bold" className="shrink-0 text-[#D97706] mt-0.5" />
-                <span>{contact.address}</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <EnvelopeSimple size={15} weight="bold" className="shrink-0 text-[#D97706]" />
+            {/* Quick Address & Email */}
+            <div className="mt-3.5 rounded-[12px] bg-white p-3 text-[11px] text-[#52525B] border border-gray-100 space-y-1.5">
+              <div className="flex items-start gap-1.5">
+                <MapPin size={14} weight="fill" className="shrink-0 text-[#9E1C1C] mt-0.5" />
+                <span className="line-clamp-2">{contact.address}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <EnvelopeSimple size={14} weight="fill" className="shrink-0 text-[#9E1C1C]" />
                 <span>{contact.email}</span>
-              </p>
+              </div>
             </div>
           </div>
         </div>

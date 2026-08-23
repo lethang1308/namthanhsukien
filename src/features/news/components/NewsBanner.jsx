@@ -45,7 +45,7 @@ export function NewsBanner({ onOpenConsultation }) {
         {/* Eyebrow & Slogan */}
         <div className="mt-2">
           <span className="font-['Playfair_Display',serif] text-[20px] sm:text-[24px] font-bold text-[#F0C554] tracking-wide block">
-            Nam Thành Sự Kiện
+            Thành Nam Sự Kiện
           </span>
           <p
             className="font-script text-[30px] sm:text-[36px] md:text-[40px] text-[#F1C95B] leading-tight select-none mt-1"

@@ -51,7 +51,7 @@ export function MobileHomePage({ onOpenConsultation, onOpenVideo }) {
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
             <img
               src={hero.bannerImage}
-              alt="Không gian tổ chức sự kiện chuyên nghiệp Nam Thành"
+              alt="Không gian tổ chức sự kiện chuyên nghiệp Thành Nam"
               className="absolute right-0 top-0 h-full w-[70%] object-cover object-[center_35%] opacity-[0.92] [mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.15)_10%,#000_35%)]"
               fetchPriority="high"
             />
@@ -301,7 +301,7 @@ export function MobileHomePage({ onOpenConsultation, onOpenVideo }) {
               <span className="h-px w-8 bg-[#18181B]/30" />
             </div>
             <p className="mt-1 text-[11.5px] text-[#71717A] max-w-xs mx-auto">
-              Đánh giá thực tế từ các doanh nghiệp & đối tác đã đồng hành cùng Nam Thành
+              Đánh giá thực tế từ các doanh nghiệp & đối tác đã đồng hành cùng Thành Nam
             </p>
           </div>
 
@@ -362,7 +362,7 @@ export function MobileHomePage({ onOpenConsultation, onOpenVideo }) {
                   Đáng nhớ cùng bạn?
                 </h4>
                 <p className="text-[10px] text-gray-300 mt-0.5 line-clamp-1">
-                  Đội ngũ Nam Thành luôn sẵn sàng tư vấn giải pháp phù hợp nhất!
+                  Đội ngũ Thành Nam luôn sẵn sàng tư vấn giải pháp phù hợp nhất!
                 </p>
               </div>
             </div>

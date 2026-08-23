@@ -13,18 +13,18 @@ import {
 export const aboutData = {
   banner: {
     title: 'GIỚI THIỆU',
-    eyebrow: 'NAM THÀNH SỰ KIỆN',
+    eyebrow: 'THÀNH NAM SỰ KIỆN',
     slogan: 'Kiến tạo những sự kiện chuyên nghiệp và đáng nhớ.',
     breadcrumb: 'Trang chủ / Giới thiệu',
   },
   story: {
-    tag: 'VỀ NAM THÀNH SỰ KIỆN',
+    tag: 'VỀ THÀNH NAM SỰ KIỆN',
     mainTitle: 'ĐỒNG HÀNH CÙNG MỌI SỰ KIỆN THÀNH CÔNG',
     subTitle: 'Chúng tôi biến ý tưởng thành những sự kiện đẳng cấp và khác biệt',
     paragraphs: [
-      'Nam Thành Sự Kiện là đơn vị cung cấp các giải pháp tổ chức sự kiện và cho thuê thiết bị sự kiện chuyên nghiệp hàng đầu.',
+      'Thành Nam Sự Kiện là đơn vị cung cấp các giải pháp tổ chức sự kiện và cho thuê thiết bị sự kiện chuyên nghiệp hàng đầu.',
       'Chúng tôi cung cấp hệ thống âm thanh, ánh sáng, màn hình LED, sân khấu và các thiết bị phụ trợ đáp ứng đa dạng quy mô chương trình từ hội nghị, khai trương, tiệc cưới, gala dinner đến các sự kiện ngoài trời.',
-      'Với đội ngũ kỹ thuật giàu kinh nghiệm cùng hệ thống thiết bị được đầu tư đồng bộ, Nam Thành luôn hướng tới chất lượng, sự chỉn chu và hiệu quả trong từng chương trình.',
+      'Với đội ngũ kỹ thuật giàu kinh nghiệm cùng hệ thống thiết bị được đầu tư đồng bộ, Thành Nam luôn hướng tới chất lượng, sự chỉn chu và hiệu quả trong từng chương trình.',
       'Hệ thống thiết bị đồng bộ, kỹ thuật viên được đào tạo chuyên sâu và liên tục nâng cấp thiết bị công nghệ tiên tiến.',
     ],
     image: aboutStageHero || aboutMissionImage,

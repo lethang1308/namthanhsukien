@@ -175,7 +175,7 @@ export function NewsDetailPage() {
                 className="w-full aspect-[16/10] object-cover"
               />
               <div className="p-3 bg-[#1C0303] text-center text-[12px] text-gray-300 border-t border-white/10">
-                Ảnh thực tế: {article.title} - Nam Thành Sự Kiện
+                Ảnh thực tế: {article.title} - Thành Nam Sự Kiện
               </div>
             </div>
 
@@ -217,14 +217,14 @@ export function NewsDetailPage() {
             <div className="mt-12 rounded-[18px] bg-gradient-to-br from-[#380404] via-[#240303] to-[#160202] border-2 border-[#E5A93C]/40 p-6 sm:p-8 text-white shadow-xl">
               <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 text-center sm:text-left">
                 <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#E5A93C]/20 border-2 border-[#E5A93C] text-[#FDE68A] font-['Playfair_Display',serif] text-[24px] font-black shadow-md">
-                  NT
+                  TN
                 </div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[12px] uppercase font-bold tracking-widest text-[#E5A93C] block">
                     Đơn Vị Đồng Hành Cùng Mọi Sự Kiện Thành Công
                   </span>
                   <h4 className="font-['Montserrat',sans-serif] text-[20px] font-black uppercase text-white mt-1">
-                    Nam Thành Sự Kiện
+                    Thành Nam Sự Kiện
                   </h4>
                   <p className="text-[13.5px] text-gray-300 mt-1 leading-relaxed">
                     Chuyên cung cấp trọn gói âm thanh ánh sáng, màn hình LED, sân khấu, nhà bạt và tổ chức sự kiện chuyên nghiệp với chi phí tối ưu nhất.

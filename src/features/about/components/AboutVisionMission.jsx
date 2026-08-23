@@ -27,7 +27,7 @@ export function AboutVisionMission() {
           <div className="mx-auto my-3.5 h-[3px] w-20 bg-gradient-to-r from-[#D97706] to-[#E5A93C] rounded-full" />
 
           <p className="mt-2 text-[14.5px] sm:text-[15.5px] text-[#52525B] max-w-2xl mx-auto leading-relaxed">
-            Kim chỉ nam dẫn dắt Nam Thành Sự Kiện không ngừng vươn xa và mang lại giá trị thiết thực cho khách hàng.
+            Kim chỉ nam dẫn dắt Thành Nam Sự Kiện không ngừng vươn xa và mang lại giá trị thiết thực cho khách hàng.
           </p>
         </ScrollReveal>
 

@@ -25,7 +25,7 @@ export function VideoModal({ isOpen, onClose }) {
           <iframe
             className="h-full w-full"
             src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1"
-            title="Video Giới Thiệu Nam Thành Sự Kiện"
+            title="Video Giới Thiệu Thành Nam Sự Kiện"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
@@ -36,7 +36,7 @@ export function VideoModal({ isOpen, onClose }) {
             Video Giới Thiệu
           </span>
           <h3 className="mt-1 text-[20px] font-bold">
-            Nam Thành Sự Kiện - Hành Trình Kiến Tạo Khoảnh Khắc Đáng Nhớ
+            Thành Nam Sự Kiện - Hành Trình Kiến Tạo Khoảnh Khắc Đáng Nhớ
           </h3>
           <p className="mt-1 text-[13.5px] text-gray-300">
             Tổng hợp các khoảnh khắc ấn tượng tại các lễ khai trương, tiệc tất niên, gala dinner và sự kiện cưới hỏi hoàng gia.

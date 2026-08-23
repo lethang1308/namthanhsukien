@@ -45,7 +45,7 @@ export function BrandMark({ compact = false, markClassName = '', lightText = tru
             opacity="0.85"
           />
 
-          {/* Monogram NT */}
+          {/* Monogram TN */}
           <text
             x="50"
             y="61"
@@ -56,7 +56,7 @@ export function BrandMark({ compact = false, markClassName = '', lightText = tru
             fill="url(#goldHexGrad)"
             letterSpacing="-0.5"
           >
-            NT
+            TN
           </text>
         </svg>
       </div>
@@ -66,7 +66,7 @@ export function BrandMark({ compact = false, markClassName = '', lightText = tru
         <span
           className="font-['Playfair_Display',Georgia,serif] text-[24px] md:text-[26px] font-bold tracking-tight text-[#E5A93C] drop-shadow-sm leading-tight"
         >
-          Nam Thành
+          Thành Nam
         </span>
         <span
           className={`text-[12.5px] md:text-[13px] font-black tracking-[0.22em] mt-0.5 uppercase ${

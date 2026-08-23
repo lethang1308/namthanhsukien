@@ -82,7 +82,7 @@ export function MobileAboutPage({ onOpenConsultation }) {
           <div className="my-4 overflow-hidden rounded-[14px] border border-[#E5A93C]/30 shadow-md">
             <img
               src={story.image}
-              alt="Nam Thành Sự Kiện"
+              alt="Thành Nam Sự Kiện"
               className="w-full aspect-[16/10] object-cover"
               loading="lazy"
             />
@@ -339,7 +339,7 @@ export function MobileAboutPage({ onOpenConsultation }) {
                   Đáng nhớ cùng bạn?
                 </h4>
                 <p className="text-[10px] text-gray-300 mt-0.5 line-clamp-1">
-                  Đội ngũ Nam Thành luôn sẵn sàng tư vấn giải pháp phù hợp nhất!
+                  Đội ngũ Thành Nam luôn sẵn sàng tư vấn giải pháp phù hợp nhất!
                 </p>
               </div>
             </div>

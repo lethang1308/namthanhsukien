@@ -21,7 +21,7 @@ export function AboutStorySection({ onOpenConsultation }) {
               <div className="relative group overflow-hidden rounded-[20px] border-2 border-[#E5A93C]/40 bg-[#160404] shadow-[0_15px_40px_rgba(40,4,4,0.2)]">
                 <img
                   src={story.image}
-                  alt="Không gian tổ chức sự kiện chuyên nghiệp Nam Thành"
+                  alt="Không gian tổ chức sự kiện chuyên nghiệp Thành Nam"
                   className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
@@ -32,7 +32,7 @@ export function AboutStorySection({ onOpenConsultation }) {
                 {/* Image Overlay Label */}
                 <div className="absolute bottom-6 inset-x-6 text-white text-center">
                   <span className="font-['Playfair_Display',serif] text-[20px] font-bold text-[#F0C554] block">
-                    Nam Thành Sự Kiện
+                    Thành Nam Sự Kiện
                   </span>
                   <span className="text-[12px] uppercase tracking-widest text-white/90">
                     Trọn Gói • Đẳng Cấp • Chuyên Nghiệp

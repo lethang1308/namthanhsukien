@@ -49,7 +49,7 @@ export function ConsultationModal({ isOpen, onClose }) {
               Đăng Ký Thành Công!
             </h3>
             <p className="mt-2 text-[14px] text-gray-300 max-w-sm mx-auto">
-              Chuyên viên tư vấn của Nam Thành Sự Kiện sẽ liên hệ lại với bạn trong vòng 15 phút.
+              Chuyên viên tư vấn của Thành Nam Sự Kiện sẽ liên hệ lại với bạn trong vòng 15 phút.
             </p>
           </div>
         ) : (
@@ -60,7 +60,7 @@ export function ConsultationModal({ isOpen, onClose }) {
                 ĐĂNG KÝ TƯ VẤN & BÁO GIÁ
               </span>
               <h3 className="mt-1 font-[var(--font-display)] text-[22px] sm:text-[25px] font-black uppercase text-white">
-                Nam Thành Sự Kiện
+                Thành Nam Sự Kiện
               </h3>
               <p className="mt-1 text-[13px] text-gray-300">
                 Nhận giải pháp trọn gói và bảng dự toán chi phí chi tiết miễn phí
