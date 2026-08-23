@@ -1,4 +1,5 @@
 import { Phone } from '@phosphor-icons/react'
+import { scrollToSection } from '../../utils/navigation'
 import { BrandMark } from '../BrandMark'
 import { contact } from '../../features/home/data/homeContent'
 
@@ -8,7 +9,12 @@ export function MobileHeader({ zIndexClass = 'z-40' }) {
       className={`sticky top-0 ${zIndexClass} border-b border-[#E5A93C]/40 bg-gradient-to-r from-[#2A0505] via-[#1A0303] to-[#2A0505] px-3 py-2 text-white shadow-[0_10px_25px_rgba(0,0,0,0.4)] backdrop-blur-md`}
     >
       <div className="mx-auto flex h-11 max-w-[760px] items-center justify-between gap-2">
-        <a href="#home" className="flex min-w-0 shrink-0 items-center gap-2" aria-label="Nam Thành Sự Kiện">
+        <a
+          href="/"
+          onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
+          className="flex min-w-0 shrink-0 items-center gap-2 cursor-pointer"
+          aria-label="Nam Thành Sự Kiện"
+        >
           <BrandMark compact markClassName="h-9 w-9" lightText={true} />
         </a>
 

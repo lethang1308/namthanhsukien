@@ -1,29 +1,40 @@
 import { useState, useEffect } from 'react'
 import { BrandMark } from '../../../components/BrandMark'
+import { scrollToSection } from '../../../utils/navigation'
 import { navItems } from '../data/homeContent'
 
 export function Header({ onOpenConsultation }) {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [currentHash, setCurrentHash] = useState(
-    typeof window !== 'undefined' ? window.location.hash || '#home' : '#home'
-  )
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 80)
-    }
 
-    const handleHash = () => {
-      setCurrentHash(window.location.hash || '#home')
+      // Dynamically detect active section based on scroll offset
+      const sections = ['home', 'about', 'services', 'projects', 'news']
+      const scrollPosition = window.scrollY + 120
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i])
+        if (el && el.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i])
+          break
+        }
+      }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    window.addEventListener('hashchange', handleHash)
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('hashchange', handleHash)
     }
   }, [])
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault()
+    setActiveSection(targetId)
+    scrollToSection(targetId)
+  }
 
   return (
     <header
@@ -36,22 +47,26 @@ export function Header({ onOpenConsultation }) {
       {/* Main Navbar */}
       <nav className="mx-auto flex h-[88px] max-w-[1360px] items-center justify-between gap-6 px-6 sm:px-8 lg:px-12">
         {/* Brand Logo */}
-        <a href="#home" aria-label="Nam Thành Sự Kiện" className="shrink-0 flex items-center">
+        <a
+          href="/"
+          onClick={(e) => handleNavClick(e, 'home')}
+          aria-label="Nam Thành Sự Kiện"
+          className="shrink-0 flex items-center cursor-pointer"
+        >
           <BrandMark markClassName="h-[56px] w-[56px]" />
         </a>
 
         {/* Navigation Links */}
         <div className="hidden min-w-0 flex-1 items-center justify-center gap-7 lg:gap-9 text-[13px] font-bold tracking-widest lg:flex">
           {navItems.map((item) => {
-            const isActive =
-              item.href === currentHash ||
-              (item.href === '#home' && (currentHash === '' || currentHash === '#home'))
+            const isActive = item.targetId === activeSection
 
             return (
               <a
                 key={item.label}
-                href={item.href}
-                className={`relative whitespace-nowrap py-1 transition-colors duration-200 uppercase ${
+                href="/"
+                onClick={(e) => handleNavClick(e, item.targetId)}
+                className={`relative whitespace-nowrap py-1 transition-colors duration-200 uppercase cursor-pointer ${
                   isActive
                     ? 'text-[#E5A93C] font-bold'
                     : 'text-white/90 hover:text-[#E5A93C]'

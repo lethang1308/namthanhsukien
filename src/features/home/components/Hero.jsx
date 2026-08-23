@@ -84,7 +84,7 @@ export function Hero({ onOpenConsultation, onOpenVideo }) {
         </div>
 
         {/* 5 Crimson Service Cards Bar (Floating Box inside Hero Container) */}
-        <div className="mx-auto w-full max-w-[1360px] px-6 sm:px-8 lg:px-12 mt-12 md:mt-16 lg:mt-20">
+        <div id="services" className="mx-auto w-full max-w-[1360px] px-6 sm:px-8 lg:px-12 mt-12 md:mt-16 lg:mt-20">
           <div className="overflow-hidden rounded-[8px] border border-[#E5A93C]/36 bg-[#7F0D0D]/58 shadow-[0_10px_30px_rgba(34,2,2,0.42)] backdrop-blur-[2px]">
             <StaggerContainer
               className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-white/14"
@@ -94,10 +94,11 @@ export function Hero({ onOpenConsultation, onOpenVideo }) {
               {serviceCards.map((service) => {
                 const IconComponent = serviceIconMap[service.iconType] || Gift
                 return (
-                  <a
+                  <button
+                    type="button"
                     key={service.id}
-                    href="#services"
-                    className="group flex min-h-[112px] md:min-h-[118px] flex-col items-center justify-center py-5 sm:py-6 px-3 text-center transition-colors duration-200 hover:bg-[#8F1212]/55"
+                    onClick={onOpenConsultation}
+                    className="group flex min-h-[112px] md:min-h-[118px] flex-col items-center justify-center py-5 sm:py-6 px-3 text-center transition-colors duration-200 hover:bg-[#8F1212]/55 cursor-pointer"
                   >
                     {/* Outline Icon */}
                     <div className="mb-2.5 flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-110 group-hover:text-[#FDE68A]">
@@ -108,7 +109,7 @@ export function Hero({ onOpenConsultation, onOpenVideo }) {
                     <h3 className="font-['Montserrat',sans-serif] text-[13px] sm:text-[13.5px] font-bold uppercase tracking-wider text-white transition-colors duration-200 group-hover:text-[#FDE68A]">
                       {service.name}
                     </h3>
-                  </a>
+                  </button>
                 )
               })}
             </StaggerContainer>

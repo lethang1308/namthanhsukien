@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { FloatingContactWidget } from '../../components/FloatingContactWidget'
+import { scrollToSection } from '../../utils/navigation'
 import { AboutSection } from './components/AboutSection'
 import { ConsultationModal } from './components/ConsultationModal'
 import { FeaturedProjects } from './components/FeaturedProjects'
@@ -14,6 +16,19 @@ import { hero } from './data/homeContent'
 export function HomePage() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const [isVideoOpen, setIsVideoOpen] = useState(false)
+
+  useEffect(() => {
+    // Strip #hash from URL on mount if present
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const targetId = window.location.hash.replace('#', '')
+      window.history.replaceState(null, '', window.location.pathname + window.location.search)
+      if (targetId && targetId !== 'home') {
+        setTimeout(() => {
+          scrollToSection(targetId)
+        }, 150)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     let timeoutId
@@ -95,6 +110,9 @@ export function HomePage() {
         onOpenConsultation={handleOpenConsultation}
         onOpenVideo={handleOpenVideo}
       />
+
+      {/* Floating Animated Contact Widget (Zalo & Phone) */}
+      <FloatingContactWidget />
 
       {/* Interactive Modals */}
       <ConsultationModal

@@ -5,13 +5,14 @@ import {
   Phone,
   SquaresFour,
 } from '@phosphor-icons/react'
+import { scrollToSection } from '../../utils/navigation'
 import { contact } from '../../features/home/data/homeContent'
 
 const navItems = [
-  { key: 'home', label: 'Trang chủ', href: '#home', Icon: HouseLine },
-  { key: 'services', label: 'Dịch vụ', href: '#services', Icon: SquaresFour },
-  { key: 'projects', label: 'Dự án', href: '#projects', Icon: Images },
-  { key: 'contact', label: 'Tư vấn', href: '#contact', Icon: ChatCircleText },
+  { key: 'home', label: 'Trang chủ', targetId: 'home', Icon: HouseLine },
+  { key: 'services', label: 'Dịch vụ', targetId: 'services', Icon: SquaresFour },
+  { key: 'projects', label: 'Dự án', targetId: 'projects', Icon: Images },
+  { key: 'contact', label: 'Tư vấn', targetId: 'contact', Icon: ChatCircleText },
 ]
 
 export function MobileBottomNav({ activeItem = 'home', zIndexClass = 'z-40' }) {
@@ -21,14 +22,18 @@ export function MobileBottomNav({ activeItem = 'home', zIndexClass = 'z-40' }) {
       aria-label="Điều hướng mobile"
     >
       <div className="mx-auto grid max-w-[480px] grid-cols-[1fr_1fr_86px_1fr_1fr] items-end">
-        {navItems.slice(0, 2).map(({ key, label, href, Icon }) => {
+        {navItems.slice(0, 2).map(({ key, label, targetId, Icon }) => {
           const active = activeItem === key
 
           return (
             <a
               key={key}
-              href={href}
-              className={`flex min-w-0 flex-col items-center gap-1 text-[11px] font-bold ${
+              href="/"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection(targetId)
+              }}
+              className={`flex min-w-0 flex-col items-center gap-1 text-[11px] font-bold cursor-pointer ${
                 active ? 'text-[#E5A93C]' : 'text-white/70'
               }`}
             >
@@ -53,14 +58,18 @@ export function MobileBottomNav({ activeItem = 'home', zIndexClass = 'z-40' }) {
           <span className="mt-0.5 text-[10.5px] font-black uppercase tracking-tight">Gọi ngay</span>
         </a>
 
-        {navItems.slice(2).map(({ key, label, href, Icon }) => {
+        {navItems.slice(2).map(({ key, label, targetId, Icon }) => {
           const active = activeItem === key
 
           return (
             <a
               key={key}
-              href={href}
-              className={`flex min-w-0 flex-col items-center gap-1 text-[11px] font-bold ${
+              href="/"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection(targetId)
+              }}
+              className={`flex min-w-0 flex-col items-center gap-1 text-[11px] font-bold cursor-pointer ${
                 active ? 'text-[#E5A93C]' : 'text-white/70'
               }`}
             >

@@ -8,20 +8,22 @@ import projectFourImage from '../../../assets/7ad10655-1966-4a7f-88b4-d8d8b48bd6
 export const contact = {
   brandName: 'Nam Thành Sự Kiện',
   slogan: 'Tạo nên khoảnh khắc đáng nhớ',
-  address: 'Số 18, Đường Lê Trọng Tấn, Hà Đông, Hà Nội',
-  hotline: '0988 123 456',
-  phone: '0988 123 456',
-  email: 'sukiennamthanh@gmail.com',
+  address: '1A8/LK1/7 tổ 8 khu phố Hoà Lân 2, Phường Thuận Giao, Thành phố Hồ Chí Minh',
+  hotline: '0938 161 222',
+  phone: '0938 161 222',
+  zalo: 'https://zalo.me/0938161222',
+  facebook: 'https://www.facebook.com/Thanhnamsukien',
+  email: 'thanhnamsukien81@gmail.com',
   hours: '08:00 - 21:00',
   website: 'https://namthanhsukien.vn',
 }
 
 export const navItems = [
-  { label: 'TRANG CHỦ', href: '#home' },
-  { label: 'GIỚI THIỆU', href: '#about' },
-  { label: 'DỊCH VỤ', href: '#services' },
-  { label: 'DỰ ÁN', href: '#projects' },
-  { label: 'TIN TỨC', href: '#news' },
+  { label: 'TRANG CHỦ', targetId: 'home' },
+  { label: 'GIỚI THIỆU', targetId: 'about' },
+  { label: 'DỊCH VỤ', targetId: 'services' },
+  { label: 'DỰ ÁN', targetId: 'projects' },
+  { label: 'TIN TỨC', targetId: 'news' },
 ]
 
 export const hero = {

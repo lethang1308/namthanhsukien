@@ -11,6 +11,7 @@ import {
 import { FadeUpSection } from '../../../components/animations/FadeUpSection'
 import { StaggerContainer } from '../../../components/animations/StaggerContainer'
 import { BrandMark } from '../../../components/BrandMark'
+import { scrollToSection } from '../../../utils/navigation'
 import { contact, serviceCards } from '../data/homeContent'
 
 export function Footer({ onOpenConsultation }) {
@@ -33,30 +34,33 @@ export function Footer({ onOpenConsultation }) {
           </p>
           <div className="mt-5 flex items-center gap-3 text-[#E5A93C]">
             <a
-              href="#contact"
-              aria-label="Facebook"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#E5A93C] hover:text-[#140202] transition-colors"
+              href={contact.facebook || 'https://www.facebook.com/Thanhnamsukien'}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook Nam Thành Sự Kiện"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#E5A93C] hover:text-[#140202] transition-colors cursor-pointer"
             >
               <FacebookLogo size={18} weight="fill" />
             </a>
             <a
-              href="#contact"
+              href="/"
+              onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
               aria-label="Youtube"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#E5A93C] hover:text-[#140202] transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#E5A93C] hover:text-[#140202] transition-colors cursor-pointer"
             >
               <YoutubeLogo size={18} weight="fill" />
             </a>
             <a
               href={`mailto:${contact.email}`}
               aria-label="Email"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#E5A93C] hover:text-[#140202] transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#E5A93C] hover:text-[#140202] transition-colors cursor-pointer"
             >
               <EnvelopeSimple size={18} weight="bold" />
             </a>
             <a
               href={contact.website}
               aria-label="Website"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#E5A93C] hover:text-[#140202] transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#E5A93C] hover:text-[#140202] transition-colors cursor-pointer"
             >
               <Globe size={18} weight="bold" />
             </a>
@@ -103,8 +107,9 @@ export function Footer({ onOpenConsultation }) {
             {serviceCards.map((service) => (
               <li key={service.id}>
                 <a
-                  href="#services"
-                  className="hover:text-[#E5A93C] transition-colors flex items-center gap-1.5"
+                  href="/"
+                  onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}
+                  className="hover:text-[#E5A93C] transition-colors flex items-center gap-1.5 cursor-pointer"
                 >
                   <span className="text-[#E5A93C] text-[10px]">♦</span>
                   {service.name}

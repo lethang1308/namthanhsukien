@@ -7,7 +7,7 @@ import { processSteps } from '../data/homeContent'
 export function ProcessWorkflow() {
   return (
     <FadeUpSection
-      id="process"
+      id="news"
       className="mx-auto max-w-[1400px] px-4 py-14 md:py-20 lg:px-8"
       duration={800}
     >
