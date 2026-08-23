@@ -1,148 +1,194 @@
-import facadeImage from '../../../assets/0f69fb00-16d2-467e-a555-2310d484a6c1.png'
-import heroPanImage from '../../../assets/de8c50dd-a665-48d5-9652-194a37cce66a.png'
-import heroPanCutoutImage from '../../../assets/hero-pan-provided-cutout.png'
-import chaCaLaVongImage from '../../../assets/d5fedfa5-e72d-4a66-bcec-1b6d5283ee7d.png'
-import chaCaChienImage from '../../../assets/74e49f1f-baa2-4565-8040-7e22112a4e74.png'
-import longCaImage from '../../../assets/b033b222-0767-460e-953f-6f8019655224.png'
-import nemHaiSanImage from '../../../assets/f48cf32a-bdf6-489b-bf5e-55dc4a1cc191.png'
-import comboTwoImage from '../../../assets/8b8fa749-95b0-4e78-b13c-132e0fe2b866.png'
-import comboFourImage from '../../../assets/86069030-1520-4cf5-b94c-488658157353.png'
-import comboSixImage from '../../../assets/4f8154e5-4396-48dd-b3ae-c86849865bf6.png'
-import galleryOneImage from '../../../assets/2f71606c-8719-4e95-bab3-a8e2d0fe35af.png'
-import galleryTwoImage from '../../../assets/5f85f77d-1682-47ee-b933-9747a82a9f0c.png'
-import galleryThreeImage from '../../../assets/6b1e73f6-47e8-4162-9ffd-234deb98e181.png'
-import galleryFourImage from '../../../assets/76f23251-0690-4ab7-bd13-a412ecda49c5.png'
+import heroBannerImage from '../../../assets/4a261f7f-d4d6-402e-bbc9-428aed0dea2b.png'
+import aboutStageImage from '../../../assets/fc56a9e7-8deb-45c0-b700-b6989b903136.png'
+import projectOneImage from '../../../assets/2dc36332-eaaf-47a7-8818-37ffb237d2fb.png'
+import projectTwoImage from '../../../assets/66a5e6f8-5e55-456b-bd3e-c47e0f9c99d7.png'
+import projectThreeImage from '../../../assets/2f18b31f-b52b-49b8-ad4c-00aabfaf954d.png'
+import projectFourImage from '../../../assets/7ad10655-1966-4a7f-88b4-d8d8b48bd674.png'
 
 export const contact = {
-  address: 'Số 7, Liền kề 4, KDT Tân Tây Đô, Hà Nội',
-  phone: '0961 374 566',
-  email: 'checattrangan.hn@gmail.com',
-  hours: '10:00 - 22:00',
+  brandName: 'Nam Thành Sự Kiện',
+  slogan: 'Tạo nên khoảnh khắc đáng nhớ',
+  address: 'Số 18, Đường Lê Trọng Tấn, Hà Đông, Hà Nội',
+  hotline: '0988 123 456',
+  phone: '0988 123 456',
+  email: 'sukiennamthanh@gmail.com',
+  hours: '08:00 - 21:00',
+  website: 'https://namthanhsukien.vn',
 }
 
 export const navItems = [
-  { label: 'Trang chủ', href: '#home' },
-  // { label: 'Giới thiệu', href: '#about' },
-  { label: 'Thực đơn', href: '#menu' },
-  { label: 'Combo', href: '#combo' },
-  { label: 'Không gian', href: '#space' },
-  // { label: 'Tin tức', href: '#news' },
-  // { label: 'Liên hệ', href: '#contact' },
+  { label: 'TRANG CHỦ', href: '#home' },
+  { label: 'GIỚI THIỆU', href: '#about' },
+  { label: 'DỊCH VỤ', href: '#services' },
+  { label: 'DỰ ÁN', href: '#projects' },
+  { label: 'TIN TỨC', href: '#news' },
+  { label: 'LIÊN HỆ', href: '#contact' },
 ]
 
 export const hero = {
-  facadeImage,
-  heroPanImage,
-  heroPanCutoutImage,
-  title: 'CHẢ CÁ TRÀNG AN',
-  script: 'Tinh hoa',
-  subtitle: 'Hương vị truyền thống, trọn vị Hà Thành',
+  bannerImage: heroBannerImage,
+  brandSmall: 'Nam Thành',
+  brandCategory: 'SỰ KIỆN',
+  title: 'TỔ CHỨC SỰ KIỆN',
+  titleHighlight: 'CHUYÊN NGHIỆP',
+  script: 'Tạo nên khoảnh khắc đáng nhớ',
   description:
-    'Chả cá tươi ngon, chế biến theo công thức gia truyền, ăn kèm bún, rau thơm và mắm tôm chuẩn vị.',
+    'Nam Thành Sự Kiện mang đến giải pháp tổ chức sự kiện trọn gói, chuyên nghiệp và khác biệt cho mọi khách hàng.',
 }
 
-export const serviceHighlights = [
+export const serviceCards = [
   {
-    title: 'Nguyên liệu tươi mỗi ngày',
-    text: 'Cá tuyển chọn trong ngày, sơ chế sạch và giữ vị ngọt tự nhiên.',
+    id: 'khai-truong',
+    name: 'LỄ KHAI TRƯƠNG',
+    shortName: 'Khai Trương',
+    iconType: 'gift',
+    description: 'Tổ chức lễ khai trương, khánh thành hồng phát, trang trọng và hoành tráng.',
   },
   {
-    title: 'Công thức gia truyền',
-    text: 'Tẩm ướp đậm đà với nghệ, riềng, thì là và hành hoa.',
+    id: 'tat-nien',
+    name: 'TIỆC TẤT NIÊN',
+    shortName: 'Tất Niên',
+    iconType: 'party',
+    description: 'Year End Party bùng nổ cảm xúc, gắn kết đội ngũ và tri ân thành công.',
   },
   {
-    title: 'Không gian ấm cúng',
-    text: 'Phù hợp bữa gia đình, tiếp khách và các buổi tụ họp thân mật.',
-  },
-]
-
-export const featuredDishes = [
-  {
-    name: 'Chả Cá Lã Vọng',
-    price: '139.000đ',
-    image: chaCaLaVongImage,
-    alt: 'Chả cá Lã Vọng trong chảo nóng với thì là và hành.',
+    id: 'hoi-nghi',
+    name: 'HỘI NGHỊ - HỘI THẢO',
+    shortName: 'Hội Thảo',
+    iconType: 'podium',
+    description: 'Hội nghị khách hàng, hội thảo chuyên đề đẳng cấp và quy chuẩn quốc tế.',
   },
   {
-    name: 'Chả Cá Chiên',
-    price: '139.000đ',
-    image: chaCaChienImage,
-    alt: 'Đĩa chả cá chiên vàng với hành và thì là.',
+    id: 'cuoi-hoi',
+    name: 'SỰ KIỆN CƯỚI HỎI',
+    shortName: 'Cưới Hỏi',
+    iconType: 'wedding',
+    description: 'Không gian tiệc cưới lộng lẫy, kịch bản độc bản ghi dấu ngày hạnh phúc.',
   },
   {
-    name: 'Lòng Cá Xào Dứa',
-    price: '119.000đ',
-    image: longCaImage,
-    alt: 'Lòng cá xào dứa cùng hành và ớt đỏ.',
-  },
-  {
-    name: 'Nem Hải Sản',
-    price: '99.000đ',
-    image: nemHaiSanImage,
-    alt: 'Nem hải sản chiên giòn ăn cùng rau và nước chấm.',
+    id: 'khoi-cong',
+    name: 'LỄ KHỞI CÔNG',
+    shortName: 'Khởi Công',
+    iconType: 'construction',
+    description: 'Lễ khởi công, động thổ chuẩn phong thủy, an toàn và bài bản.',
   },
 ]
 
-export const combos = [
+export const aboutUs = {
+  tag: 'VỀ CHÚNG TÔI',
+  title: 'ĐỒNG HÀNH CÙNG MỌI SỰ KIỆN THÀNH CÔNG',
+  description:
+    'Với đội ngũ giàu kinh nghiệm, sáng tạo và tận tâm, chúng tôi cam kết mang đến trải nghiệm sự kiện chuyên nghiệp, ấn tượng và khác biệt.',
+  subDescription:
+    'Từ khâu lên ý tưởng concept, thiết kế sân khấu 3D, dàn dựng âm thanh ánh sáng hiện đại đến điều phối nhân sự trực tiếp, Nam Thành Sự Kiện luôn là người bạn đồng hành tin cậy kiến tạo những dấu ấn vượt thời gian.',
+  image: aboutStageImage,
+  alt: 'Sân khấu sự kiện Gala Dinner rực rỡ và chuyên nghiệp do Nam Thành Sự Kiện thực hiện',
+}
+
+export const featuredProjects = [
   {
-    name: 'Combo 2 người',
-    description: '2 - 3 món cho 2 người',
-    price: '299.000đ',
-    image: comboTwoImage,
-    alt: 'Set chả cá và món ăn kèm cho hai người.',
+    id: 1,
+    title: 'Gala Dinner Ánh Sáng Hoàng Gia',
+    category: 'TIỆC TẤT NIÊN',
+    location: 'Hà Nội',
+    image: projectOneImage,
+    alt: 'Không gian tiệc Gala Dinner lộng lẫy với dàn đèn chùm và bàn tiệc tròn sang trọng',
   },
   {
-    name: 'Combo 4 người',
-    description: '4 - 5 món cho 4 người',
-    price: '549.000đ',
-    image: comboFourImage,
-    alt: 'Bàn combo chả cá với bún, rau, nem và món ăn kèm.',
+    id: 2,
+    title: 'Lễ Khánh Thành & Khai Trương Nhà Máy',
+    category: 'LỄ KHAI TRƯƠNG',
+    location: 'Bắc Ninh',
+    image: projectTwoImage,
+    alt: 'Rạp sự kiện lều bạt đỏ trắng quy mô lớn cho lễ khởi công khánh thành',
   },
   {
-    name: 'Combo 6 người',
-    description: '5 - 6 món cho 6 người',
-    price: '799.000đ',
-    image: comboSixImage,
-    alt: 'Mâm chả cá và nhiều món ăn kèm cho nhóm đông.',
+    id: 3,
+    title: 'Đại Tiệc Cưới Không Gian Mái Vòm Hoàng Gia',
+    category: 'SỰ KIỆN CƯỚI HỎI',
+    location: 'Hải Phòng',
+    image: projectThreeImage,
+    alt: 'Đường dẫn lối đi tiệc cưới ngập tràn ánh sáng vàng ấm áp và hoa tươi',
+  },
+  {
+    id: 4,
+    title: 'Hội Nghị Tri Ân Khách Hàng Quốc Tế',
+    category: 'HỘI NGHỊ - HỘI THẢO',
+    location: 'Quảng Ninh',
+    image: projectFourImage,
+    alt: 'Sân khấu hội nghị hiện đại với hệ thống âm thanh ánh sáng đẳng cấp',
   },
 ]
 
-export const galleryImages = [
+export const statsCounters = [
   {
-    image: galleryOneImage,
-    alt: 'Không gian bàn ăn ấm cúng tại nhà hàng Chả Cá Tràng An.',
+    number: '8+',
+    label: 'NĂM KINH NGHIỆM',
+    description: 'Hành trình kiến tạo hơn 500 dấu ấn sự kiện',
   },
   {
-    image: galleryTwoImage,
-    alt: 'Khu bàn ăn dài với đèn mây và tường xanh của nhà hàng.',
+    number: '500+',
+    label: 'SỰ KIỆN ĐÃ TỔ CHỨC',
+    description: 'Từ sự kiện doanh nghiệp đến tiệc cưới hoàng gia',
   },
   {
-    image: galleryThreeImage,
-    alt: 'Góc nội thất xanh với bàn ghế gỗ và đèn treo ấm áp.',
+    number: '300+',
+    label: 'KHÁCH HÀNG HÀI LÒNG',
+    description: 'Các tập đoàn, doanh nghiệp và cá nhân tin tưởng',
   },
   {
-    image: galleryFourImage,
-    alt: 'Không gian nhà hàng có khách dùng bữa trong ánh đèn vàng.',
+    number: '50+',
+    label: 'ĐỐI TÁC TIN CẬY',
+    description: 'Hệ sinh thái nhà cung ứng trang thiết bị hàng đầu',
+  },
+]
+
+export const processSteps = [
+  {
+    step: '01',
+    title: 'TIẾP NHẬN YÊU CẦU',
+    description: 'Lắng nghe mục tiêu, quy mô, ngân sách và thông điệp mong muốn của khách hàng.',
+  },
+  {
+    step: '02',
+    title: 'LÊN Ý TƯỞNG KỊCH BẢN',
+    description: 'Sáng tạo chủ đề độc đáo, thiết kế 2D/3D sân khấu và kịch bản chi tiết.',
+  },
+  {
+    step: '03',
+    title: 'BÁO GIÁ & KÝ HỢP ĐỒNG',
+    description: 'Bóc tách chi phí minh bạch, tối ưu hoá ngân sách và cam kết chất lượng.',
+  },
+  {
+    step: '04',
+    title: 'TRIỂN KHAI THỰC HIỆN',
+    description: 'Lắp đặt thiết bị âm thanh ánh sáng, chạy thử kỹ thuật và điều phối trực tiếp.',
+  },
+  {
+    step: '05',
+    title: 'NGHIỆM THU & ĐÁNH GIÁ',
+    description: 'Đảm bảo sự kiện thành công trọn vẹn, nghiệm thu chu đáo và hỗ trợ sau sự kiện.',
   },
 ]
 
 export const testimonials = [
   {
-    name: 'Hoàng Minh',
-    role: 'Khách gia đình',
+    name: 'Nguyễn Tiến Dũng',
+    role: 'Giám đốc Marketing - Viettel Post',
     quote:
-      'Chả cá thơm ngon, không gian ấm cúng, nhân viên phục vụ rất nhiệt tình.',
+      'Chương trình Year End Party của công ty chúng tôi diễn ra vô cùng cảm xúc. Đội ngũ Nam Thành làm việc cực kỳ chuyên nghiệp và tận tâm từ khâu chuẩn bị đến phút cuối cùng.',
   },
   {
-    name: 'Thu Hương',
-    role: 'Khách đặt bàn',
+    name: 'Trần Minh Hằng',
+    role: 'Trưởng ban Đối ngoại - Tân Á Đại Thành',
     quote:
-      'Món ăn đậm đà, đúng vị Hà Nội. Đặc biệt là chả cá Lã Vọng và nem hải sản.',
+      'Lễ kỷ niệm 15 năm thành lập được setup sân khấu và ánh sáng quá đẳng cấp. Khách mời và đối tác đều trầm trồ khen ngợi không gian và kịch bản chương trình.',
   },
   {
-    name: 'Tuấn Anh',
-    role: 'Khách văn phòng',
+    name: 'Vũ Quốc Bảo',
+    role: 'CEO - Sun Homes Real Estate',
     quote:
-      'Giá cả hợp lý, đồ ăn tươi ngon. Rất thích không gian xanh mát ở đây.',
+      'Hội thảo mở bán dự án diễn ra trơn tru không một lỗi kỹ thuật. Rất ấn tượng với khả năng xử lý tình huống linh hoạt của ekip Nam Thành Sự Kiện.',
   },
 ]
+

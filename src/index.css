@@ -1,16 +1,31 @@
 @import 'tailwindcss';
 
 :root {
-  --color-green: #0f5134;
-  --color-green-deep: #083b25;
-  --color-gold: #d3b87e;
-  --color-gold-strong: #b88732;
-  --color-paper: #fffaf1;
-  --color-ink: #263327;
-  --color-muted: #5d665c;
-  --font-body: 'Segoe UI', 'Noto Sans', Arial, sans-serif;
-  --font-display: Georgia, 'Times New Roman', serif;
-  --font-script: 'Segoe Script', 'Brush Script MT', cursive;
+  /* Brand Color Palette: Crimson Red & Royal Gold */
+  --color-primary: #7d0d0d;
+  --color-primary-dark: #580808;
+  --color-primary-deep: #3f0505;
+  --color-primary-light: #9e1c1c;
+  --color-primary-subtle: #fdf2f2;
+  
+  --color-gold: #e5a93c;
+  --color-gold-warm: #d97706;
+  --color-gold-deep: #b45309;
+  --color-gold-light: #fef3c7;
+  --color-gold-glow: rgba(229, 169, 60, 0.45);
+  
+  --color-paper: #ffffff;
+  --color-surface-soft: #fbf9f6;
+  --color-ink: #18181b;
+  --color-muted: #52525b;
+  --color-border: #e4e4e7;
+  --color-border-warm: rgba(229, 169, 60, 0.3);
+
+  /* Typography */
+  --font-body: 'Montserrat', 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+  --font-display: 'Montserrat', 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
 
   color: var(--color-ink);
   background: var(--color-paper);
@@ -36,11 +51,15 @@ body {
   min-width: 320px;
   margin: 0;
   background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
 }
 
 body,
 button,
-input {
+input,
+textarea,
+select {
   font-family: var(--font-body);
 }
 
@@ -70,24 +89,26 @@ img:not(.hidden) {
 }
 
 ::selection {
-  background: rgba(211, 184, 126, 0.45);
-  color: var(--color-green-deep);
+  background: rgba(229, 169, 60, 0.35);
+  color: var(--color-primary-dark);
 }
 
 :focus-visible {
-  outline: 3px solid rgba(211, 184, 126, 0.85);
+  outline: 3px solid rgba(229, 169, 60, 0.85);
   outline-offset: 3px;
 }
 
+/* Script typography class with italic descender clearance */
 .font-script {
   font-family: var(--font-script);
   font-weight: 400;
+  line-height: 1.25;
 }
 
 .footer-title {
   position: relative;
-  font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   line-height: 1.25;
@@ -98,9 +119,9 @@ img:not(.hidden) {
   content: '';
   display: block;
   width: 30px;
-  height: 1px;
-  margin-bottom: 9px;
-  background: rgba(211, 184, 126, 0.75);
+  height: 2px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, var(--color-gold), transparent);
 }
 
 .mobile-scroll-row {
@@ -112,44 +133,13 @@ img:not(.hidden) {
   display: none;
 }
 
-.mobile-call-shake {
-  animation: mobile-call-shake 1.65s ease-in-out infinite;
-  transform-origin: 50% 65%;
+/* Glow & Custom Effects */
+.glow-gold {
+  box-shadow: 0 0 25px rgba(229, 169, 60, 0.35);
 }
 
-@keyframes mobile-call-shake {
-  0%,
-  58%,
-  100% {
-    transform: rotate(0deg) scale(1);
-  }
-  64% {
-    transform: rotate(-12deg) scale(1.04);
-  }
-  70% {
-    transform: rotate(12deg) scale(1.04);
-  }
-  76% {
-    transform: rotate(-9deg) scale(1.03);
-  }
-  82% {
-    transform: rotate(9deg) scale(1.03);
-  }
-  88% {
-    transform: rotate(0deg) scale(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .mobile-call-shake {
-    animation: none;
-  }
-}
-
-@media (max-width: 768px) {
-  :root {
-    font-size: 15px;
-  }
+.glow-crimson {
+  box-shadow: 0 10px 30px rgba(125, 13, 13, 0.35);
 }
 
 /* Custom Scrollbar Styles */
@@ -159,10 +149,9 @@ html {
 }
 
 html.is-scrolling {
-  scrollbar-color: rgba(15, 81, 52, 0.4) transparent;
+  scrollbar-color: rgba(125, 13, 13, 0.45) transparent;
 }
 
-/* Chrome, Safari, Edge */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -180,9 +169,9 @@ html.is-scrolling {
 html.is-scrolling ::-webkit-scrollbar-thumb,
 html.is-scrolling::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(15, 81, 52, 0.45);
+  background: rgba(125, 13, 13, 0.5);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: rgba(15, 81, 52, 0.7);
+  background: rgba(125, 13, 13, 0.8);
 }

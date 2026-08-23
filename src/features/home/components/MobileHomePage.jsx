@@ -1,65 +1,57 @@
+import { useState } from 'react'
 import {
-  CalendarCheck,
-  CaretRight,
-  ChefHat,
-  FishSimple,
+  ArrowRight,
+  Buildings,
+  CheckCircle,
+  Confetti,
   Gift,
-  HouseLine,
-  Scooter,
-  ShieldCheck,
+  HeartStraight,
+  Phone,
+  Play,
+  PresentationChart,
+  Sparkle,
   Star,
+  X,
 } from '@phosphor-icons/react'
 import { MobileBottomNav } from '../../../components/mobile/MobileBottomNav'
 import { MobileHeader } from '../../../components/mobile/MobileHeader'
-import paperBackground from '../../../assets/b4002091-4a7b-4407-a4a9-992d5654bdd3.png'
 import {
-  combos,
-  featuredDishes,
-  galleryImages,
+  aboutUs,
+  contact,
+  featuredProjects,
   hero,
+  processSteps,
+  serviceCards,
+  statsCounters,
   testimonials,
 } from '../data/homeContent'
 
-const mobileHighlights = [
-  {
-    Icon: ShieldCheck,
-    lines: ['Nguyên liệu', 'tươi mỗi ngày'],
-  },
-  {
-    Icon: ChefHat,
-    lines: ['Công thức', 'gia truyền'],
-  },
-  {
-    Icon: HouseLine,
-    lines: ['Không gian', 'ấm cúng'],
-  },
-  {
-    Icon: Scooter,
-    lines: ['Giao hàng', 'nhanh chóng'],
-  },
-]
+const serviceIconMap = {
+  gift: Gift,
+  party: Confetti,
+  podium: PresentationChart,
+  wedding: HeartStraight,
+  construction: Buildings,
+}
 
-function MobileSectionHeader({ title, actionLabel, href = '#home' }) {
+function MobileSectionTitle({ title, subtitle }) {
   return (
-    <div className="mb-3 flex items-center justify-between gap-3">
-      <h2 className="flex min-w-0 items-center gap-1.5 font-[var(--font-display)] text-[18px] font-bold leading-tight text-[var(--color-green)]">
-        <span>{title}</span>
-        <FishSimple size={19} weight="regular" className="shrink-0 text-[var(--color-gold-strong)]" />
-      </h2>
-      <a
-        href={href}
-        className="inline-flex shrink-0 items-center gap-1 text-[12px] font-semibold text-[var(--color-green)]"
-      >
-        {actionLabel}
-        <CaretRight size={13} weight="bold" />
-      </a>
+    <div className="text-center mb-6">
+      <div className="inline-flex items-center justify-center gap-2">
+        <span className="h-px w-6 bg-gradient-to-r from-transparent to-[#18181B]/40" />
+        <h2 className="font-[var(--font-display)] text-[20px] font-black uppercase tracking-wider text-[#18181B]">
+          {title}
+        </h2>
+        <span className="h-px w-6 bg-gradient-to-l from-transparent to-[#18181B]/40" />
+      </div>
+      {subtitle && <p className="mt-1 text-[12px] text-[#71717A]">{subtitle}</p>}
     </div>
   )
 }
 
 function Rating() {
   return (
-    <div className="flex gap-0.5 text-[#f2a014]" aria-label="5 sao">
+    <div className="flex gap-0.5 text-[#E5A93C]" aria-label="5 sao">
       {Array.from({ length: 5 }).map((_, index) => (
         <Star key={index} size={13} weight="fill" />
       ))}
@@ -67,213 +59,300 @@ function Rating() {
   )
 }
 
-function getInitials(name) {
-  return name
-    .split(' ')
-    .map((part) => part[0])
-    .join('')
-}
+export function MobileHomePage({ onOpenConsultation, onOpenVideo }) {
+  const [activePhoto, setActivePhoto] = useState(null)
 
-export function MobileHomePage() {
   return (
     <div className="md:hidden">
-      <div
-        className="min-h-[100dvh] bg-[var(--color-paper)] pb-[94px] text-[var(--color-ink)]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255, 250, 241, 0.18), rgba(255, 250, 241, 0.2)), url(${paperBackground})`,
-          backgroundRepeat: 'repeat-y',
-          backgroundPosition: 'top center',
-          backgroundSize: '100% auto',
-        }}
-      >
+      <div className="min-h-[100dvh] bg-[#FFFFFF] pb-[92px] text-[#18181B]">
         <MobileHeader zIndexClass="z-30" />
 
         <main id="home" className="mx-auto max-w-[480px] overflow-hidden">
-          <section className="relative isolate h-[clamp(330px,88vw,350px)] overflow-hidden bg-[#fffaf1]">
-            <img
-              src={hero.facadeImage}
-              alt="Mặt tiền nhà hàng Chả Cá Tràng An"
-              className="absolute right-0 top-0 z-[1] h-full w-[62%] object-cover object-[90%_46%]"
-              fetchPriority="high"
-            />
-            <div
-              className="absolute inset-0 z-[2] bg-[linear-gradient(90deg,#fffaf1_0%,#fffaf1_38%,rgba(255,250,241,0.99)_48%,rgba(255,250,241,0.86)_59%,rgba(255,250,241,0.36)_70%,rgba(255,250,241,0)_80%),linear-gradient(180deg,rgba(255,250,241,0)_54%,rgba(255,250,241,0.42)_76%,#fffaf1_100%)]"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute left-0 top-10 z-[3] h-44 w-28 bg-[radial-gradient(circle_at_0%_30%,rgba(15,81,52,0.1),transparent_62%)]"
-              aria-hidden="true"
-            />
-
-            <div className="relative z-[5] w-[51%] pl-5 pt-8 max-[374px]:w-[55%] max-[374px]:pl-5 max-[374px]:pt-8">
-              <p className="font-script mb-1.5 whitespace-nowrap pb-1 text-[clamp(27px,7.5vw,34px)] leading-none text-[var(--color-gold-strong)]">
-                {hero.script}
-              </p>
-              <h1 className="max-w-[190px] font-[var(--font-display)] text-[clamp(31px,8.7vw,38px)] font-bold leading-[1.06] tracking-0 text-[var(--color-green)] max-[374px]:max-w-[170px]">
-                <span className="whitespace-nowrap">CHẢ CÁ</span>
-                <br />
-                <span className="whitespace-nowrap">TRÀNG AN</span>
-              </h1>
-              <p className="mt-3 max-w-[165px] font-[var(--font-display)] text-[clamp(13px,3.6vw,15px)] font-medium leading-[1.45] text-[var(--color-green)]">
-                Hương vị truyền thống
-                <br />
-                - Trọn vị Hà Thành
-              </p>
-              <a
-                href="#dat-ban"
-                className="mt-4 inline-flex h-[42px] max-w-[145px] items-center justify-center whitespace-nowrap rounded-full bg-[var(--color-green)] px-5 text-[13px] font-bold text-white shadow-[0_12px_24px_rgba(7,88,59,0.22)] active:translate-y-px"
-              >
-                <CalendarCheck className="mr-1.5 text-[var(--color-gold)]" size={17} weight="bold" />
-                Đặt bàn ngay
-              </a>
+          {/* Mobile Hero Banner */}
+          <section className="relative isolate min-h-[460px] flex flex-col justify-between overflow-hidden bg-[#140404] px-4 pt-8 pb-4">
+            <div className="absolute inset-0 z-0">
+              <img
+                src={hero.bannerImage}
+                alt="Không gian tổ chức sự kiện chuyên nghiệp Nam Thành"
+                className="h-full w-full object-cover object-[65%_25%]"
+                fetchPriority="high"
+              />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-[#140404] via-[#140404]/80 to-[#140404]/50"
+                aria-hidden="true"
+              />
             </div>
 
-            <img
-              src={hero.heroPanCutoutImage}
-              alt="Chảo chả cá nóng với thì là và hành"
-              className="pointer-events-none absolute bottom-[-24px] left-[70%] z-[4] w-[clamp(276px,76vw,330px)] max-w-none -translate-x-1/2 rotate-[-5deg] object-contain [mask-image:linear-gradient(90deg,black_0%,black_96%,transparent_100%)] drop-shadow-[0_14px_17px_rgba(42,36,25,0.22)] [-webkit-mask-image:linear-gradient(90deg,black_0%,black_96%,transparent_100%)] max-[374px]:bottom-[-20px] max-[374px]:left-[73%] max-[374px]:w-[clamp(250px,79vw,284px)]"
-              fetchPriority="high"
-            />
-          </section>
-
-          <section
-            className="relative z-10 mx-auto -mt-6 grid min-h-[64px] w-[calc(100%-28px)] grid-cols-4 rounded-[18px] border border-[rgba(184,137,53,0.1)] bg-[#fffdf8]/95 px-2 py-2 shadow-[0_8px_22px_rgba(42,47,40,0.12)] backdrop-blur"
-            aria-label="Điểm nổi bật của nhà hàng"
-          >
-            {mobileHighlights.map(({ Icon, lines }) => (
-              <div key={lines.join(' ')} className="flex min-w-0 flex-col items-center text-center">
-                <Icon size={22} weight="regular" className="mb-1 text-[var(--color-gold-strong)]" />
-                <span className="text-[8.5px] font-semibold leading-[1.25] text-[var(--color-ink)]">
-                  {lines[0]}
-                  <br />
-                  {lines[1]}
+            <div className="relative z-10">
+              {/* Brand Header */}
+              <div>
+                <span className="font-['Playfair_Display',Georgia,serif] text-[26px] font-bold text-[#E5A93C] drop-shadow-sm">
+                  {hero.brandSmall}
+                </span>
+                <span className="block text-[12px] font-extrabold tracking-[0.2em] text-[#E5A93C] uppercase mt-0.5">
+                  {hero.brandCategory}
                 </span>
               </div>
-            ))}
-          </section>
 
-          <section className="px-5 pt-7">
-            <MobileSectionHeader title="MÓN NGON NỔI BẬT" actionLabel="Xem tất cả" href="#menu" />
-            <div className="mobile-scroll-row -mx-5 grid auto-cols-[148px] grid-flow-col gap-3 overflow-x-auto px-5 pb-2">
-              {featuredDishes.map((dish) => (
-                <article
-                  key={dish.name}
-                  className="overflow-hidden rounded-[12px] border border-[rgba(184,137,53,0.22)] bg-white shadow-[0_6px_14px_rgba(42,49,38,0.08)]"
+              {/* Headline */}
+              <h1 className="mt-2 font-['Montserrat',sans-serif] text-[26px] font-extrabold uppercase text-white leading-[1.12]">
+                TỔ CHỨC SỰ KIỆN
+                <br />
+                <span className="text-white">CHUYÊN NGHIỆP</span>
+              </h1>
+
+              {/* Script Text */}
+              <p
+                className="font-script text-[36px] leading-[1.25] text-[#E5A93C] my-1 select-none pt-1"
+                style={{ fontFamily: "'Great Vibes', cursive" }}
+              >
+                {hero.script}
+              </p>
+
+              {/* Description */}
+              <p className="mt-1 text-[13px] leading-relaxed text-white/95">
+                {hero.description}
+              </p>
+
+              {/* Buttons */}
+              <div className="mt-5 flex flex-col gap-2.5">
+                <button
+                  type="button"
+                  onClick={onOpenConsultation}
+                  className="flex w-full items-center justify-center rounded-[6px] bg-[#C97A1E] hover:bg-[#D97706] py-3 text-[13px] font-bold uppercase text-white shadow-[0_4px_14px_rgba(201,122,30,0.4)] active:scale-[0.98]"
                 >
-                  <div className="aspect-[1.08] overflow-hidden bg-[#fffaf1]">
-                    <img src={dish.image} alt={dish.alt} className="h-full w-full object-cover" loading="lazy" />
-                  </div>
-                  <div className="p-2.5">
-                    <h3 className="min-h-[36px] font-[var(--font-display)] text-[13.5px] font-semibold leading-[1.28] text-[var(--color-ink)]">
-                      {dish.name}
-                    </h3>
-                    <p className="mt-1 text-[13px] font-bold text-[var(--color-green)]">{dish.price}</p>
-                  </div>
-                </article>
-              ))}
+                  KHÁM PHÁ DỊCH VỤ
+                </button>
+                <button
+                  type="button"
+                  onClick={onOpenVideo}
+                  className="flex w-full items-center justify-center gap-2 rounded-[6px] bg-black/40 border border-white/25 py-2.5 text-[12.5px] font-bold uppercase text-white active:scale-[0.98]"
+                >
+                  <Play size={14} weight="fill" className="text-[#E5A93C]" />
+                  XEM VIDEO
+                </button>
+              </div>
             </div>
           </section>
 
-          <section className="px-5 pt-5">
-            <MobileSectionHeader title="COMBO ƯU ĐÃI" actionLabel="Xem tất cả combo" href="#combo" />
-            <div className="mobile-scroll-row -mx-5 grid auto-cols-[246px] grid-flow-col gap-3 overflow-x-auto px-5 pb-2">
-              {combos.map((combo) => (
-                <article
-                  key={combo.name}
-                  className="grid h-[118px] grid-cols-[102px_1fr] overflow-hidden rounded-[12px] border border-[rgba(184,137,53,0.22)] bg-white shadow-[0_6px_14px_rgba(42,49,38,0.08)]"
-                >
-                  <img src={combo.image} alt={combo.alt} className="h-full w-full object-cover" loading="lazy" />
-                  <div className="flex min-w-0 flex-col justify-center p-2.5">
-                    <h3 className="font-[var(--font-display)] text-[12.5px] font-semibold leading-tight text-[var(--color-ink)]">
-                      {combo.name}
-                    </h3>
-                    <p className="mt-1 text-[10px] leading-tight text-[var(--color-muted)]">{combo.description}</p>
-                    <p className="mt-1.5 font-[var(--font-display)] text-[18px] font-bold leading-tight text-[var(--color-green)]">
-                      {combo.price}
-                    </p>
-                    <a
-                      href="#dat-ban"
-                      className="mt-2 inline-flex h-8 w-max items-center rounded-full bg-[var(--color-green)] px-4 text-[11.5px] font-bold text-white active:translate-y-px"
-                    >
-                      Đặt ngay
-                    </a>
+          {/* 5 Crimson Service Highlights */}
+          <section id="services" className="bg-[#780D0D] py-4 px-3 border-y border-[#E5A93C]/40">
+            <div className="mobile-scroll-row -mx-3 grid auto-cols-[140px] grid-flow-col gap-2.5 overflow-x-auto px-3">
+              {serviceCards.map((service) => {
+                const IconComponent = serviceIconMap[service.iconType] || Gift
+                return (
+                  <div
+                    key={service.id}
+                    onClick={onOpenConsultation}
+                    className="flex flex-col items-center justify-center rounded-[10px] bg-[#640A0A] p-3 text-center border border-[#911313] active:bg-[#8F1111]"
+                  >
+                    <IconComponent size={26} weight="light" className="text-[#FDE68A] mb-1.5" />
+                    <span className="text-[11px] font-bold uppercase tracking-tight text-white line-clamp-2">
+                      {service.name}
+                    </span>
                   </div>
-                </article>
-              ))}
+                )
+              })}
             </div>
           </section>
 
-          <section className="px-5 pt-5">
-            <MobileSectionHeader title="KHÔNG GIAN NHÀ HÀNG" actionLabel="Xem thêm" href="#space" />
-            <div className="mobile-scroll-row -mx-5 grid auto-cols-[126px] grid-flow-col gap-2.5 overflow-x-auto px-5 pb-2">
-              {galleryImages.map((item) => (
-                <figure
-                  key={item.alt}
-                  className="aspect-[1.18] overflow-hidden rounded-[11px] border border-[rgba(184,137,53,0.18)] bg-white shadow-[0_5px_12px_rgba(42,49,38,0.07)]"
-                >
-                  <img src={item.image} alt={item.alt} className="h-full w-full object-cover" loading="lazy" />
-                </figure>
-              ))}
-            </div>
-          </section>
+          {/* About Us Mobile */}
+          <section className="px-4 py-8">
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#7D0D0D]/10 px-3 py-0.5 text-[11.5px] font-extrabold uppercase text-[#9E1C1C]">
+              <Sparkle size={12} weight="fill" className="text-[#D97706]" />
+              {aboutUs.tag}
+            </span>
+            <h2 className="mt-2 font-[var(--font-display)] text-[22px] font-black uppercase text-[#18181B] leading-snug">
+              {aboutUs.title}
+            </h2>
+            <div className="my-3 h-[2px] w-14 bg-[#D97706]" />
+            <p className="text-[13.5px] leading-relaxed text-[#52525B]">
+              {aboutUs.description}
+            </p>
 
-          <section className="px-5 pt-5">
-            <MobileSectionHeader
-              title="KHÁCH HÀNG NÓI GÌ VỀ CHÚNG TÔI"
-              actionLabel="Xem tất cả"
-              href="#khach-hang"
-            />
-            <div
-              id="khach-hang"
-              className="mobile-scroll-row -mx-5 grid auto-cols-[255px] grid-flow-col gap-3 overflow-x-auto px-5 pb-2"
+            <div className="mt-4 overflow-hidden rounded-[14px] border border-[#E5A93C]/30 shadow-lg">
+              <img
+                src={aboutUs.image}
+                alt={aboutUs.alt}
+                className="w-full aspect-[16/10] object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="mt-4 grid grid-cols-2 gap-2 text-[12px] font-semibold text-[#27272A]">
+              <div className="flex items-center gap-1.5">
+                <CheckCircle size={15} weight="fill" className="text-[#D97706] shrink-0" />
+                <span>Âm thanh, ánh sáng hiện đại</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle size={15} weight="fill" className="text-[#D97706] shrink-0" />
+                <span>Kịch bản độc bản</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle size={15} weight="fill" className="text-[#D97706] shrink-0" />
+                <span>Điều phối 24/7</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle size={15} weight="fill" className="text-[#D97706] shrink-0" />
+                <span>Chi phí tối ưu</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={onOpenConsultation}
+              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-[8px] bg-gradient-to-r from-[#D97706] to-[#E5A93C] py-3 text-[13px] font-extrabold uppercase text-[#140202] active:scale-[0.98]"
             >
+              TÌM HIỂU THÊM & NHẬN BÁO GIÁ
+              <ArrowRight size={15} weight="bold" />
+            </button>
+          </section>
+
+          {/* Featured Projects Mobile */}
+          <section id="projects" className="bg-[#FBF9F6] px-4 py-8 border-y border-[#E4E4E7]">
+            <MobileSectionTitle
+              title="DỰ ÁN TIÊU BIỂU"
+              subtitle="Những khoảnh khắc ấn tượng do Nam Thành Sự Kiện kiến tạo"
+            />
+            <div className="grid grid-cols-2 gap-3">
+              {featuredProjects.map((project) => (
+                <article
+                  key={project.id}
+                  onClick={() => setActivePhoto(project)}
+                  className="group relative cursor-pointer overflow-hidden rounded-[12px] border border-[#E4E4E7] bg-white shadow-sm active:scale-95 transition-transform"
+                >
+                  <div className="aspect-[4/5] overflow-hidden bg-[#180505]">
+                    <img
+                      src={project.image}
+                      alt={project.alt}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-85" />
+                  <div className="absolute inset-x-0 bottom-0 p-2.5 text-white">
+                    <span className="inline-block rounded-[3px] bg-[#780D0D] px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-[#FDE68A]">
+                      {project.category}
+                    </span>
+                    <h3 className="mt-1 text-[12px] font-bold leading-tight line-clamp-2 text-white">
+                      {project.title}
+                    </h3>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-5 text-center">
+              <button
+                type="button"
+                onClick={onOpenConsultation}
+                className="w-full rounded-[8px] bg-[#780D0D] py-3 text-[13px] font-extrabold uppercase text-white active:scale-[0.98]"
+              >
+                XEM THÊM DỰ ÁN
+              </button>
+            </div>
+          </section>
+
+          {/* Stats Bar Mobile */}
+          <section className="bg-[#700909] py-6 px-3 text-white border-b border-[#911313]">
+            <div className="grid grid-cols-2 gap-4 text-center divide-x divide-[#911313]">
+              {statsCounters.map((item, idx) => (
+                <div key={item.label} className={idx % 2 === 1 ? 'pl-4' : ''}>
+                  <div className="font-[var(--font-display)] text-[30px] font-black leading-none text-white">
+                    {item.number}
+                  </div>
+                  <div className="mt-1 text-[11px] font-bold uppercase tracking-wider text-[#FDE68A]">
+                    {item.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Process Workflow Mobile */}
+          <section className="px-4 py-8">
+            <MobileSectionTitle
+              title="QUY TRÌNH THỰC HIỆN"
+              subtitle="5 bước chuyên nghiệp từ ý tưởng đến thành công"
+            />
+            <div className="space-y-4">
+              {processSteps.map((item) => (
+                <div
+                  key={item.step}
+                  className="flex items-start gap-3 rounded-[12px] border border-[#E4E4E7] bg-[#FFFDF8] p-3 shadow-sm"
+                >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#D97706] bg-[#FFFBF2] font-[var(--font-display)] text-[16px] font-black text-[#D97706]">
+                    {item.step}
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-[var(--font-display)] text-[13.5px] font-black uppercase text-[#18181B]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1 text-[12px] leading-relaxed text-[#71717A]">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Testimonials Mobile */}
+          <section className="bg-[#FBF9F6] px-4 py-8 border-t border-[#E4E4E7]">
+            <MobileSectionTitle title="Ý KIẾN KHÁCH HÀNG" />
+            <div className="mobile-scroll-row -mx-4 grid auto-cols-[260px] grid-flow-col gap-3 overflow-x-auto px-4 pb-2">
               {testimonials.map((item) => (
                 <article
                   key={item.name}
-                  className="min-h-[128px] rounded-[12px] border border-[rgba(184,137,53,0.2)] bg-white/88 p-3 shadow-[0_6px_14px_rgba(42,49,38,0.07)]"
+                  className="rounded-[12px] border border-[#E4E4E7] bg-white p-4 shadow-sm"
                 >
                   <div className="flex items-center gap-2.5">
-                    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[var(--color-green)] font-[var(--font-display)] text-[12px] font-bold text-[var(--color-gold)]">
-                      {getInitials(item.name)}
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#780D0D] font-[var(--font-display)] text-[12px] font-bold text-[#FDE68A]">
+                      {item.name
+                        .split(' ')
+                        .map((p) => p[0])
+                        .join('')}
                     </div>
                     <div className="min-w-0">
-                      <h3 className="text-[12.5px] font-bold leading-tight text-[var(--color-ink)]">{item.name}</h3>
-                      <div className="mt-1">
-                        <Rating />
-                      </div>
+                      <h4 className="text-[13px] font-bold text-[#18181B] truncate">{item.name}</h4>
+                      <p className="text-[11px] text-[#71717A] truncate">{item.role}</p>
                     </div>
                   </div>
-                  <p className="mt-2.5 text-[11px] leading-[1.48] text-[var(--color-muted)]">{item.quote}</p>
+                  <div className="mt-2">
+                    <Rating />
+                  </div>
+                  <p className="mt-2 text-[12px] leading-relaxed text-[#52525B]">{item.quote}</p>
                 </article>
               ))}
             </div>
           </section>
 
-          <section id="dat-ban" className="px-5 pt-5">
-            <div className="relative overflow-hidden rounded-[14px] bg-[linear-gradient(135deg,#07583B,#06422E)] p-4 text-white shadow-[0_10px_22px_rgba(7,88,59,0.22)]">
-              <FishSimple
-                size={96}
-                weight="thin"
-                className="pointer-events-none absolute -right-2 -top-2 rotate-[-14deg] text-[rgba(211,184,126,0.18)]"
-              />
-              <div className="relative flex items-center justify-between gap-4">
-                <div className="min-w-0">
-                  <div className="flex items-center gap-2 text-[var(--color-gold)]">
-                    <Gift size={27} weight="regular" />
-                    <h2 className="font-[var(--font-display)] text-[20px] font-bold leading-tight">
-                      Ưu đãi đặc biệt
-                    </h2>
-                  </div>
-                  <p className="mt-2 text-[14px] leading-tight text-[#fffaf1]">
-                    Giảm 10% cho khách đặt bàn qua website
-                  </p>
-                </div>
-                <a
-                  href="tel:0961374566"
-                  className="inline-flex h-11 shrink-0 items-center gap-1.5 rounded-[12px] bg-[#fffaf1] px-4 text-[13px] font-bold text-[var(--color-green)] active:translate-y-px"
+          {/* Quick CTA Banner */}
+          <section className="p-4">
+            <div className="rounded-[16px] bg-gradient-to-br from-[#780D0D] to-[#450505] p-5 text-white shadow-xl border border-[#E5A93C]/40 text-center">
+              <span className="text-[12px] font-extrabold uppercase tracking-wider text-[#FDE68A]">
+                Ưu Đãi Sự Kiện 2026
+              </span>
+              <h3 className="mt-1 font-[var(--font-display)] text-[20px] font-black uppercase">
+                Tư Vấn & Lên Concept 3D Miễn Phí
+              </h3>
+              <p className="mt-1.5 text-[12.5px] text-gray-200">
+                Liên hệ ngay hotline để nhận báo giá chi tiết và ưu đãi tốt nhất.
+              </p>
+              <div className="mt-4 flex flex-col gap-2">
+                <button
+                  type="button"
+                  onClick={onOpenConsultation}
+                  className="w-full rounded-[8px] bg-gradient-to-r from-[#D97706] to-[#E5A93C] py-3 text-[13px] font-extrabold uppercase text-[#140202]"
                 >
-                  Đặt bàn
-                  <CaretRight size={14} weight="bold" />
+                  ĐĂNG KÝ BÁO GIÁ NGAY
+                </button>
+                <a
+                  href={`tel:${contact.hotline.replace(/\s/g, '')}`}
+                  className="flex items-center justify-center gap-1.5 text-[12.5px] font-bold text-[#E5A93C] underline pt-1"
+                >
+                  <Phone size={14} weight="fill" />
+                  Hotline: {contact.hotline}
                 </a>
               </div>
             </div>
@@ -281,6 +360,38 @@ export function MobileHomePage() {
         </main>
 
         <MobileBottomNav activeItem="home" />
+
+        {/* Mobile Lightbox Modal */}
+        {activePhoto && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-3 backdrop-blur-md"
+            onClick={() => setActivePhoto(null)}
+          >
+            <div
+              className="relative w-full max-w-sm rounded-[14px] bg-[#160505] border border-white/20 p-2 text-white"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setActivePhoto(null)}
+                className="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white"
+              >
+                <X size={16} weight="bold" />
+              </button>
+              <img
+                src={activePhoto.image}
+                alt={activePhoto.alt}
+                className="w-full rounded-[10px] object-cover"
+              />
+              <div className="p-3">
+                <span className="text-[11px] font-bold text-[#E5A93C] uppercase">
+                  {activePhoto.category}
+                </span>
+                <h4 className="text-[15px] font-bold">{activePhoto.title}</h4>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

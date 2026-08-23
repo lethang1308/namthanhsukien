@@ -1,36 +1,81 @@
-import { FishSimple } from '@phosphor-icons/react'
-
-export function BrandMark({ compact = false, markClassName = '' }) {
-  const markSizeClassName = markClassName || (compact ? 'h-14 w-14' : 'h-[68px] w-[68px]')
-
+export function BrandMark({ compact = false, markClassName = '', lightText = true }) {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 select-none group">
+      {/* Hexagon Monogram Logo */}
       <div
-        className={`grid shrink-0 place-items-center border border-[var(--color-gold)] bg-[var(--color-green)] text-[var(--color-gold)] shadow-[0_10px_24px_rgba(10,58,36,0.14)] ${
-          markSizeClassName
+        className={`relative shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${
+          markClassName || (compact ? 'h-[44px] w-[44px]' : 'h-[50px] w-[50px]')
         }`}
         aria-hidden="true"
       >
-        <div className="flex flex-col items-center leading-none">
-          <FishSimple size={compact ? 22 : 26} weight="fill" />
-          <span className="mt-1 font-[var(--font-display)] text-[9px] font-bold leading-[1.05]">
-            CHẢ CÁ
-          </span>
-          <span className="font-[var(--font-display)] text-[9px] font-bold leading-[1.05]">
-            TRÀNG AN
-          </span>
-        </div>
+        <svg
+          viewBox="0 0 100 100"
+          className="h-full w-full drop-shadow-[0_2px_8px_rgba(229,169,60,0.4)]"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="goldHexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FDE68A" />
+              <stop offset="50%" stopColor="#E5A93C" />
+              <stop offset="100%" stopColor="#B45309" />
+            </linearGradient>
+            <linearGradient id="darkHexBg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#2A0505" />
+              <stop offset="100%" stopColor="#140202" />
+            </linearGradient>
+          </defs>
+
+          {/* Outer Hexagon */}
+          <polygon
+            points="50,3 93,26.5 93,73.5 50,97 7,73.5 7,26.5"
+            fill="url(#darkHexBg)"
+            stroke="url(#goldHexGrad)"
+            strokeWidth="3.5"
+            strokeLinejoin="round"
+          />
+
+          {/* Inner Hexagon Outline */}
+          <polygon
+            points="50,9 87,30 87,70 50,91 13,70 13,30"
+            fill="none"
+            stroke="url(#goldHexGrad)"
+            strokeWidth="1.2"
+            strokeDasharray="2 2"
+            opacity="0.85"
+          />
+
+          {/* Monogram NT */}
+          <text
+            x="50"
+            y="61"
+            textAnchor="middle"
+            fontFamily="'Playfair Display', Georgia, serif"
+            fontSize="34"
+            fontWeight="800"
+            fill="url(#goldHexGrad)"
+            letterSpacing="-0.5"
+          >
+            NT
+          </text>
+        </svg>
       </div>
-      {!compact && (
-        <div className="hidden leading-tight sm:block">
-          <p className="font-[var(--font-display)] text-xl font-bold tracking-[0.05em] text-[var(--color-green)]">
-            CHẢ CÁ
-          </p>
-          <p className="font-[var(--font-display)] text-xl font-bold tracking-[0.05em] text-[var(--color-green)]">
-            TRÀNG AN
-          </p>
-        </div>
-      )}
+
+      {/* Brand Text */}
+      <div className="leading-none flex flex-col justify-center">
+        <span
+          className="font-['Playfair_Display',Georgia,serif] text-[20px] md:text-[22px] font-bold tracking-tight text-[#E5A93C] drop-shadow-sm"
+        >
+          Nam Thành
+        </span>
+        <span
+          className={`text-[11px] md:text-[12px] font-extrabold tracking-[0.2em] mt-0.5 uppercase ${
+            lightText ? 'text-[#E5A93C]/90' : 'text-[#7D0D0D]'
+          }`}
+        >
+          SỰ KIỆN
+        </span>
+      </div>
     </div>
   )
 }
