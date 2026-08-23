@@ -1,9 +1,9 @@
 import heroBannerImage from '../../../assets/4a261f7f-d4d6-402e-bbc9-428aed0dea2b.png'
 import aboutStageImage from '../../../assets/0959a3ca-785c-438e-8d96-be9ae26ad715.jpg'
-import projectOneImage from '../../../assets/2dc36332-eaaf-47a7-8818-37ffb237d2fb.png'
-import projectTwoImage from '../../../assets/66a5e6f8-5e55-456b-bd3e-c47e0f9c99d7.png'
-import projectThreeImage from '../../../assets/2f18b31f-b52b-49b8-ad4c-00aabfaf954d.png'
-import projectFourImage from '../../../assets/7ad10655-1966-4a7f-88b4-d8d8b48bd674.png'
+import projectOneImage from '../../../assets/0959a3ca-785c-438e-8d96-be9ae26ad715.jpg'
+import projectTwoImage from '../../../assets/29378fcd-c00a-44a4-ac19-04dfb8eddc07.jpg'
+import projectThreeImage from '../../../assets/0736c690-186d-4c7f-8d4d-66e7ac0d77a9.jpg'
+import projectFourImage from '../../../assets/d632589a-f3f7-4dfe-a014-a22714e68b9c.jpg'
 
 export const contact = {
   brandName: 'Nam Thành Sự Kiện',
@@ -89,35 +89,39 @@ export const aboutUs = {
 export const featuredProjects = [
   {
     id: 1,
-    title: 'Gala Dinner Ánh Sáng Hoàng Gia',
-    category: 'TIỆC TẤT NIÊN',
-    location: 'Hà Nội',
+    title: 'Tiệc Cưới Sân Khấu Hoa & Âm Thanh MAXO',
+    category: 'TIỆC CƯỚI TRỌN GÓI',
+    location: 'TP. Hồ Chí Minh',
+    scale: 'Quy mô 500 khách',
     image: projectOneImage,
-    alt: 'Không gian tiệc Gala Dinner lộng lẫy với dàn đèn chùm và bàn tiệc tròn sang trọng',
+    alt: 'Không gian tiệc cưới trang trọng với hệ thống âm thanh ánh sáng chuyên nghiệp',
   },
   {
     id: 2,
-    title: 'Lễ Khánh Thành & Khai Trương Nhà Máy',
+    title: 'Khai Trương Showroom & Nhà Bạt Không Gian',
     category: 'LỄ KHAI TRƯƠNG',
-    location: 'Bắc Ninh',
+    location: 'Thuận An - Bình Dương',
+    scale: 'Nhà bạt 300m²',
     image: projectTwoImage,
-    alt: 'Rạp sự kiện lều bạt đỏ trắng quy mô lớn cho lễ khởi công khánh thành',
+    alt: 'Lắp đặt nhà bạt không gian và sân khấu khai trương chuyên nghiệp',
   },
   {
     id: 3,
-    title: 'Đại Tiệc Cưới Không Gian Mái Vòm Hoàng Gia',
-    category: 'SỰ KIỆN CƯỚI HỎI',
-    location: 'Hải Phòng',
+    title: 'Tiệc Tất Niên & Tri Ân Doanh Nghiệp',
+    category: 'GALA DINNER',
+    location: 'TP. Hồ Chí Minh',
+    scale: 'Quy mô 400 khách',
     image: projectThreeImage,
-    alt: 'Đường dẫn lối đi tiệc cưới ngập tràn ánh sáng vàng ấm áp và hoa tươi',
+    alt: 'Sân khấu tiệc tất niên và gala dinner ấm cúng, ấn tượng',
   },
   {
     id: 4,
-    title: 'Hội Nghị Tri Ân Khách Hàng Quốc Tế',
+    title: 'Âm Thanh Ánh Sáng & Sân Khấu Hội Nghị',
     category: 'HỘI NGHỊ - HỘI THẢO',
-    location: 'Quảng Ninh',
+    location: 'Bình Dương',
+    scale: 'Hệ thống LED P3.91',
     image: projectFourImage,
-    alt: 'Sân khấu hội nghị hiện đại với hệ thống âm thanh ánh sáng đẳng cấp',
+    alt: 'Hệ thống âm thanh ánh sáng phục vụ hội nghị và sự kiện ngoài trời',
   },
 ]
 

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Eye, X } from '@phosphor-icons/react'
 import { FadeUpSection } from '../../../components/animations/FadeUpSection'
 import { ScrollReveal } from '../../../components/animations/ScrollReveal'
@@ -74,13 +75,12 @@ export function FeaturedProjects({ onOpenConsultation }) {
 
       {/* Center CTA Button: XEM THÊM DỰ ÁN */}
       <ScrollReveal className="mt-10 text-center" delay={250} duration={750}>
-        <button
-          type="button"
-          onClick={onOpenConsultation}
-          className="inline-flex items-center justify-center rounded-[8px] bg-[#780D0D] px-8 py-3.5 text-[14px] font-extrabold uppercase tracking-wider text-white shadow-[0_6px_20px_rgba(120,13,13,0.35)] transition-all duration-300 hover:bg-[#941111] hover:shadow-[0_8px_25px_rgba(120,13,13,0.5)] hover:scale-[1.02] active:translate-y-px"
+        <Link
+          to="/tin-tuc"
+          className="inline-flex items-center justify-center rounded-[8px] bg-[#780D0D] px-8 py-3.5 text-[13.5px] font-extrabold uppercase tracking-wider text-white shadow-[0_6px_20px_rgba(120,13,13,0.35)] transition-all duration-300 hover:bg-[#941111] hover:shadow-[0_8px_25px_rgba(120,13,13,0.5)] hover:scale-[1.02] active:translate-y-px"
         >
           XEM THÊM DỰ ÁN
-        </button>
+        </Link>
       </ScrollReveal>
 
       {/* Lightbox Photo Preview Modal */}

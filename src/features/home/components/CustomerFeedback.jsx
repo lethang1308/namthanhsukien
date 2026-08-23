@@ -14,7 +14,7 @@ function Rating() {
   )
 }
 
-export function CustomerFeedback({ onOpenConsultation }) {
+export function CustomerFeedback({ _onOpenConsultation }) {
   return (
     <FadeUpSection
       id="feedback"
@@ -91,7 +91,7 @@ export function CustomerFeedback({ onOpenConsultation }) {
           ))}
         </StaggerContainer>
 
-        {/* Bottom CTA within Feedback Section */}
+        {/* Bottom CTA within Feedback Section - Tạm thời comment theo yêu cầu
         <div className="mt-12 text-center">
           <button
             type="button"
@@ -101,6 +101,7 @@ export function CustomerFeedback({ onOpenConsultation }) {
             ĐĂNG KÝ TƯ VẤN SỰ KIỆN CỦA BẠN
           </button>
         </div>
+        */}
       </div>
     </FadeUpSection>
   )

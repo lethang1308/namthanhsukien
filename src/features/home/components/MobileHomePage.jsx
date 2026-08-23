@@ -33,36 +33,7 @@ const serviceIconMap = {
   construction: Buildings,
 }
 
-const mobileProjects = [
-  {
-    id: 1,
-    title: 'HỘI NGHỊ - HỘI THẢO',
-    scale: '500+ khách',
-    image: featuredProjects[3]?.image,
-    alt: 'Hội nghị khách hàng quốc tế',
-  },
-  {
-    id: 2,
-    title: 'TIỆC TẤT NIÊN',
-    scale: '800+ khách',
-    image: featuredProjects[1]?.image,
-    alt: 'Tiệc tất niên bùng nổ cảm xúc',
-  },
-  {
-    id: 3,
-    title: 'GALA DINNER',
-    scale: '700+ khách',
-    image: featuredProjects[0]?.image,
-    alt: 'Gala Dinner Ánh Sáng Hoàng Gia',
-  },
-  {
-    id: 4,
-    title: 'SỰ KIỆN CƯỚI HỎI',
-    scale: '300+ khách',
-    image: featuredProjects[2]?.image,
-    alt: 'Đại Tiệc Cưới Không Gian Mái Vòm',
-  },
-]
+const mobileProjects = featuredProjects
 
 export function MobileHomePage({ onOpenConsultation, onOpenVideo }) {
   const [activePhoto, setActivePhoto] = useState(null)

@@ -11,7 +11,7 @@ import { ScrollReveal } from '../../../components/animations/ScrollReveal'
 import { StaggerContainer } from '../../../components/animations/StaggerContainer'
 import { newsArticles, newsCategories } from '../data/newsContent'
 
-export function NewsArticlesSection({ onOpenConsultation }) {
+export function NewsArticlesSection({ _onOpenConsultation }) {
   const [activeCategory, setActiveCategory] = useState('all')
 
   const filteredArticles =
@@ -194,7 +194,7 @@ export function NewsArticlesSection({ onOpenConsultation }) {
           ))}
         </StaggerContainer>
 
-        {/* Bottom Consultation CTA */}
+        {/* Bottom Consultation CTA - Tạm thời comment theo yêu cầu
         <div className="mt-14 text-center">
           <button
             type="button"
@@ -204,6 +204,7 @@ export function NewsArticlesSection({ onOpenConsultation }) {
             LIÊN HỆ TƯ VẤN KỸ THUẬT & BÁO GIÁ
           </button>
         </div>
+        */}
       </div>
     </FadeUpSection>
   )
