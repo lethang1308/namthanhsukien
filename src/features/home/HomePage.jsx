@@ -40,12 +40,16 @@ export function HomePage() {
     <div className="min-h-[100dvh] bg-[#FFFFFF] text-[#18181B] selection:bg-[#E5A93C]/30 selection:text-[#780D0D]">
       {/* Desktop Layout */}
       <div className="hidden md:block">
-        <Header onOpenConsultation={handleOpenConsultation} />
+        <div className="bg-[#180202]">
+          <Header onOpenConsultation={handleOpenConsultation} />
+          <main id="home-main">
+            <Hero
+              onOpenConsultation={handleOpenConsultation}
+              onOpenVideo={handleOpenVideo}
+            />
+          </main>
+        </div>
         <main>
-          <Hero
-            onOpenConsultation={handleOpenConsultation}
-            onOpenVideo={handleOpenVideo}
-          />
           <AboutSection onOpenConsultation={handleOpenConsultation} />
           <FeaturedProjects onOpenConsultation={handleOpenConsultation} />
           <StatsCounterBar />

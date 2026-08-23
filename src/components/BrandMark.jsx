@@ -1,16 +1,16 @@
 export function BrandMark({ compact = false, markClassName = '', lightText = true }) {
   return (
-    <div className="flex items-center gap-3 select-none group">
+    <div className="flex items-center gap-3.5 select-none group">
       {/* Hexagon Monogram Logo */}
       <div
         className={`relative shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${
-          markClassName || (compact ? 'h-[44px] w-[44px]' : 'h-[50px] w-[50px]')
+          markClassName || (compact ? 'h-[46px] w-[46px]' : 'h-[54px] w-[54px]')
         }`}
         aria-hidden="true"
       >
         <svg
           viewBox="0 0 100 100"
-          className="h-full w-full drop-shadow-[0_2px_8px_rgba(229,169,60,0.4)]"
+          className="h-full w-full drop-shadow-[0_2px_10px_rgba(229,169,60,0.45)]"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -64,13 +64,13 @@ export function BrandMark({ compact = false, markClassName = '', lightText = tru
       {/* Brand Text */}
       <div className="leading-none flex flex-col justify-center">
         <span
-          className="font-['Playfair_Display',Georgia,serif] text-[20px] md:text-[22px] font-bold tracking-tight text-[#E5A93C] drop-shadow-sm"
+          className="font-['Playfair_Display',Georgia,serif] text-[22px] md:text-[24px] font-bold tracking-tight text-[#E5A93C] drop-shadow-sm"
         >
           Nam Thành
         </span>
         <span
-          className={`text-[11px] md:text-[12px] font-extrabold tracking-[0.2em] mt-0.5 uppercase ${
-            lightText ? 'text-[#E5A93C]/90' : 'text-[#7D0D0D]'
+          className={`text-[12px] md:text-[13px] font-black tracking-[0.22em] mt-0.5 uppercase ${
+            lightText ? 'text-[#E5A93C]' : 'text-[#7D0D0D]'
           }`}
         >
           SỰ KIỆN

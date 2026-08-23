@@ -22,7 +22,6 @@ export const navItems = [
   { label: 'DỊCH VỤ', href: '#services' },
   { label: 'DỰ ÁN', href: '#projects' },
   { label: 'TIN TỨC', href: '#news' },
-  { label: 'LIÊN HỆ', href: '#contact' },
 ]
 
 export const hero = {

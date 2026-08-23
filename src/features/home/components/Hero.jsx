@@ -22,54 +22,54 @@ export function Hero({ onOpenConsultation, onOpenVideo }) {
   return (
     <FadeUpSection
       id="home"
-      className="relative isolate overflow-hidden bg-[#1E0303]"
+      className="relative isolate overflow-hidden bg-[#180202] text-white"
       duration={800}
     >
-      {/* Banner Area */}
-      <div className="relative min-h-[580px] lg:min-h-[620px] flex flex-col justify-between overflow-hidden">
-        {/* Real Banner Image Backdrop on the Right */}
-        <div className="absolute inset-0 z-0">
+      {/* Background Banner with Event Tent Backdrop on the Right */}
+      <div className="relative overflow-hidden pt-4 pb-8 md:pt-6 md:pb-10">
+        {/* Real Banner Image Backdrop */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <img
             src={hero.bannerImage}
-            alt="Nam Thành Sự Kiện - Không gian tổ chức sự kiện chuyên nghiệp"
-            className="h-full w-full object-cover object-[75%_center] md:object-[right_center]"
+            alt="Nam Thành Sự Kiện - Tổ chức sự kiện chuyên nghiệp"
+            className="absolute right-0 top-0 h-full w-[60%] lg:w-[54%] object-cover object-[center_18%]"
             fetchPriority="high"
           />
           {/* Dark Red/Black Scrim Gradient overlay from left to right */}
           <div
-            className="absolute inset-0 bg-[linear-gradient(90deg,#1c0303_0%,#1c0303_36%,rgba(28,3,3,0.92)_48%,rgba(28,3,3,0.4)_65%,transparent_82%)]"
+            className="absolute inset-0 bg-[linear-gradient(90deg,#180202_0%,#180202_34%,rgba(24,2,2,0.96)_46%,rgba(24,2,2,0.65)_60%,rgba(24,2,2,0.18)_76%,rgba(24,2,2,0.02)_100%)]"
             aria-hidden="true"
           />
           <div
-            className="absolute inset-0 bg-[linear-gradient(180deg,rgba(28,3,3,0.5)_0%,transparent_30%,transparent_70%,#1c0303_100%)]"
+            className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,2,2,0.6)_0%,transparent_20%,transparent_75%,#180202_100%)]"
             aria-hidden="true"
           />
         </div>
 
         {/* Hero Left Content */}
-        <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 pt-10 pb-12 md:pt-14 md:pb-16 lg:px-8">
-          <div className="max-w-2xl">
-            {/* Monogram / Brand Eyebrow */}
+        <div className="relative z-10 mx-auto w-full max-w-[1360px] px-6 sm:px-8 lg:px-12 pt-6 pb-6 md:pt-10 md:pb-8">
+          <div className="max-w-[580px]">
+            {/* Brand Eyebrow */}
             <div className="mb-2">
-              <span className="font-['Playfair_Display',Georgia,serif] text-[32px] sm:text-[38px] md:text-[42px] font-bold text-[#E5A93C] tracking-tight drop-shadow-md">
+              <span className="font-['Playfair_Display',Georgia,serif] text-[40px] sm:text-[46px] md:text-[50px] font-bold text-[#E5A93C] leading-none block drop-shadow-md">
                 {hero.brandSmall}
               </span>
-              <span className="block text-[15px] sm:text-[17px] font-extrabold tracking-[0.22em] text-[#E5A93C] uppercase mt-0.5">
+              <span className="font-['Montserrat',sans-serif] text-[22px] sm:text-[26px] md:text-[28px] font-black tracking-[0.2em] text-[#E5A93C] uppercase block mt-1 leading-tight">
                 {hero.brandCategory}
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-['Montserrat',sans-serif] text-[36px] sm:text-[46px] md:text-[52px] lg:text-[56px] font-extrabold uppercase tracking-tight text-white leading-[1.08] drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+            {/* Main Headline (2 lines strictly) */}
+            <h1 className="font-['Montserrat',sans-serif] text-[38px] sm:text-[48px] md:text-[54px] lg:text-[58px] font-black uppercase tracking-tight text-white leading-[1.08] mt-3 drop-shadow-[0_4px_18px_rgba(0,0,0,0.9)]">
               TỔ CHỨC SỰ KIỆN
               <br />
               <span className="text-white">CHUYÊN NGHIỆP</span>
             </h1>
 
-            {/* Script Text with Great Vibes */}
+            {/* Script Slogan in Great Vibes */}
             <div className="my-2">
               <p
-                className="font-script text-[42px] sm:text-[50px] md:text-[56px] lg:text-[60px] leading-[1.25] text-[#E5A93C] drop-shadow-[0_2px_14px_rgba(229,169,60,0.45)] select-none pt-1 pb-1"
+                className="font-script text-[42px] sm:text-[48px] md:text-[54px] lg:text-[58px] leading-[1.2] text-[#E5A93C] drop-shadow-[0_2px_14px_rgba(229,169,60,0.45)] select-none pt-1 pb-1"
                 style={{ fontFamily: "'Great Vibes', cursive" }}
               >
                 {hero.script}
@@ -77,16 +77,16 @@ export function Hero({ onOpenConsultation, onOpenVideo }) {
             </div>
 
             {/* Value Proposition Description */}
-            <p className="max-w-[490px] text-[14px] sm:text-[15.5px] leading-relaxed text-white/95 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+            <p className="text-[15px] sm:text-[16px] leading-relaxed text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] max-w-[500px] mb-7">
               {hero.description}
             </p>
 
-            {/* Action Buttons */}
-            <div className="mt-7 flex flex-wrap items-center gap-4 sm:gap-6">
+            {/* Action CTA Buttons */}
+            <div className="flex flex-wrap items-center gap-5 sm:gap-7">
               <button
                 type="button"
                 onClick={onOpenConsultation}
-                className="inline-flex items-center justify-center rounded-[6px] bg-[#C97A1E] hover:bg-[#D97706] px-6 py-3 text-[13.5px] font-bold uppercase tracking-wider text-white shadow-[0_4px_18px_rgba(201,122,30,0.45)] transition-all duration-200 hover:scale-[1.02] active:translate-y-px"
+                className="inline-flex h-[50px] items-center justify-center rounded-[6px] bg-[#C97A1E] hover:bg-[#D97706] px-7 text-[13.5px] font-bold uppercase tracking-wider text-white shadow-[0_4px_16px_rgba(201,122,30,0.4)] transition-all duration-200 hover:scale-[1.02] active:translate-y-px"
               >
                 KHÁM PHÁ DỊCH VỤ
               </button>
@@ -96,8 +96,8 @@ export function Hero({ onOpenConsultation, onOpenVideo }) {
                 onClick={onOpenVideo}
                 className="group inline-flex items-center gap-3 text-[13.5px] font-bold uppercase tracking-wider text-white transition-colors duration-200 hover:text-[#E5A93C] active:translate-y-px"
               >
-                <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white text-white transition-all duration-300 group-hover:scale-110 group-hover:border-[#E5A93C] group-hover:text-[#E5A93C] group-hover:bg-white/10">
-                  <Play size={14} weight="fill" className="ml-0.5" />
+                <span className="flex h-[42px] w-[42px] items-center justify-center rounded-full border-2 border-white text-white transition-all duration-300 group-hover:scale-110 group-hover:border-[#E5A93C] group-hover:text-[#E5A93C] group-hover:bg-white/10">
+                  <Play size={15} weight="fill" className="ml-0.5" />
                 </span>
                 XEM VIDEO
               </button>
@@ -105,11 +105,11 @@ export function Hero({ onOpenConsultation, onOpenVideo }) {
           </div>
         </div>
 
-        {/* 5 Crimson Service Cards Bar (Attached to bottom of Banner) */}
-        <div className="relative z-10 w-full bg-[#780D0D] border-t border-[#A81E1E]/50 shadow-[0_-8px_25px_rgba(0,0,0,0.4)]">
-          <div className="mx-auto max-w-[1400px] px-2 sm:px-4 lg:px-8">
+        {/* 5 Crimson Service Cards Bar (Floating Box inside Hero Container) */}
+        <div className="relative z-10 mx-auto w-full max-w-[1360px] px-6 sm:px-8 lg:px-12 mt-8 md:mt-12">
+          <div className="overflow-hidden rounded-[10px] border border-[#E5A93C]/50 bg-gradient-to-b from-[#961212] to-[#6E0808] shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
             <StaggerContainer
-              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-[#941A1A]/70"
+              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-white/15"
               delay={100}
               staggerDelay={80}
             >
@@ -119,15 +119,15 @@ export function Hero({ onOpenConsultation, onOpenVideo }) {
                   <a
                     key={service.id}
                     href="#services"
-                    className="group relative flex flex-col items-center justify-center py-4 px-3 sm:py-5 sm:px-4 text-center transition-all duration-300 hover:bg-[#8F1111]"
+                    className="group flex min-h-[115px] flex-col items-center justify-center py-5 px-3 text-center transition-colors duration-200 hover:bg-[#8F1212]"
                   >
                     {/* Outline Icon */}
-                    <div className="mb-2 flex h-10 w-10 items-center justify-center text-white/90 transition-transform duration-300 group-hover:scale-110 group-hover:text-[#FDE68A]">
-                      <IconComponent size={28} weight="light" />
+                    <div className="mb-2 flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-110 group-hover:text-[#FDE68A]">
+                      <IconComponent size={36} weight="light" />
                     </div>
 
                     {/* Service Name */}
-                    <h3 className="font-['Montserrat',sans-serif] text-[12.5px] sm:text-[13.5px] font-bold uppercase tracking-wider text-white transition-colors duration-200 group-hover:text-[#FDE68A]">
+                    <h3 className="font-['Montserrat',sans-serif] text-[13px] sm:text-[13.5px] font-bold uppercase tracking-wider text-white transition-colors duration-200 group-hover:text-[#FDE68A]">
                       {service.name}
                     </h3>
                   </a>
