@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { FloatingContactWidget } from '../../components/FloatingContactWidget'
 import { scrollToSection } from '../../utils/navigation'
 import { AboutSection } from './components/AboutSection'
-import { ConsultationModal } from './components/ConsultationModal'
+// import { ConsultationModal } from './components/ConsultationModal'
 import { CustomerFeedback } from './components/CustomerFeedback'
 import { FeaturedProjects } from './components/FeaturedProjects'
 import { Footer } from './components/Footer'
@@ -15,7 +15,7 @@ import { VideoModal } from './components/VideoModal'
 import { hero } from './data/homeContent'
 
 export function HomePage() {
-  const [isConsultationOpen, setIsConsultationOpen] = useState(false)
+  // const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const [isVideoOpen, setIsVideoOpen] = useState(false)
 
   useEffect(() => {
@@ -48,8 +48,10 @@ export function HomePage() {
     }
   }, [])
 
-  const handleOpenConsultation = () => setIsConsultationOpen(true)
-  const handleCloseConsultation = () => setIsConsultationOpen(false)
+  // Tạm thời comment popup tư vấn, chuyển hướng cuộn xuống phần thông tin liên hệ / footer
+  // const handleOpenConsultation = () => setIsConsultationOpen(true)
+  // const handleCloseConsultation = () => setIsConsultationOpen(false)
+  const handleOpenConsultation = () => scrollToSection('contact')
   const handleOpenVideo = () => setIsVideoOpen(true)
   const handleCloseVideo = () => setIsVideoOpen(false)
 
@@ -117,10 +119,12 @@ export function HomePage() {
       <FloatingContactWidget />
 
       {/* Interactive Modals */}
+      {/* Tạm thời comment code popup Tư vấn & Báo giá
       <ConsultationModal
         isOpen={isConsultationOpen}
         onClose={handleCloseConsultation}
       />
+      */}
       <VideoModal isOpen={isVideoOpen} onClose={handleCloseVideo} />
     </div>
   )
