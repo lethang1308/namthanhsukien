@@ -6,7 +6,7 @@ import { scrollToSection } from '../../../utils/navigation'
 import { navItems } from '../data/homeContent'
 import { serviceNavList } from '../../services/data/servicesContent'
 
-export function Header({ onOpenConsultation }) {
+export function Header({ _onOpenConsultation }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [isServiceHovered, setIsServiceHovered] = useState(false)
@@ -18,7 +18,9 @@ export function Header({ onOpenConsultation }) {
   const isNewsPage =
     location.pathname.startsWith('/tin-tuc') || location.pathname.startsWith('/news')
   const isServicePage = location.pathname.startsWith('/dich-vu')
-  const isSubPage = isAboutPage || isNewsPage || isServicePage
+  const isContactPage =
+    location.pathname === '/lien-he' || location.pathname === '/contact'
+  const isSubPage = isAboutPage || isNewsPage || isServicePage || isContactPage
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,6 +53,15 @@ export function Header({ onOpenConsultation }) {
     if (item.targetId === 'services') {
       // Toggle or keep dropdown open, default navigate to first service if clicked directly
       navigate('/dich-vu/cho-thue-am-thanh')
+      return
+    }
+
+    if (item.path === '/lien-he') {
+      if (isContactPage) {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        navigate('/lien-he')
+      }
       return
     }
 
@@ -129,6 +140,7 @@ export function Header({ onOpenConsultation }) {
             const isActive =
               (isAboutPage && item.path === '/gioi-thieu') ||
               (isNewsPage && item.path === '/tin-tuc') ||
+              (isContactPage && item.path === '/lien-he') ||
               (isServicePage && isServiceMenu) ||
               (!isSubPage && item.targetId === activeSection)
 
@@ -230,13 +242,12 @@ export function Header({ onOpenConsultation }) {
 
         {/* Right CTA Button */}
         <div className="flex shrink-0 items-center">
-          <button
-            type="button"
-            onClick={onOpenConsultation}
+          <Link
+            to="/lien-he"
             className="inline-flex items-center justify-center whitespace-nowrap rounded-[6px] bg-[#C97A1E] hover:bg-[#D97706] px-6 py-2.5 text-[13px] font-bold uppercase tracking-wider text-white shadow-[0_4px_14px_rgba(201,122,30,0.35)] transition-all duration-200 hover:scale-[1.02] active:translate-y-px"
           >
             LIÊN HỆ NGAY
-          </button>
+          </Link>
         </div>
       </nav>
     </header>

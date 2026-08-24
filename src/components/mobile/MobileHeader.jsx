@@ -31,9 +31,10 @@ const navMenuList = [
   },
   { label: 'DỰ ÁN TIÊU BIỂU', path: '/du-an', targetId: 'projects', icon: Images },
   { label: 'QUY TRÌNH & TIN TỨC', path: '/tin-tuc', targetId: 'news', icon: Article },
+  { label: 'LIÊN HỆ & BÁO GIÁ', path: '/lien-he', targetId: 'contact', icon: Phone },
 ]
 
-export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
+export function MobileHeader({ _onOpenConsultation, zIndexClass = 'z-40' }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isServiceSubmenuOpen, setIsServiceSubmenuOpen] = useState(true)
   const location = useLocation()
@@ -44,7 +45,9 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
   const isNewsPage =
     location.pathname.startsWith('/tin-tuc') || location.pathname.startsWith('/news')
   const isServicePage = location.pathname.startsWith('/dich-vu')
-  const isSubPage = isAboutPage || isNewsPage || isServicePage
+  const isContactPage =
+    location.pathname === '/lien-he' || location.pathname === '/contact'
+  const isSubPage = isAboutPage || isNewsPage || isServicePage || isContactPage
 
   const handleNavClick = (item) => {
     if (item.isDropdown) {
@@ -53,6 +56,15 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
     }
 
     setIsMenuOpen(false)
+
+    if (item.path === '/lien-he') {
+      if (isContactPage) {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        navigate('/lien-he')
+      }
+      return
+    }
 
     if (item.path === '/tin-tuc') {
       if (isNewsPage && location.pathname === '/tin-tuc') {
@@ -120,13 +132,12 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
 
           {/* Right Action: LIÊN HỆ NGAY button + Hamburger Menu Toggle */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <button
-              type="button"
-              onClick={onOpenConsultation}
+            <Link
+              to="/lien-he"
               className="inline-flex items-center justify-center rounded-[6px] bg-[#C97A1E] hover:bg-[#D97706] px-3.5 py-1.5 text-[11.5px] font-bold uppercase tracking-wider text-white shadow-[0_2px_10px_rgba(201,122,30,0.4)] active:scale-95 transition-transform"
             >
               LIÊN HỆ NGAY
-            </button>
+            </Link>
 
             <button
               type="button"
@@ -162,6 +173,7 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
                 const isActive =
                   (isAboutPage && item.path === '/gioi-thieu') ||
                   (isNewsPage && item.path === '/tin-tuc') ||
+                  (isContactPage && item.path === '/lien-he') ||
                   (isServicePage && isServiceMenu) ||
                   (!isSubPage && item.path === '/')
 
@@ -307,17 +319,14 @@ export function MobileHeader({ onOpenConsultation, zIndexClass = 'z-40' }) {
               </a>
 
               {/* Consultation Button */}
-              <button
-                type="button"
-                onClick={() => {
-                  setIsMenuOpen(false)
-                  onOpenConsultation()
-                }}
-                className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#7D0D0D] py-3 text-[12.5px] font-bold uppercase text-white shadow-md active:scale-98 transition-transform"
+              <Link
+                to="/lien-he"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#7D0D0D] py-3 text-[12.5px] font-bold uppercase text-[#FDE68A] shadow-md active:scale-98 transition-transform"
               >
                 <Sparkle size={16} weight="fill" className="text-[#FDE68A]" />
                 Đăng ký nhận báo giá sự kiện
-              </button>
+              </Link>
             </div>
 
             {/* Quick Address & Email */}

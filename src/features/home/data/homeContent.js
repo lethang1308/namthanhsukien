@@ -24,6 +24,7 @@ export const navItems = [
   { label: 'DỊCH VỤ', path: '/dich-vu', targetId: 'services' },
   { label: 'DỰ ÁN', path: '/du-an', targetId: 'projects' },
   { label: 'TIN TỨC', path: '/tin-tuc', targetId: 'news' },
+  { label: 'LIÊN HỆ', path: '/lien-he', targetId: 'contact' },
 ]
 
 export const hero = {

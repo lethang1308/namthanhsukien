@@ -4,6 +4,7 @@ import { AboutPage } from './features/about/AboutPage'
 import { NewsPage } from './features/news/NewsPage'
 import { NewsDetailPage } from './features/news/NewsDetailPage'
 import { ServiceDetailPage } from './features/services/ServiceDetailPage'
+import { ContactPage } from './features/contact/ContactPage'
 
 function App() {
   return (
@@ -39,6 +40,10 @@ function App() {
         <Route path="/tin-tuc/:slug" element={<NewsDetailPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/news/:slug" element={<NewsDetailPage />} />
+
+        {/* Liên hệ */}
+        <Route path="/lien-he" element={<ContactPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         
         <Route path="*" element={<HomePage />} />
       </Routes>

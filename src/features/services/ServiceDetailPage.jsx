@@ -63,35 +63,41 @@ export function ServiceDetailPage({ serviceType }) {
           <Header onOpenConsultation={handleOpenConsultation} />
 
           {/* Banner Centered Content */}
-          <div className="relative z-10 mx-auto max-w-[1360px] px-6 py-14 sm:py-16 lg:px-12 text-center">
-            <nav
-              aria-label="Breadcrumb"
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[12.5px] font-medium text-white/85 backdrop-blur-xs mb-4"
-            >
-              <Link to="/" className="hover:text-[#FDE68A] flex items-center gap-1">
-                <HouseLine size={14} weight="bold" />
-                Trang chủ
-              </Link>
-              <CaretRight size={13} weight="bold" className="text-[#E5A93C]" />
-              <span className="text-white/80">Dịch vụ</span>
-              <CaretRight size={13} weight="bold" className="text-[#E5A93C]" />
-              <span className="font-semibold text-[#E5A93C]">{service.label || service.title}</span>
-            </nav>
+          <div className="relative z-10 mx-auto max-w-[1360px] px-6 py-14 sm:py-16 lg:px-12 text-center flex flex-col items-center justify-center">
+            {/* Breadcrumb */}
+            <div className="mb-3.5">
+              <nav
+                aria-label="Breadcrumb"
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[12.5px] font-medium text-white/85 backdrop-blur-xs"
+              >
+                <Link to="/" className="hover:text-[#FDE68A] flex items-center gap-1 transition-colors">
+                  <HouseLine size={14} weight="bold" />
+                  Trang chủ
+                </Link>
+                <CaretRight size={13} weight="bold" className="text-[#E5A93C]" />
+                <span className="text-white/80">Dịch vụ</span>
+                <CaretRight size={13} weight="bold" className="text-[#E5A93C]" />
+                <span className="font-semibold text-[#E5A93C]">{service.label || service.title}</span>
+              </nav>
+            </div>
 
-            <span className="rounded-full bg-[#7D0D0D] border border-[#E5A93C]/40 px-3.5 py-1 text-[11.5px] font-extrabold uppercase tracking-widest text-[#FDE68A] inline-block mb-3">
-              {service.badge}
-            </span>
-
+            {/* Big Banner Title */}
             <h1 className="font-['Montserrat',sans-serif] text-[34px] sm:text-[42px] md:text-[48px] font-black uppercase tracking-tight text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
               {service.title}
             </h1>
 
-            <p
-              className="font-script text-[32px] sm:text-[38px] md:text-[42px] text-[#F1C95B] leading-tight select-none mt-2"
-              style={{ fontFamily: "'Great Vibes', cursive" }}
-            >
-              {service.slogan}
-            </p>
+            {/* Eyebrow & Slogan */}
+            <div className="mt-2">
+              <span className="font-['Playfair_Display',serif] text-[20px] sm:text-[24px] font-bold text-[#F0C554] tracking-wide block">
+                Thành Nam Sự Kiện
+              </span>
+              <p
+                className="font-script text-[30px] sm:text-[36px] md:text-[40px] text-[#F1C95B] leading-tight select-none mt-1"
+                style={{ fontFamily: "'Great Vibes', cursive" }}
+              >
+                {service.slogan}
+              </p>
+            </div>
           </div>
         </div>
       </div>
