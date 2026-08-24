@@ -179,22 +179,109 @@ export const processSteps = [
 
 export const testimonials = [
   {
+    id: 1,
     name: 'Nguyễn Tiến Dũng',
     role: 'Giám đốc Marketing - Viettel Post',
     quote:
       'Chương trình Year End Party của công ty chúng tôi diễn ra vô cùng cảm xúc. Đội ngũ Thành Nam làm việc cực kỳ chuyên nghiệp và tận tâm từ khâu chuẩn bị đến phút cuối cùng.',
   },
   {
+    id: 2,
     name: 'Trần Minh Hằng',
     role: 'Trưởng ban Đối ngoại - Tân Á Đại Thành',
     quote:
-      'Lễ kỷ niệm 15 năm thành lập được setup sân khấu và ánh sáng quá đẳng cấp. Khách mời và đối tác đều trầm trồ khen ngợi không gian và kịch bản chương trình.',
+      'Lễ kỷ niệm 15 năm thành lập được setup sân khấu và ánh sáng rất chỉn chu. Khách mời và ban lãnh đạo đều hài lòng với không gian và tiến độ bàn giao trước giờ chạy thử.',
   },
   {
+    id: 3,
     name: 'Vũ Quốc Bảo',
-    role: 'CEO - Sun Homes Real Estate',
+    role: 'CEO - Bất động sản Sun Homes',
     quote:
-      'Hội thảo mở bán dự án diễn ra trơn tru không một lỗi kỹ thuật. Rất ấn tượng với khả năng xử lý tình huống linh hoạt của ekip Thành Nam Sự Kiện.',
+      'Hội thảo giới thiệu dự án diễn ra trơn tru, âm thanh rõ nét không bị rú rít. Rất ấn tượng với kỹ thuật viên túc trực hỗ trợ nhiệt tình suốt buổi lễ.',
+  },
+  {
+    id: 4,
+    name: 'Lê Hoàng Long',
+    role: 'Trưởng phòng Hành chính - Nhựa Bình Minh',
+    quote:
+      'Thuê hệ thống âm thanh và nhà bạt không gian của Thành Nam cho ngày hội 500 nhân sự. Khung bạt kiên cố, che nắng thoáng mát, âm thanh phủ đều khắp sân bãi.',
+  },
+  {
+    id: 5,
+    name: 'Phạm Thị Thu Trang',
+    role: 'Quản lý Vận hành - Chuỗi Golden Spoon',
+    quote:
+      'Khai trương chi nhánh mới cần setup gấp trong đêm, bên Thành Nam hỗ trợ khảo sát và thi công bàn giao đúng 6h sáng. Giá cả hợp lý và không phát sinh chi phí linh tinh.',
+  },
+  {
+    id: 6,
+    name: 'Đặng Văn Hùng',
+    role: 'Giám đốc Dự án - Xây dựng An Cường',
+    quote:
+      'Lễ cất nóc và khởi công công trình diễn ra ngoài trời thời tiết nắng gắt, nhưng nhờ hệ thống màn hình LED P3.91 độ sáng cao nên trình chiếu slide báo cáo rất rõ nét.',
+  },
+  {
+    id: 7,
+    name: 'Bùi Thị Mai Lan',
+    role: 'Ban Tổ chức - Hội chợ Nông nghiệp TP.HCM',
+    quote:
+      'Đã hợp tác cùng Thành Nam qua 3 kỳ sự kiện liên tiếp. Ưng nhất là dàn loa Line Array MAXO âm trầm ấm, micro bắt sóng xa và không bị chập chờn khi MC di chuyển.',
+  },
+  {
+    id: 8,
+    name: 'Hoàng Trọng Nghĩa',
+    role: 'Phó Giám đốc - Logistics VinaTrans',
+    quote:
+      'Tiệc tri ân khách hàng cuối năm cần hiệu ứng ánh sáng bắt mắt theo nhận diện thương hiệu. Ekip kỹ thuật phối màu đèn Par LED và Beam chuyển cảnh rất mượt mà.',
+  },
+  {
+    id: 9,
+    name: 'Đỗ Thanh Tùng',
+    role: 'Chủ tịch HĐQT - May Mặc Tùng Phát (KCN VSIP)',
+    quote:
+      'Hội nghị người lao động 800 công nhân được trang bị dàn âm thanh công suất lớn nghe rõ từng vị trí. Báo giá minh bạch, xuất hóa đơn VAT đầy đủ và nhanh gọn.',
+  },
+  {
+    id: 10,
+    name: 'Nguyễn Thùy Linh',
+    role: 'Trưởng ban Sự kiện - Trường QT Wellspring',
+    quote:
+      'Lễ tốt nghiệp yêu cầu khắt khe về âm thanh phát biểu và ánh sáng quay phim 4K. Kỹ thuật viên Thành Nam cân chỉnh ánh sáng mặt rất sáng và tự nhiên.',
+  },
+  {
+    id: 11,
+    name: 'Võ Thành Đạt',
+    role: 'Quản lý Bán lẻ - Điện máy Xanh Bình Dương',
+    quote:
+      'Các đợt chạy Roadshow và khai trương điểm bán mới bên mình đều tin tưởng gửi gắm Thành Nam. Đội ngũ hỗ trợ nhanh, gọi điện tư vấn nhiệt tình bất kể ngày nghỉ.',
+  },
+  {
+    id: 12,
+    name: 'Trịnh Đình Quang',
+    role: 'Giám đốc Điều hành - Dược phẩm MediPhar',
+    quote:
+      'Chương trình Gala Dinner kết hợp biểu diễn văn nghệ nội bộ rất thành công. Dàn mixer kỹ thuật số chỉnh giọng ca sĩ và ban nhạc rất trong trẻo, không bị vỡ tiếng.',
+  },
+  {
+    id: 13,
+    name: 'Nguyễn Ngọc Anh',
+    role: 'Đại diện Khách hàng - Tiệc cưới Mái Vòm',
+    quote:
+      'Không gian tiệc cưới ngoài trời 600 khách lung linh hơn mong đợi nhờ trần sao và dàn đèn moving head của Thành Nam. Cảm ơn ekip đã đồng hành cùng ngày trọng đại.',
+  },
+  {
+    id: 14,
+    name: 'Trần Văn Kiên',
+    role: 'Chủ Garage - AutoCare Thuận An',
+    quote:
+      'Lễ khai trương showroom ô tô cần backdrop và bục sân khấu chịu lực tốt để trưng bày xe. Thành Nam tư vấn kết cấu khung truss rất vững chãi và an toàn tuyệt đối.',
+  },
+  {
+    id: 15,
+    name: 'Lê Thanh Vân',
+    role: 'Trưởng phòng Nhân sự - May Đông Á',
+    quote:
+      'Tổ chức hội thao và tiệc liên hoan cuối năm cho 400 cán bộ nhân viên, âm thanh ngoài trời nghe rất vang và rõ ràng. Ekip có mặt từ sớm hỗ trợ chạy thử chu đáo.',
   },
 ]
 

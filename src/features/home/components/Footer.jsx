@@ -4,7 +4,6 @@ import {
   FacebookLogo,
   Globe,
   MapPin,
-  PaperPlaneTilt,
   Phone,
   YoutubeLogo,
 } from '@phosphor-icons/react'
@@ -14,7 +13,10 @@ import { BrandMark } from '../../../components/BrandMark'
 import { scrollToSection } from '../../../utils/navigation'
 import { contact, serviceCards } from '../data/homeContent'
 
-export function Footer({ onOpenConsultation }) {
+export function Footer({ _onOpenConsultation }) {
+  const mapDirectUrl =
+    'https://www.google.com/maps/place/8+H%C3%B2a+L%C3%A2n+2,+Thu%E1%BA%ADn+Giao,+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.9514146,106.7088701,1085m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3174d7454b0485c1:0xca387deb2384e63a!8m2!3d10.9514146!4d106.711445'
+
   return (
     <FadeUpSection
       as="footer"
@@ -119,44 +121,32 @@ export function Footer({ onOpenConsultation }) {
           </ul>
         </div>
 
-        {/* Consultation Request */}
+        {/* Google Map Location */}
         <div>
-          <h3 className="footer-title">ĐĂNG KÝ TƯ VẤN NHANH</h3>
-          <p className="mt-4 text-[13px] leading-relaxed text-white/80">
-            Để lại số điện thoại hoặc email để nhận bảng báo giá chi tiết và concept sự kiện miễn phí.
-          </p>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault()
-              if (onOpenConsultation) onOpenConsultation()
-            }}
-            className="mt-4 flex h-11 w-full max-w-sm overflow-hidden rounded-[8px] border border-[#E5A93C]/60 bg-white/10 backdrop-blur-sm"
-          >
-            <label className="sr-only" htmlFor="footer-phone">
-              Số điện thoại
-            </label>
-            <input
-              id="footer-phone"
-              type="tel"
-              placeholder="Nhập số điện thoại của bạn..."
-              className="min-w-0 flex-1 bg-transparent px-4 text-[13px] text-white outline-none placeholder:text-white/50 focus-visible:outline-none"
-            />
-            <button
-              type="submit"
-              className="flex items-center gap-1.5 px-4 bg-gradient-to-r from-[#D97706] to-[#E5A93C] text-[#140202] font-bold text-[13px] transition-all hover:brightness-110 active:translate-y-px"
-            >
-              GỬI
-              <PaperPlaneTilt size={16} weight="bold" />
-            </button>
-          </form>
-          <div className="mt-3">
-            <button
-              type="button"
-              onClick={onOpenConsultation}
-              className="text-[12.5px] font-semibold text-[#E5A93C] underline hover:text-white transition-colors"
-            >
-              Hoặc mở form đăng ký chi tiết có chọn loại sự kiện →
-            </button>
+          <h3 className="footer-title">BẢN ĐỒ VỊ TRÍ</h3>
+          <div className="mt-4 overflow-hidden rounded-[14px] border border-[#E5A93C]/40 bg-[#160202] shadow-lg">
+            <div className="relative aspect-[16/11] sm:aspect-[4/3] w-full bg-[#1A0303]">
+              <iframe
+                title="Bản đồ vị trí Thành Nam Sự Kiện"
+                src="https://maps.google.com/maps?q=10.9514146,106.711445&hl=vi&z=16&output=embed"
+                className="h-full w-full border-0 filter contrast-[1.05]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+            <div className="flex items-center justify-between p-2.5 px-3 bg-[#110101] text-[11.5px] border-t border-white/10">
+              <span className="text-white/70 truncate mr-2">8 Hòa Lân 2, Thuận Giao</span>
+              <a
+                href={mapDirectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 font-bold text-[#E5A93C] hover:text-white transition-colors flex items-center gap-1"
+              >
+                <span>Mở Maps</span>
+                <span>↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </StaggerContainer>

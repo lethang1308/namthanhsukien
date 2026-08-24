@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Quotes, Sparkle, Star } from '@phosphor-icons/react'
 import { FadeUpSection } from '../../../components/animations/FadeUpSection'
 import { ScrollReveal } from '../../../components/animations/ScrollReveal'
@@ -14,7 +16,22 @@ function Rating() {
   )
 }
 
+function getRandomItems(array, count = 3) {
+  const shuffled = [...array].sort(() => 0.5 - Math.random())
+  return shuffled.slice(0, count)
+}
+
 export function CustomerFeedback({ _onOpenConsultation }) {
+  const location = useLocation()
+  const [displayTestimonials, setDisplayTestimonials] = useState(() =>
+    getRandomItems(testimonials, 3)
+  )
+
+  // Automatically randomize a unique set whenever route / page changes
+  useEffect(() => {
+    setDisplayTestimonials(getRandomItems(testimonials, 3))
+  }, [location.pathname])
+
   return (
     <FadeUpSection
       id="feedback"
@@ -42,13 +59,14 @@ export function CustomerFeedback({ _onOpenConsultation }) {
 
         {/* Testimonials Grid */}
         <StaggerContainer
+          key={location.pathname + '-' + displayTestimonials.map((t) => t.id || t.name).join('-')}
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          delay={120}
-          staggerDelay={100}
+          delay={80}
+          staggerDelay={80}
         >
-          {testimonials.map((item) => (
+          {displayTestimonials.map((item) => (
             <article
-              key={item.name}
+              key={item.id || item.name}
               className="group relative flex flex-col justify-between rounded-[16px] border border-[#E8E1D3] bg-white p-6 sm:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#D97706]/40 hover:shadow-[0_12px_30px_rgba(217,119,6,0.12)]"
             >
               {/* Decorative Quote Icon Background */}
@@ -82,7 +100,7 @@ export function CustomerFeedback({ _onOpenConsultation }) {
                   <h3 className="font-['Montserrat',sans-serif] text-[14px] font-bold text-[#18181B] truncate group-hover:text-[#7D0D0D] transition-colors">
                     {item.name}
                   </h3>
-                  <p className="text-[12px] text-[#71717A] truncate mt-0.5">
+                  <p className="text-[12px] text-[#71717A] truncate mt-0.5 font-medium">
                     {item.role}
                   </p>
                 </div>
@@ -90,18 +108,6 @@ export function CustomerFeedback({ _onOpenConsultation }) {
             </article>
           ))}
         </StaggerContainer>
-
-        {/* Bottom CTA within Feedback Section - Tạm thời comment theo yêu cầu
-        <div className="mt-12 text-center">
-          <button
-            type="button"
-            onClick={onOpenConsultation}
-            className="inline-flex items-center justify-center rounded-[8px] bg-[#C97A1E] hover:bg-[#D97706] px-8 py-3.5 text-[13.5px] font-bold uppercase tracking-wider text-white shadow-[0_4px_16px_rgba(201,122,30,0.35)] transition-all duration-200 hover:scale-[1.02] active:translate-y-px"
-          >
-            ĐĂNG KÝ TƯ VẤN SỰ KIỆN CỦA BẠN
-          </button>
-        </div>
-        */}
       </div>
     </FadeUpSection>
   )
